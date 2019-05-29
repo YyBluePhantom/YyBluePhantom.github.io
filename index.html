@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="BluePhantom">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BluePhantom">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-数据读写" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/16/数据读写/" class="article-date">
+  <time class="post-time" datetime="2019-02-16T02:32:40.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">16</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/16/数据读写/">数据读写</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>cin&gt;&gt;string:遇空格/回车则停止;<br>getline(cin,line):将cin的一行内容读入line(string)中;   while(getline(cin,line)):反复读取一行内容;</p>
+<h2 id="file"><a href="#file" class="headerlink" title="file"></a>file</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/16/数据读写/" data-id="cjw8mkggy001a9kw4n4fxp8m6" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-BFS总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/09/BFS总结/" class="article-date">
+  <time class="post-time" datetime="2019-02-09T06:35:21.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/09/BFS总结/">BFS总结</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BFS:广度优先搜索</p>
+<p>BFS的特点:</p>
+<ol>
+<li>BFS是思想,队列是工具,迭代是手段</li>
+<li>BFS常用来解决连通问题,最短路径长度(BFS的层数),</li>
+<li>需要搭配bool数组来判断某些元素是否被访问过;</li>
+<li>BFS就是树的层序遍历过程;(等价)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BFS模版:</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        取出队首元素;</span><br><span class="line">        访问队首元素;</span><br><span class="line">        将队首元素出队;</span><br><span class="line">        将该点的下一层结点未曾入队的所有结点入队,并设置为已入队;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/09/BFS总结/" data-id="cjw8mkgfa00009kw4kmiyhgau" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-DFS总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/DFS总结/" class="article-date">
+  <time class="post-time" datetime="2019-02-08T09:26:01.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/08/DFS总结/">DFS</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DFS:深度优先搜索.</p>
+<p>在我看来,DFS的特点如下:</p>
+<ol>
+<li>讲究层次性,在写DFS的时候,一定要弄清楚什么东西代表DFS的层次; 除此之外,弄清楚DFS的结束规则;(递归式+结束规则)</li>
+<li>DFS是思想,栈是工具(记录某些信息),递归是手段;</li>
+<li>在写DFS的时候,牢记:<strong>在本层需要模拟所有情况(多个递归函数,参数不同),在递归返回的时候,需要回到初始状态,以便模拟所有情况;</strong>这也体现在其书写特点;</li>
+<li>DFS需要考虑所有情况,虽然可以通过剪枝来提高实际运行效率,但是还是尽量少使用;</li>
+<li>DFS处理的问题常与序列顺序,存在性问题(存在,找出最优解/不存在)有关;</li>
+<li>DFS就是树的先序遍历过程;(等价)</li>
+</ol>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//next_pos:下一次元素的起始位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> rem,<span class="keyword">bool</span>* arr,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v,<span class="keyword">int</span> N,<span class="keyword">int</span> r,<span class="keyword">int</span> next_pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(rem==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.size()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,v.back());</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//要求后一位比前一位大;</span></span><br><span class="line">        <span class="keyword">if</span>(next_pos&lt;=N)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=next_pos;i&lt;=N;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i]==<span class="literal">false</span>)&#123;</span><br><span class="line">                    <span class="keyword">int</span> former_next=next_pos;</span><br><span class="line">                    arr[i]=<span class="literal">true</span>;</span><br><span class="line">                    rem--;</span><br><span class="line">                    v.push_back(i);</span><br><span class="line">                    next_pos=i;</span><br><span class="line">                    DFS(rem,arr,v,N,r,next_pos);   <span class="comment">//在这附近进行了相反的处理,这是通式;</span></span><br><span class="line">                    v.pop_back();</span><br><span class="line">                    rem++;</span><br><span class="line">                    next_pos=former_next;</span><br><span class="line">                    arr[i]=<span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v; <span class="comment">//存储1~n的序列</span></span><br><span class="line">    <span class="keyword">int</span> N,r;</span><br><span class="line">    <span class="keyword">bool</span> arr[<span class="number">22</span>]=&#123;<span class="literal">false</span>&#125;; <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N-r+<span class="number">1</span>;i++)&#123;</span><br><span class="line">        v.push_back(i);</span><br><span class="line">        arr[i]=<span class="literal">true</span>;</span><br><span class="line">        DFS(r<span class="number">-1</span>,arr,v,N,r,i);</span><br><span class="line">        v.pop_back();</span><br><span class="line">        arr[i]=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是codeup_contest10000608组合数的题目,最明显的特点就是在DFS内进行下一次递归的时候,前后进行相反的操作,目的是为了恢复,方便下一次DFS;</p>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将所有可能的序列全部保存,然后最后比较</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> seq[<span class="number">100000</span>][<span class="number">1000</span>];</span><br><span class="line"><span class="keyword">int</span> pos=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//DFS每一层需要模拟所有情况并且进行恢复(供上一层);</span></span><br><span class="line"><span class="comment">//step:执行第step步,总共执行2*N步; 2N+1时,停止;</span></span><br><span class="line"><span class="comment">//N:序列长度</span></span><br><span class="line"><span class="comment">//res:存储出栈的顺序</span></span><br><span class="line"><span class="comment">//origin：模拟出入栈</span></span><br><span class="line"><span class="comment">//一次出栈,入栈,DFS的一层</span></span><br><span class="line"><span class="comment">//value:1~N;push时value需要+1;</span></span><br><span class="line"><span class="comment">//pop_num记录了应该在res插的位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> step,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; origin,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res,<span class="keyword">int</span> N,<span class="keyword">int</span> value,<span class="keyword">int</span> M,<span class="keyword">int</span> pop_num)</span></span>&#123;</span><br><span class="line">    <span class="comment">//res得到最终序列</span></span><br><span class="line">    <span class="keyword">if</span>(step==<span class="number">2</span>*N+<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;res.size();i++)&#123;</span><br><span class="line">            seq[pos][i]=res[i];</span><br><span class="line">        &#125;</span><br><span class="line">        pos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//origin为空,则往origin插入元素(value),只能push</span></span><br><span class="line">        <span class="keyword">if</span>(origin.empty())&#123;</span><br><span class="line">            origin.push_back(value);</span><br><span class="line">            value++;</span><br><span class="line">            DFS(step+<span class="number">1</span>,origin,res,N,value,M,pop_num);</span><br><span class="line">            value--;</span><br><span class="line">            origin.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//value&gt;N或者容器长度等于栈的长度,则只能pop,不能push</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(value&gt;N || origin.size()==M)&#123;</span><br><span class="line">            res.insert(res.begin()+pop_num,origin.back());</span><br><span class="line">            origin.pop_back();</span><br><span class="line">            pop_num++;</span><br><span class="line">            DFS(step+<span class="number">1</span>,origin,res,N,value,M,pop_num);</span><br><span class="line">            pop_num--;</span><br><span class="line">            origin.push_back(res[pop_num]);</span><br><span class="line">            res.erase(res.begin()+pop_num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//push</span></span><br><span class="line">            origin.push_back(value);</span><br><span class="line">            value++;</span><br><span class="line">            DFS(step+<span class="number">1</span>,origin,res,N,value,M,pop_num);</span><br><span class="line">            value--;</span><br><span class="line">            origin.pop_back();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//pop</span></span><br><span class="line">            res.insert(res.begin()+pop_num,origin.back());</span><br><span class="line">            origin.pop_back();</span><br><span class="line">            pop_num++;</span><br><span class="line">            DFS(step+<span class="number">1</span>,origin,res,N,value,M,pop_num);</span><br><span class="line">            pop_num--;</span><br><span class="line">            origin.push_back(res[pop_num]);</span><br><span class="line">            res.erase(res.begin()+pop_num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M,N,K;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;M,&amp;N,&amp;K);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;  <span class="comment">//临时变量,记录可能的序列</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; origin;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tmp[N];</span><br><span class="line"></span><br><span class="line">    DFS(<span class="number">1</span>,origin,v,N,<span class="number">1</span>,M,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(K--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,tmp+i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">bool</span> flag1=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;pos;i++)&#123;</span><br><span class="line">            <span class="keyword">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp[j]!=seq[i][j])&#123;</span><br><span class="line">                    flag=<span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag==<span class="literal">false</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">                flag1=<span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag1==<span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是PATA1051,有一例超时了,因为我的方法是通过DFS记录所有可能结果,并遍历;因此超时也是很正常的; 不过DFS书写的方法还是不变;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/08/DFS总结/" data-id="cjw8mkgfs00049kw4b9wg98gc" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-完全背包问题" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/完全背包问题/" class="article-date">
+  <time class="post-time" datetime="2019-02-08T00:26:54.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/08/完全背包问题/">完全背包问题</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题描述:有n件物品,每件物品重量w[i],价值c[i],选取若干件物品放入容量为N的背包中,每件物品可选择,求使得价值最多的方案?</p>
+<hr>
+<p>方案1:使用DFS,与01背包的区别:</p>
+<ul>
+<li>在01背包问题中,每一件物品考虑之后就考虑下一件物品,以物品序号作为DFS的层次;(重量也是一个限制条件)</li>
+<li>在完全背包中,需要继续考虑该物品; 因此,DFS的层次划分并不是完全根据物品序号(也受最大物品序号的限制),只要重量不超过额定重量(重量超过额定重量,这就是该DFS的死胡同),DFS就可以继续.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">30</span>;</span><br><span class="line"><span class="keyword">int</span> n,V,maxValue=<span class="number">0</span>;  <span class="comment">//物品件数:n; V:背包容量; maxValue:最大价值</span></span><br><span class="line"><span class="keyword">int</span> w[maxn],c[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> sumW,<span class="keyword">int</span> sumC)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index==n)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DFS(index+<span class="number">1</span>,sumW,sumC); <span class="comment">//不对该物品考虑,进行下一个物品处理</span></span><br><span class="line">    <span class="keyword">if</span>(sumW+w[index]&lt;=V)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sumC+c[index]&gt;=ans)&#123;</span><br><span class="line">            ans=sumC+c[index];</span><br><span class="line">        &#125;</span><br><span class="line">        DFS(index,sumW+w[index],sumC+c[index]);  <span class="comment">//选取该物品,并且继续对该物品处理</span></span><br><span class="line">        <span class="comment">//DFS(index+1,sumW+w[index],sumC+c[index]); //我认为这一种情况已经被上述两种DFS包含在内;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/08/完全背包问题/" data-id="cjw8mkggu00139kw49yl2v2r1" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-01背包问题" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/07/01背包问题/" class="article-date">
+  <time class="post-time" datetime="2019-02-07T15:46:47.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/07/01背包问题/">01背包问题</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题描述:有n件物品,每件物品重量w[i],价值c[i],选取若干件物品放入容量为N的背包中,每件物品仅选一次,求使得价值最多的方案?</p>
+<hr>
+<p>方案1:对于小规模的问题,可以采用DFS;对于每一个物品都有两种选择,然后DFS的最大层数为n;从而形成DFS. (O(2^n),<strong>例举所有可能性</strong>)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">30</span>;</span><br><span class="line"><span class="keyword">int</span> n,V,maxValue=<span class="number">0</span>;  <span class="comment">//物品件数:n; V:背包容量; maxValue:最大价值</span></span><br><span class="line"><span class="keyword">int</span> w[maxn],c[maxn];</span><br><span class="line"></span><br><span class="line"><span class="comment">//index实现DFS的层次化递归;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> sumW,<span class="keyword">int</span> sumC)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//DFS的死胡同</span></span><br><span class="line">    <span class="keyword">if</span>(index==n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sumW&lt;=V &amp;&amp; sumC&gt; maxValue)&#123;</span><br><span class="line">            maxValue=sumC;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DFS(index+<span class="number">1</span>,sunW,sumC); <span class="comment">//DFS的岔路口</span></span><br><span class="line">    DFS(index+<span class="number">1</span>,sumW+w[index],sumC+c[index]);  <span class="comment">//DFS的岔路口</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于DFS这种寻求所有可能性的算法,通常可以搭配剪枝(去除一些不合理的情况),来减少算法的时间. (剪枝在理论上/数学上不会减少时间复杂度,但是在实际运行上,效果显著)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span> sumW,<span class="keyword">int</span> sumC)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(index==n)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    DFS(index+<span class="number">1</span>,sumW,sumC);</span><br><span class="line">    <span class="keyword">if</span>(sumW+w[index]&lt;=V)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sumC+c[index]&gt;=ans)&#123;</span><br><span class="line">            ans=sumC+c[index];</span><br><span class="line">        &#125;</span><br><span class="line">        DFS(index+<span class="number">1</span>,sumW+w[index],sumC+c[index]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/07/01背包问题/" data-id="cjw8mkgfm00019kw4b68bm4s3" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-STL-unordered-map" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/07/STL-unordered-map/" class="article-date">
+  <time class="post-time" datetime="2019-02-07T06:12:42.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/07/STL-unordered-map/">STL-unordered_map</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
+<li>map是一个有序的映射(键值排序),unordered_map是一个无序的映射;  单独的头文件&lt;unordered_map&gt;</li>
+<li>unordered_map以散列代替map内部的红黑树,速度比map快得多;</li>
+</ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>size_type count(key):如果unordered_map中没有该键值,那么返回0;(用于检验key是否存在)<br>unordered_map::iterator it; :通过定义迭代器访问元素,    it-&gt;first访问key  it-&gt;second访问value</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/07/STL-unordered-map/" data-id="cjw8mkgg6000h9kw4uvbp6828" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-codeup-任务调度" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/07/codeup-任务调度/" class="article-date">
+  <time class="post-time" datetime="2019-02-07T05:15:50.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/07/codeup-任务调度/">codeup:任务调度</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>该题的输入有个隐藏的选项,已经出现过的前序不可以出现在之后的后序中; 因为有这个,题目感觉还是容易了很多;否则,我也不知道该怎么做;</p>
+<ul>
+<li>这个题关键在于排序(拓扑排序),排序的方式有两种,优先的是拓扑关系,其次是字典序;构建一个结构体,包含了两个排序的元素以及排序的方法;</li>
+<li>通过unordered_map来实现taskname和level的对应关系;</li>
+<li>通过priority_queue和重载的&lt;来实现排序;</li>
+<li>task的level构造原则:<ul>
+<li>对于第一次出现的前序,那么设置level=0 (最高优先级)</li>
+<li>对于第一次出现的从序,那么设置level为其前序的level+1 (紧随其后)</li>
+<li>对于第二次及以上出现的从序,那么设置需要比较已经记录的level和该次前序level+1的值,取其中最大的值作为该task的level</li>
+<li>如果两个task的level相同,则它们的排序通过字典序排序;(在拓扑关系上同级)</li>
+<li>level小的task先进行输出</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//level大的是前序</span></span><br><span class="line"><span class="comment">//level=0,无前序</span></span><br><span class="line"><span class="comment">//多个后序,取最小的后序</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">dispatch</span>&#123;</span></span><br><span class="line">    <span class="built_in">string</span> taskname;</span><br><span class="line">    <span class="keyword">int</span> level;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (dispatch d1,dispatch d2)&#123;</span><br><span class="line">        <span class="comment">//level低的优先级高</span></span><br><span class="line">        <span class="keyword">if</span>(d1.level!=d2.level)&#123;</span><br><span class="line">            <span class="keyword">return</span> d1.level&gt;d2.level;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//字典序小的优先级高</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> d1.taskname&gt;d2.taskname;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; mp; <span class="comment">//string:taskname  int:level</span></span><br><span class="line">    priority_queue&lt;dispatch&gt; que;</span><br><span class="line">    <span class="built_in">string</span> in;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">    <span class="keyword">while</span>(N--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;in;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理in,mp,que</span></span><br><span class="line">        <span class="keyword">int</span> pos; <span class="comment">//记录"("的位置</span></span><br><span class="line">        pos=in.find(<span class="string">"("</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//前序task</span></span><br><span class="line">        <span class="built_in">string</span> pretask;</span><br><span class="line">        pretask=in.substr(<span class="number">0</span>,pos);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//消除"(",")"</span></span><br><span class="line">        in.erase(in.begin(),in.begin()+pos+<span class="number">1</span>);</span><br><span class="line">        in.erase(in.end()<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理pretask</span></span><br><span class="line">        <span class="comment">//对于pretask,level=0表示只能作为前序,不能作为其他的后序;level!=0,表示还作为其他的后序;</span></span><br><span class="line">        <span class="keyword">if</span>(mp.count(pretask)==<span class="number">0</span>)&#123;  <span class="comment">//pretask只作为前序</span></span><br><span class="line">            mp[pretask]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理posttask</span></span><br><span class="line">        <span class="built_in">string</span> posttask;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理NULL</span></span><br><span class="line">        posttask=in.substr(<span class="number">0</span>,<span class="number">4</span>);</span><br><span class="line">        <span class="keyword">if</span>(posttask==<span class="string">"NULL"</span>)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>((pos=in.find(<span class="string">","</span>))!=<span class="built_in">string</span>::npos)&#123;</span><br><span class="line">            posttask=in.substr(<span class="number">0</span>,pos);</span><br><span class="line">            in.erase(in.begin(),in.begin()+pos+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//后序串没有出现过,则level=mp[pretask]+1;</span></span><br><span class="line">            <span class="keyword">if</span>(mp.count(posttask)==<span class="number">0</span>)&#123;</span><br><span class="line">                mp[posttask]=mp[pretask]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//后序串出现过,比较level,取最大的level;</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">int</span> tmp_level=mp[posttask];</span><br><span class="line">                <span class="keyword">int</span> ttmp_level=mp[pretask]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(ttmp_level&gt;tmp_level)&#123;</span><br><span class="line">                    mp[posttask]=ttmp_level;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理最后一个元素/只有一个元素的情况;</span></span><br><span class="line">        posttask=in;</span><br><span class="line">        <span class="keyword">if</span>(mp.count(posttask)==<span class="number">0</span>)&#123;</span><br><span class="line">            mp[posttask]=mp[pretask]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//后序串出现过,比较level,取最大的level;</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp_level=mp[posttask];</span><br><span class="line">            <span class="keyword">int</span> ttmp_level=mp[pretask]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(ttmp_level&gt;tmp_level)&#123;</span><br><span class="line">                mp[posttask]=ttmp_level;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator it=mp.begin();</span><br><span class="line">    <span class="keyword">while</span>(it!=mp.end())&#123;</span><br><span class="line">        dispatch dp;</span><br><span class="line">        dp.level=it-&gt;second;</span><br><span class="line">        dp.taskname=it-&gt;first;</span><br><span class="line">        que.push(dp);</span><br><span class="line">        it++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出</span></span><br><span class="line">    <span class="keyword">while</span>(!que.empty())&#123;</span><br><span class="line">        dispatch dp=que.top();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>,dp.taskname.c_str());</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="keyword">if</span>(!que.empty())&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/07/codeup-任务调度/" data-id="cjw8mkggf000p9kw4fb0yo01y" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-STL-priority-queue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/07/STL-priority-queue/" class="article-date">
+  <time class="post-time" datetime="2019-02-07T01:13:00.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/07/STL-priority-queue/">STL-priority_queue</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
+<li>priority_queue:优先队列,底层通过堆(完全二叉树,大根堆/小根堆)实现.(本质是堆)</li>
+<li>特点:队首元素优先最高,然后依次降低.(我认为是对堆的一种抽象表示)</li>
+<li>头文件:<queue></queue></li>
+<li>定义:priority_queue <typename> name;</typename></li>
+</ul>
+<h3 id="priority中关于优先级的设置-在定义中实现"><a href="#priority中关于优先级的设置-在定义中实现" class="headerlink" title="priority中关于优先级的设置(在定义中实现)"></a>priority中关于优先级的设置(在定义中实现)</h3><ul>
+<li><p>基本数据类型的优先级的设置:(int,double等)</p>
+<ul>
+<li>一般写法:priority_queue<int> q;  数字大的优先级越高</int></li>
+<li>完整写法:priority_queue&lt;int,vector<int>,less<int> &gt; q;<ul>
+<li>less<int>后需要加空格,再加&gt;;(预防编译错误)</int></li>
+<li>第一个int表示优先队列的元素</li>
+<li>第二个vector<int>表示承载堆的容器,vector的数据类型跟随第一个参数的类型</int></li>
+<li>第三个less<int>表示比较类,less<int>表示数字越大优先级越大 ,greater<int>表示数字越小优先级越大</int></int></int></li>
+</ul>
+</int></int></li>
+</ul>
+</li>
+<li><p>结构体的优先级设置:</p>
+<ul>
+<li>结构体需要搭配重载函数,只能重载小于号,不能重载大于号,会产生编译错误;(不过能通过重载小于号能实现和重载大于号一致的功能)</li>
+<li>优先队列以结构体作为元素,在建堆的比较中,和基本类型一样需要对元素作为比较,不过结构体不能直接比较,需要进行重载来实现对结构体的比较;</li>
+<li>重载&lt;的规则:如果返回值是true,则第二个数优先级高;返回值是false,则第一个数优先级高.<ul>
+<li>如果重载函数内部实现的是&lt;的功能,如果f1&lt;f2,返回true,f2的优先级高,值大的优先级高;</li>
+<li>如果重载函数内部实现的是&gt;的功能,如果f1&gt;f2,返回true,f2的优先级高,值小的优先级高;</li>
+</ul>
+</li>
+<li>如果结构体比较大,重载函数的参数使用引用提高效率;(搭配const) <code>(const fruit &amp;f1,const fruit &amp;f2);</code></li>
+<li>结构体也能够采用完整定义, <code>priority_queue&lt;fruit,vector&lt;fruit&gt;,cmp&gt; q;</code> (cmp的定义见代码中)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fruit</span>&#123;</span></span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (fruit f1,fruit f2)&#123;</span><br><span class="line">        <span class="keyword">return</span> f1.price&lt;f2.price;      <span class="comment">//如果想实现大于号的功能,则 return f1.price&gt;f2.price</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//cmp是结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(fruit f1,fruit f2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f1.price&gt;f2.price;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>top():返回堆顶元素. (没有front()和back())</li>
+<li>push(x):令x入队.  O(logN)</li>
+<li>void pop():删除堆顶元素.  O(logN)</li>
+<li>empty():检测队列是否为空,true则空,false则非空. O(1)</li>
+<li>size():返回队列元素个数. O(1)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/07/STL-priority-queue/" data-id="cjw8mkgga000k9kw4l8t4uguh" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-STL-Queue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/06/STL-Queue/" class="article-date">
+  <time class="post-time" datetime="2019-02-06T15:14:38.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/06/STL-Queue/">STL-queue</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
+<li>header:<queue></queue></li>
+<li>定义: queue<typename> name;</typename></li>
+</ul>
+<hr>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>front()访问队首元素.   O(1)</li>
+<li>back()返回队尾元素.  O(1)</li>
+<li>push(x):将x入队.  O(1)<ul>
+<li>标准形式:void push (const value_type&amp; val);  参数是一个reference to const(常量引用),因此不能改变queue中元素的值; (如果想要改变队列中的元素,那么队列中的元素可以存放数组的下标,通过对数组元素的值改变,达到目的)</li>
+</ul>
+</li>
+<li>pop():令队首元素出队并作为返回值.  O(1)</li>
+<li>empty():检测队列是否为空,true则空,false则非空. O(1)<ul>
+<li>empty经常搭配pop()和front()等函数,预防空队列取元素;</li>
+</ul>
+</li>
+<li>size():返回队列元素个数. O(1)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/06/STL-Queue/" data-id="cjw8mkgg1000c9kw407wkc7d2" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-常见数据类型的转换" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/06/常见数据类型的转换/" class="article-date">
+  <time class="post-time" datetime="2019-02-06T10:35:44.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/06/常见数据类型的转换/">常见数据类型的转换</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="int转换string"><a href="#int转换string" class="headerlink" title="int转换string"></a>int转换string</h2><h3 id="字符串流操作"><a href="#字符串流操作" class="headerlink" title="字符串流操作"></a>字符串流操作</h3><ul>
+<li>通过字符串流进行操作:istringstream,ostringstream,stringstream ; 需要<sstream>头文件</sstream></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">int2str</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;int_temp,<span class="built_in">string</span> &amp;string_temp)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">        <span class="built_in">stringstream</span> stream;   <span class="comment">//定义stringstream流</span></span><br><span class="line">        stream&lt;&lt;int_temp;    <span class="comment">//将内容存入流中</span></span><br><span class="line">        string_temp=stream.str();   <span class="comment">//此处也可以用 stream&gt;&gt;string_temp    ,将流的内容以string object输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串流在进行多次转换时,每次读入数据不会将上次缓冲区的内容覆盖掉,而是增添到尾部;如果需要清除缓冲区,需要使用clear();</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> stream;</span><br><span class="line"><span class="keyword">int</span> n1=<span class="number">22</span>;</span><br><span class="line"><span class="keyword">int</span> n2=<span class="number">33</span>;</span><br><span class="line"><span class="built_in">string</span> s3;</span><br><span class="line">stream&gt;&gt;s1;</span><br><span class="line">stream&gt;&gt;s2;</span><br><span class="line">stream&lt;&lt;s3;</span><br><span class="line"></span><br><span class="line">s3的结果是:<span class="number">2233</span>,想要清除缓冲区,使用stream.clear();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在C++中,一般采用<sstream>库进行数据转换,更加安全,可通过重载来支持各种类型的转换.</sstream></li>
+</ul>
+<h2 id="string转换char"><a href="#string转换char" class="headerlink" title="string转换char[]"></a>string转换char[]</h2><h3 id="通过str-copy"><a href="#通过str-copy" class="headerlink" title="通过str.copy()"></a>通过str.copy()</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">"ABCDEFG"</span>;</span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">8</span>];</span><br><span class="line"><span class="keyword">int</span> length=str.copy(buf,<span class="number">7</span>);</span><br><span class="line">buf[length]=<span class="string">'\0'</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf);</span><br></pre></td></tr></table></figure>
+<p>size_t string::copy(char* s,size_t len,size_t pos=0)<br>pos:字符串的起始位置,默认为0;<br>len:选取字符串的长度;<br>返回值:实际选取字符串长度,一般和参数len相等,除非pos+len超过字符串的长度;<br>特点:不会为数组添加’\0’,需要手动添加’\0’;</p>
+<h3 id="通过strcpy"><a href="#通过strcpy" class="headerlink" title="通过strcpy()"></a>通过strcpy()</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"ABCDEFG"</span>)</span></span>;</span><br><span class="line"><span class="built_in">strcpy</span>(buf, str.c_str());</span><br></pre></td></tr></table></figure>
+<p>const char* c_str() const noexcept;<br>将字符串转换成为字符数组,在数组后面添加’\0’;</p>
+<p>char<em> strcpy(char</em> destination,const char* source)<br>strcpy是C Library的函数,操作数为两个char[];<br>特点:source的所有内容(从开始到终止符’\0’,包括终止符)传给destination;</p>
+<h2 id="char-转换为string"><a href="#char-转换为string" class="headerlink" title="char[]转换为string"></a>char[]转换为string</h2><p>C++提供低级向高级转换的服务;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[]=<span class="string">"ABC"</span>;</span><br><span class="line"><span class="built_in">string</span> ss=s;   <span class="comment">//string ss(s);</span></span><br><span class="line">ss+=s;    <span class="comment">//允许加号一边为C字符串类型(char[])</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/06/常见数据类型的转换/" data-id="cjw8mkggw00169kw4r8iqxf6d" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

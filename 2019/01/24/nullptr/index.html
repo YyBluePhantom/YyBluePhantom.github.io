@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>nullptr | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="空指针是一个非常重要的工具,为了防止wild Pointer.空指针:值为0的指针,一般用NULL表示.(综合考虑,不仅限于C/C++) C++定义了一个关键字nullptr来表示空指针常量;C/C++中有NULL来表示空指针常量,具体的值发生变化;(计算机的值不仅包括数值,还包括数值的类型)A null pointer constant can be converted to any point">
+<meta name="keywords" content="concept">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nullptr">
+<meta property="og:url" content="http://yoursite.com/2019/01/24/nullptr/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="空指针是一个非常重要的工具,为了防止wild Pointer.空指针:值为0的指针,一般用NULL表示.(综合考虑,不仅限于C/C++) C++定义了一个关键字nullptr来表示空指针常量;C/C++中有NULL来表示空指针常量,具体的值发生变化;(计算机的值不仅包括数值,还包括数值的类型)A null pointer constant can be converted to any point">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-06T15:18:08.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nullptr">
+<meta name="twitter:description" content="空指针是一个非常重要的工具,为了防止wild Pointer.空指针:值为0的指针,一般用NULL表示.(综合考虑,不仅限于C/C++) C++定义了一个关键字nullptr来表示空指针常量;C/C++中有NULL来表示空指针常量,具体的值发生变化;(计算机的值不仅包括数值,还包括数值的类型)A null pointer constant can be converted to any point">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-nullptr" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/24/nullptr/" class="article-date">
+  <time class="post-time" datetime="2019-01-24T08:15:50.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br>
+    <span class="post-day">24</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nullptr
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>空指针是一个非常重要的工具,为了防止wild Pointer.<br>空指针:值为0的指针,一般用NULL表示.(综合考虑,不仅限于C/C++)<br><br></p>
+<p>C++定义了一个关键字nullptr来表示空指针常量;<br>C/C++中有NULL来表示空指针常量,具体的值发生变化;(<strong>计算机的值不仅包括数值,还包括数值的类型</strong>)<br>A null pointer constant can be converted to any pointer type (or pointer-to-member type), which acquires a null pointer value. (空指针常量能够转化为任意指针类型)<br>C++是基于C的,NULL和nullptr的关系?在已经有NULL的基础上,为什么还需要定义nullptr?如何正确使用nullptr?</p>
+<hr>
+<p>对于一般情况,以下三种方式是一致的:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p1 = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">int</span> *p2 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> *p3 = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="C中关于NULL的定义"><a href="#C中关于NULL的定义" class="headerlink" title="C中关于NULL的定义"></a>C中关于NULL的定义</h1><ul>
+<li>A null-pointer constant is an integral constant expression that evaluates to zero (like 0 or 0L), or the cast of such value to type void<em> (like (void</em>)0).(空指针常量是值为0的表达式,或者(void*) 0,多种定义方式).</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL    ((void *)0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0</span></span><br></pre></td></tr></table></figure>
+<h1 id="C-中关于NULL的定义-C-11之后"><a href="#C-中关于NULL的定义-C-11之后" class="headerlink" title="C++中关于NULL的定义(C++11之后)"></a>C++中关于NULL的定义(C++11之后)</h1><ul>
+<li>In C++, while the NULL macro was inherited from C, the integer literal for zero has been traditionally preferred to represent a null pointer constant.(明确规定值为0)</li>
+</ul>
+<h1 id="C-中关于nullptr-C-11之后"><a href="#C-中关于nullptr-C-11之后" class="headerlink" title="C++中关于nullptr(C++11之后)"></a>C++中关于nullptr(C++11之后)</h1><ul>
+<li>nullptr是一个key word,而不是一个macro constant.</li>
+<li>nullptr有<strong>专门的数据类型</strong>,nullptr_t.</li>
+</ul>
+<hr>
+<p>前面说过,在大多数情况下,使用0/NULL/nullptr是一致的,不过当出现函数重载的时候:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstddef&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span>* pi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Pointer to integer overload\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span>* pd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Pointer to double overload\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">nullptr_t</span> nullp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"null pointer overload\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* pi; <span class="keyword">double</span>* pd;</span><br><span class="line"></span><br><span class="line">    f(pi);</span><br><span class="line">    f(pd);</span><br><span class="line">    f(<span class="literal">nullptr</span>);  <span class="comment">// would be ambiguous without void f(nullptr_t)</span></span><br><span class="line">    <span class="comment">// f(0);  // ambiguous call: all three functions are candidates</span></span><br><span class="line">    <span class="comment">// f(NULL); // ambiguous if NULL is an integral null pointer constant </span></span><br><span class="line">                <span class="comment">// (as is the case in most implementations)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">Pointer to integer overload</span><br><span class="line">Pointer to <span class="keyword">double</span> overload</span><br><span class="line">null pointer overload</span><br></pre></td></tr></table></figure>
+<ul>
+<li>A null pointer constant can be converted to any pointer type (or pointer-to-member type), which acquires a null pointer value. (空指针常量能够转化为任意指针类型)</li>
+<li>对于f(nullptr),因为其有专门的数据类型,所以能够选择合适的f(std::nullptr nullp),如果去掉这个函数会发生异常.(<strong>优先选择本身的类型,其他的类型是发生隐式转换</strong>)</li>
+<li>对于f(0)和f(NULL),因为空指针常量能够转换为任意类型,所以无法选择.<br><br><br><br></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstddef&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;<span class="built_in">cout</span>&lt;&lt;<span class="string">"1"</span>;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">char</span> *p)</span></span>&#123;<span class="built_in">cout</span>&lt;&lt;<span class="string">"2"</span>;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">fun(<span class="literal">NULL</span>);  <span class="comment">//输出1，c++中NULL为整数0</span></span><br><span class="line">fun(<span class="literal">nullptr</span>);<span class="comment">//输出2，nullptr 为空指针常量。是指针类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>NULL在C++定义为0,会优先寻找fun(int i).(<strong>优先选择本身类型</strong>)</li>
+<li>nullptr隐式转换为char*,不会转换为非指针类型.</li>
+</ul>
+<hr>
+<p>总结:nullptr在平时的用法上并没有和NULL有太大的区别,在多态性方面,可以使用nullptr对空指针的情况进行特殊处理.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/24/nullptr/" data-id="cjw8mkggj000s9kw4hnvaiin7" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concept/">concept</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/27/一些有用的经验/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          一些有用的经验
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
