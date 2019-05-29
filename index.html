@@ -38,9 +38,9 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -65,6 +65,161 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-面向对象的分析" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/29/面向对象的分析/" class="article-date">
+  <time class="post-time" datetime="2019-05-29T11:53:20.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">29</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/面向对象的分析/">面向对象的分析</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件工程/">软件工程</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面讲到，面向对象包括：OOA，OOD，OOP，现在来考虑OOA</p>
+<p>OOA的目的：分析问题，寻找到对象，分析对象的关系，忽略与实现有关的问题，建立系统的对象模型。<br>OOA的工具：用例图，类图，时序图，协作图，状态图。<br>OOA的过程：先通过需求分析建立需求模型（功能模型，从用户的角度获取功能需求），然后通过分析问题，发现对象和类，得到分析模型（静态结构模型：类图，动态结构模型：状态图/顺序图）</p>
+<h2 id="建立静态模型"><a href="#建立静态模型" class="headerlink" title="建立静态模型"></a>建立静态模型</h2><p>过程：根据需求模型，识别分析类；确定类的属性，方法，关系；绘制类图</p>
+<p>分析类：是一种在概念上较为抽象的类，只有应用逻辑有关（应该会派生出很多子类）。<br>分析类的分类：实体类（存储信息），边界类（参与者和系统的交互），控制类（运行的控制逻辑，负责协调实体类和边界类）。<br>分析类之间的关系属于关联关系。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/29/面向对象的分析/" data-id="cjw97gkgl001e0sw4680fajiy" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-面向对象基本概念" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/29/面向对象基本概念/" class="article-date">
+  <time class="post-time" datetime="2019-05-29T09:22:19.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">29</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/面向对象基本概念/">面向对象基本概念</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件工程/">软件工程</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向对象的历史"><a href="#面向对象的历史" class="headerlink" title="面向对象的历史"></a>面向对象的历史</h2><p>在面向对象之前，一直使用结构化分析方法（面向过程）。</p>
+<p>结构化设计方法的特点：</p>
+<ul>
+<li>以功能为核心进行设计，把软件看成处理数据的流。（功能和数据流）</li>
+<li>自顶向下，将问题逐步分解，从而实现系统功能。</li>
+<li>数据结构由算法决定。</li>
+<li>结构化软件=数据结构+算法。</li>
+<li>通过全局变量保存系统的状态。</li>
+</ul>
+<p>C语言开发的软件一般属于结构化软件。</p>
+<p>结构化分析的缺点：难以应付变化。</p>
+<hr>
+<h2 id="面向对象的特点（与面向过程相比）"><a href="#面向对象的特点（与面向过程相比）" class="headerlink" title="面向对象的特点（与面向过程相比）"></a>面向对象的特点（与面向过程相比）</h2><p>系统看作对象的集合，每个对象包含一组表示自身特性的数据和数据上的操作集合。考虑问题的核心从过程转移到实体对象。</p>
+<p>系统的状态，算法，数据分布在各个用户上。</p>
+<p>对象之间的通信通过消息进行。</p>
+<p>面向对象软件=对象+消息。</p>
+<p>面向对象的优点：</p>
+<ul>
+<li>更加适合于解决实际问题</li>
+<li>容易进行变更</li>
+</ul>
+<p>面向对象包括：OOA（面向对象分析），OOD（面向对象设计），OOP（面向对象编程）</p>
+<hr>
+<h2 id="面向对象基本概念"><a href="#面向对象基本概念" class="headerlink" title="面向对象基本概念"></a>面向对象基本概念</h2><p>对象（object）：描述客观事物的实体，拥有属性（attribute）和操作（operation）。  例如：一辆车，属性：价格，重量等； 方法：启动，停止，加油等。</p>
+<p>类（class）：具有相同属性和操作的对象的集合，是一种抽象的模型。 比如，所有的汽车可以构成一个汽车类。 想要完整的描述类，可以用类图（class diagram）进行静态化描述。</p>
+<p>对象是动态的，类是静态的。</p>
+<p>类的属性（attribute）：有三种类型，public，private，protected。</p>
+<p>消息（message）：一个对象向其他对象发出的请求。 对象通过消息连接在一起，构成了完整的系统。</p>
+<p>封装（encapsulation）：隐藏对象的属性，仅对外提供接口来进行属性的访问和修改。（不让外界直接调用对象的属性，但是提供API接口让外界调用）封装的目的在于增强安全性。</p>
+<p>接口（interface）：接口定义的是一组属性和操作的描述，而不是操作的实现，需要用其他类来实现它定义的操作。接口的意义体现在设计当中，Java语言用的很多。<br>另外还有一个抽象类，抽象类允许在普通的类中添加抽象方法。抽象方法就是只有定义，没有实现的方法。抽象类自己不能定义实例，必须依靠子类实现进行定义实例。抽象类与接口类似，只不过接口是所有的方法都为抽象方法，抽象类是一部分方法是抽象方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NameOfInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="comment">//任何类型 final, static 字段</span></span><br><span class="line">   <span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象类</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">//普通方法 </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"存在方法体的方法"</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//抽象方法，没有方法体，有abstract关键字做修饰 </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继承（inheritance）：子类可自动拥有父类的所有属性和操作。继承分为单一继承和多重继承。</p>
+<p>多态性（polymorphism）：同一个操作作用于不同对象上有不同的行为，产生不同的结果。<br>静态多态性：一个类或一个函数中的同名函数，它们根据参数表（类型以及个数）区别语义。<br>动态多态性：在一个类层次的不同类中的重载函数，它们一般具有相同的函数，因此要根据指针指向的对象所在类来区别语义。</p>
+<h2 id="对象之间的五类关系"><a href="#对象之间的五类关系" class="headerlink" title="对象之间的五类关系"></a>对象之间的五类关系</h2><p>继承泛化关系：表示了对象的一般/特殊关系，一般通过继承实现。 比如：动物与猫。 （is a kind of）</p>
+<p>聚合（aggression）/组合（composition）关系：表示了对象的组成关系。<br>聚合和组合的区别：聚合要求整体与部分的生命周期独立，例如公司和职员，课程和学生。组合要求整体与部分的生命周期统一，例如人和心脏。  (组合：is part of，聚合：own a)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//聚合关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Student student;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">addStudent</span><span class="params">()</span></span>&#123;</span><br><span class="line">        student=<span class="keyword">new</span> Student();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//组合关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> heart=<span class="keyword">new</span> Heart();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关联关系：表示对象之间的静态联系，通过对象的属性的联系显现。对象实例的连接称为链接（link），存在实例连接的对象类之间的联系称为关联（association）。 关联具有方向性：单向关联，只有一方知道关联关系；双向关联，双方都知道关联关系。  关联数目比有1：1，1：n，n：1，m：n，通常m：n的关系需要添加一个关联类来存储关系信息。  (has a)</p>
+<p>聚合关系和关联关系：聚合关系可以看成是一种特殊的关联关系，只不过聚合关系的关联程度大（比较抽象，没太大影响），聚合关系可写成关联关系（这种关系主要是在类图中体现，软件工程比较严格，需要先描述，再进行编程。）聚合关系强调地位不对等（买家和所买的物品），而关联关系强调双方地位比较接近（卖家，卖家）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Coures</span></span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1:n</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Course[] courses;</span><br><span class="line">    <span class="keyword">private</span> Teacher[] teachers;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// m:n </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stduents[] students;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>依赖关系（dependency）：表示对象的消息联系，是一种动态联系。一个对象需要另一个对象的服务（属性/方法），做出请求，并且等待对方的响应信息。它是一种很弱的联系关系。 （use a）</p>
+<p>区分依赖关系和关联关系：<br>依赖关系主要是通过函数进行联系，在函数中引用了其他对象，关系的范围是局部性的。<br>关联关系是通过属性进行联系，作用范围是全局性的（整个对象）。</p>
+<p>实现关系（realization）：用于描述接口和其实现类的关系。</p>
+<p>对象联系的强度： 继承 &gt;&gt;&gt; 组合 &gt;&gt; 聚合 &gt;&gt; 关联 &gt;&gt; 依赖</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/29/面向对象基本概念/" data-id="cjw97gkgj001a0sw4b05zq319" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-数据读写" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -107,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/16/数据读写/" data-id="cjw903qns0015p8w4kowh51o9" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/16/数据读写/" data-id="cjw97gkgh00170sw4bwlcb7n2" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -169,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/09/BFS总结/" data-id="cjw903ql00002p8w41b2xfdva" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/09/BFS总结/" data-id="cjw97gkf000050sw4r48tjur3" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -239,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/08/DFS总结/" data-id="cjw903qls0008p8w4bv8i5zel" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/08/DFS总结/" data-id="cjw97gker00020sw4iwi50bho" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -300,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/08/完全背包问题/" data-id="cjw903qnp0012p8w4bhb0aw7r" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/08/完全背包问题/" data-id="cjw97gkg600110sw44hclc63o" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
@@ -360,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/07/01背包问题/" data-id="cjw903qkl0000p8w4rvk2ofen" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/07/01背包问题/" data-id="cjw97gkei00000sw4yo44zie7" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
@@ -419,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/07/STL-unordered-map/" data-id="cjw903qm3000dp8w4drq64ayu" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/07/STL-unordered-map/" data-id="cjw97gkfi000j0sw444wm1ogi" class="article-share-link">分享</a>
       
       
     </footer>
@@ -481,7 +636,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/07/codeup-任务调度/" data-id="cjw903qn4000op8w4aqxayvfe" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/07/codeup-任务调度/" data-id="cjw97gkfq000n0sw4qwbb5szr" class="article-share-link">分享</a>
       
       
     </footer>
@@ -575,152 +730,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/07/STL-priority-queue/" data-id="cjw903qln0007p8w4vg4bpues" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/07/STL-priority-queue/" data-id="cjw97gkff000h0sw4337hmfsl" class="article-share-link">分享</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-STL-Queue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/06/STL-Queue/" class="article-date">
-  <time class="post-time" datetime="2019-02-06T15:14:38.000Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/06/STL-Queue/">STL-queue</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/STL/">STL</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
-<li>header:<queue></queue></li>
-<li>定义: queue<typename> name;</typename></li>
-</ul>
-<hr>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
-<li>front()访问队首元素.   O(1)</li>
-<li>back()返回队尾元素.  O(1)</li>
-<li>push(x):将x入队.  O(1)<ul>
-<li>标准形式:void push (const value_type&amp; val);  参数是一个reference to const(常量引用),因此不能改变queue中元素的值; (如果想要改变队列中的元素,那么队列中的元素可以存放数组的下标,通过对数组元素的值改变,达到目的)</li>
-</ul>
-</li>
-<li>pop():令队首元素出队并作为返回值.  O(1)</li>
-<li>empty():检测队列是否为空,true则空,false则非空. O(1)<ul>
-<li>empty经常搭配pop()和front()等函数,预防空队列取元素;</li>
-</ul>
-</li>
-<li>size():返回队列元素个数. O(1)</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/06/STL-Queue/" data-id="cjw903qlg0006p8w4nxg58gfh" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-常见数据类型的转换" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/06/常见数据类型的转换/" class="article-date">
-  <time class="post-time" datetime="2019-02-06T10:35:44.000Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/06/常见数据类型的转换/">常见数据类型的转换</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Practice/">Practice</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="int转换string"><a href="#int转换string" class="headerlink" title="int转换string"></a>int转换string</h2><h3 id="字符串流操作"><a href="#字符串流操作" class="headerlink" title="字符串流操作"></a>字符串流操作</h3><ul>
-<li>通过字符串流进行操作:istringstream,ostringstream,stringstream ; 需要<sstream>头文件</sstream></li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">int2str</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;int_temp,<span class="built_in">string</span> &amp;string_temp)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">        <span class="built_in">stringstream</span> stream;   <span class="comment">//定义stringstream流</span></span><br><span class="line">        stream&lt;&lt;int_temp;    <span class="comment">//将内容存入流中</span></span><br><span class="line">        string_temp=stream.str();   <span class="comment">//此处也可以用 stream&gt;&gt;string_temp    ,将流的内容以string object输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>字符串流在进行多次转换时,每次读入数据不会将上次缓冲区的内容覆盖掉,而是增添到尾部;如果需要清除缓冲区,需要使用clear();</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> stream;</span><br><span class="line"><span class="keyword">int</span> n1=<span class="number">22</span>;</span><br><span class="line"><span class="keyword">int</span> n2=<span class="number">33</span>;</span><br><span class="line"><span class="built_in">string</span> s3;</span><br><span class="line">stream&gt;&gt;s1;</span><br><span class="line">stream&gt;&gt;s2;</span><br><span class="line">stream&lt;&lt;s3;</span><br><span class="line"></span><br><span class="line">s3的结果是:<span class="number">2233</span>,想要清除缓冲区,使用stream.clear();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在C++中,一般采用<sstream>库进行数据转换,更加安全,可通过重载来支持各种类型的转换.</sstream></li>
-</ul>
-<h2 id="string转换char"><a href="#string转换char" class="headerlink" title="string转换char[]"></a>string转换char[]</h2><h3 id="通过str-copy"><a href="#通过str-copy" class="headerlink" title="通过str.copy()"></a>通过str.copy()</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">"ABCDEFG"</span>;</span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">8</span>];</span><br><span class="line"><span class="keyword">int</span> length=str.copy(buf,<span class="number">7</span>);</span><br><span class="line">buf[length]=<span class="string">'\0'</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf);</span><br></pre></td></tr></table></figure>
-<p>size_t string::copy(char* s,size_t len,size_t pos=0)<br>pos:字符串的起始位置,默认为0;<br>len:选取字符串的长度;<br>返回值:实际选取字符串长度,一般和参数len相等,除非pos+len超过字符串的长度;<br>特点:不会为数组添加’\0’,需要手动添加’\0’;</p>
-<h3 id="通过strcpy"><a href="#通过strcpy" class="headerlink" title="通过strcpy()"></a>通过strcpy()</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"ABCDEFG"</span>)</span></span>;</span><br><span class="line"><span class="built_in">strcpy</span>(buf, str.c_str());</span><br></pre></td></tr></table></figure>
-<p>const char* c_str() const noexcept;<br>将字符串转换成为字符数组,在数组后面添加’\0’;</p>
-<p>char<em> strcpy(char</em> destination,const char* source)<br>strcpy是C Library的函数,操作数为两个char[];<br>特点:source的所有内容(从开始到终止符’\0’,包括终止符)传给destination;</p>
-<h2 id="char-转换为string"><a href="#char-转换为string" class="headerlink" title="char[]转换为string"></a>char[]转换为string</h2><p>C++提供低级向高级转换的服务;</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[]=<span class="string">"ABC"</span>;</span><br><span class="line"><span class="built_in">string</span> ss=s;   <span class="comment">//string ss(s);</span></span><br><span class="line">ss+=s;    <span class="comment">//允许加号一边为C字符串类型(char[])</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/06/常见数据类型的转换/" data-id="cjw903qnz0018p8w43ao0bhma" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
-
     </footer>
   </div>
   
@@ -774,9 +786,9 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
     </div>
 
 

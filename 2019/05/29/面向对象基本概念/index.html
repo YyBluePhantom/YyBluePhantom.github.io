@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>面向对象基本概念 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象的历史在面向对象之前，一直使用结构化分析方法（面向过程）。 结构化设计方法的特点：  以功能为核心进行设计，把软件看成处理数据的流。（功能和数据流） 自顶向下，将问题逐步分解，从而实现系统功能。 数据结构由算法决定。 结构化软件=数据结构+算法。 通过全局变量保存系统的状态。  C语言开发的软件一般属于结构化软件。 结构化分析的缺点：难以应付变化。  面向对象的特点（与面向过程相比）系统看">
+<meta name="keywords" content="OOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象基本概念">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/面向对象基本概念/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="面向对象的历史在面向对象之前，一直使用结构化分析方法（面向过程）。 结构化设计方法的特点：  以功能为核心进行设计，把软件看成处理数据的流。（功能和数据流） 自顶向下，将问题逐步分解，从而实现系统功能。 数据结构由算法决定。 结构化软件=数据结构+算法。 通过全局变量保存系统的状态。  C语言开发的软件一般属于结构化软件。 结构化分析的缺点：难以应付变化。  面向对象的特点（与面向过程相比）系统看">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-29T12:27:42.811Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象基本概念">
+<meta name="twitter:description" content="面向对象的历史在面向对象之前，一直使用结构化分析方法（面向过程）。 结构化设计方法的特点：  以功能为核心进行设计，把软件看成处理数据的流。（功能和数据流） 自顶向下，将问题逐步分解，从而实现系统功能。 数据结构由算法决定。 结构化软件=数据结构+算法。 通过全局变量保存系统的状态。  C语言开发的软件一般属于结构化软件。 结构化分析的缺点：难以应付变化。  面向对象的特点（与面向过程相比）系统看">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-面向对象基本概念" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/29/面向对象基本概念/" class="article-date">
+  <time class="post-time" datetime="2019-05-29T09:22:19.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">29</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象基本概念
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件工程/">软件工程</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向对象的历史"><a href="#面向对象的历史" class="headerlink" title="面向对象的历史"></a>面向对象的历史</h2><p>在面向对象之前，一直使用结构化分析方法（面向过程）。</p>
+<p>结构化设计方法的特点：</p>
+<ul>
+<li>以功能为核心进行设计，把软件看成处理数据的流。（功能和数据流）</li>
+<li>自顶向下，将问题逐步分解，从而实现系统功能。</li>
+<li>数据结构由算法决定。</li>
+<li>结构化软件=数据结构+算法。</li>
+<li>通过全局变量保存系统的状态。</li>
+</ul>
+<p>C语言开发的软件一般属于结构化软件。</p>
+<p>结构化分析的缺点：难以应付变化。</p>
+<hr>
+<h2 id="面向对象的特点（与面向过程相比）"><a href="#面向对象的特点（与面向过程相比）" class="headerlink" title="面向对象的特点（与面向过程相比）"></a>面向对象的特点（与面向过程相比）</h2><p>系统看作对象的集合，每个对象包含一组表示自身特性的数据和数据上的操作集合。考虑问题的核心从过程转移到实体对象。</p>
+<p>系统的状态，算法，数据分布在各个用户上。</p>
+<p>对象之间的通信通过消息进行。</p>
+<p>面向对象软件=对象+消息。</p>
+<p>面向对象的优点：</p>
+<ul>
+<li>更加适合于解决实际问题</li>
+<li>容易进行变更</li>
+</ul>
+<p>面向对象包括：OOA（面向对象分析），OOD（面向对象设计），OOP（面向对象编程）</p>
+<hr>
+<h2 id="面向对象基本概念"><a href="#面向对象基本概念" class="headerlink" title="面向对象基本概念"></a>面向对象基本概念</h2><p>对象（object）：描述客观事物的实体，拥有属性（attribute）和操作（operation）。  例如：一辆车，属性：价格，重量等； 方法：启动，停止，加油等。</p>
+<p>类（class）：具有相同属性和操作的对象的集合，是一种抽象的模型。 比如，所有的汽车可以构成一个汽车类。 想要完整的描述类，可以用类图（class diagram）进行静态化描述。</p>
+<p>对象是动态的，类是静态的。</p>
+<p>类的属性（attribute）：有三种类型，public，private，protected。</p>
+<p>消息（message）：一个对象向其他对象发出的请求。 对象通过消息连接在一起，构成了完整的系统。</p>
+<p>封装（encapsulation）：隐藏对象的属性，仅对外提供接口来进行属性的访问和修改。（不让外界直接调用对象的属性，但是提供API接口让外界调用）封装的目的在于增强安全性。</p>
+<p>接口（interface）：接口定义的是一组属性和操作的描述，而不是操作的实现，需要用其他类来实现它定义的操作。接口的意义体现在设计当中，Java语言用的很多。<br>另外还有一个抽象类，抽象类允许在普通的类中添加抽象方法。抽象方法就是只有定义，没有实现的方法。抽象类自己不能定义实例，必须依靠子类实现进行定义实例。抽象类与接口类似，只不过接口是所有的方法都为抽象方法，抽象类是一部分方法是抽象方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NameOfInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="comment">//任何类型 final, static 字段</span></span><br><span class="line">   <span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象类</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">//普通方法 </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"存在方法体的方法"</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//抽象方法，没有方法体，有abstract关键字做修饰 </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继承（inheritance）：子类可自动拥有父类的所有属性和操作。继承分为单一继承和多重继承。</p>
+<p>多态性（polymorphism）：同一个操作作用于不同对象上有不同的行为，产生不同的结果。<br>静态多态性：一个类或一个函数中的同名函数，它们根据参数表（类型以及个数）区别语义。<br>动态多态性：在一个类层次的不同类中的重载函数，它们一般具有相同的函数，因此要根据指针指向的对象所在类来区别语义。</p>
+<h2 id="对象之间的五类关系"><a href="#对象之间的五类关系" class="headerlink" title="对象之间的五类关系"></a>对象之间的五类关系</h2><p>继承泛化关系：表示了对象的一般/特殊关系，一般通过继承实现。 比如：动物与猫。 （is a kind of）</p>
+<p>聚合（aggression）/组合（composition）关系：表示了对象的组成关系。<br>聚合和组合的区别：聚合要求整体与部分的生命周期独立，例如公司和职员，课程和学生。组合要求整体与部分的生命周期统一，例如人和心脏。  (组合：is part of，聚合：own a)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//聚合关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Student student;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">addStudent</span><span class="params">()</span></span>&#123;</span><br><span class="line">        student=<span class="keyword">new</span> Student();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//组合关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> heart=<span class="keyword">new</span> Heart();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关联关系：表示对象之间的静态联系，通过对象的属性的联系显现。对象实例的连接称为链接（link），存在实例连接的对象类之间的联系称为关联（association）。 关联具有方向性：单向关联，只有一方知道关联关系；双向关联，双方都知道关联关系。  关联数目比有1：1，1：n，n：1，m：n，通常m：n的关系需要添加一个关联类来存储关系信息。  (has a)</p>
+<p>聚合关系和关联关系：聚合关系可以看成是一种特殊的关联关系，只不过聚合关系的关联程度大（比较抽象，没太大影响），聚合关系可写成关联关系（这种关系主要是在类图中体现，软件工程比较严格，需要先描述，再进行编程。）聚合关系强调地位不对等（买家和所买的物品），而关联关系强调双方地位比较接近（卖家，卖家）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Coures</span></span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1:n</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Course[] courses;</span><br><span class="line">    <span class="keyword">private</span> Teacher[] teachers;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// m:n </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stduents[] students;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>依赖关系（dependency）：表示对象的消息联系，是一种动态联系。一个对象需要另一个对象的服务（属性/方法），做出请求，并且等待对方的响应信息。它是一种很弱的联系关系。 （use a）</p>
+<p>区分依赖关系和关联关系：<br>依赖关系主要是通过函数进行联系，在函数中引用了其他对象，关系的范围是局部性的。<br>关联关系是通过属性进行联系，作用范围是全局性的（整个对象）。</p>
+<p>实现关系（realization）：用于描述接口和其实现类的关系。</p>
+<p>对象联系的强度： 继承 &gt;&gt;&gt; 组合 &gt;&gt; 聚合 &gt;&gt; 关联 &gt;&gt; 依赖</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/29/面向对象基本概念/" data-id="cjw97gkgj001a0sw4b05zq319" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/29/面向对象的分析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          面向对象的分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/16/数据读写/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">数据读写</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

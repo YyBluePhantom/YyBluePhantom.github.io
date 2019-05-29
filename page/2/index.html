@@ -38,9 +38,9 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -65,6 +65,149 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-STL-Queue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/06/STL-Queue/" class="article-date">
+  <time class="post-time" datetime="2019-02-06T15:14:38.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/06/STL-Queue/">STL-queue</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/STL/">STL</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
+<li>header:<queue></queue></li>
+<li>定义: queue<typename> name;</typename></li>
+</ul>
+<hr>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>front()访问队首元素.   O(1)</li>
+<li>back()返回队尾元素.  O(1)</li>
+<li>push(x):将x入队.  O(1)<ul>
+<li>标准形式:void push (const value_type&amp; val);  参数是一个reference to const(常量引用),因此不能改变queue中元素的值; (如果想要改变队列中的元素,那么队列中的元素可以存放数组的下标,通过对数组元素的值改变,达到目的)</li>
+</ul>
+</li>
+<li>pop():令队首元素出队并作为返回值.  O(1)</li>
+<li>empty():检测队列是否为空,true则空,false则非空. O(1)<ul>
+<li>empty经常搭配pop()和front()等函数,预防空队列取元素;</li>
+</ul>
+</li>
+<li>size():返回队列元素个数. O(1)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/06/STL-Queue/" data-id="cjw97gkf8000c0sw4152wtbve" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-常见数据类型的转换" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/06/常见数据类型的转换/" class="article-date">
+  <time class="post-time" datetime="2019-02-06T10:35:44.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/06/常见数据类型的转换/">常见数据类型的转换</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="int转换string"><a href="#int转换string" class="headerlink" title="int转换string"></a>int转换string</h2><h3 id="字符串流操作"><a href="#字符串流操作" class="headerlink" title="字符串流操作"></a>字符串流操作</h3><ul>
+<li>通过字符串流进行操作:istringstream,ostringstream,stringstream ; 需要<sstream>头文件</sstream></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">int2str</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;int_temp,<span class="built_in">string</span> &amp;string_temp)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">        <span class="built_in">stringstream</span> stream;   <span class="comment">//定义stringstream流</span></span><br><span class="line">        stream&lt;&lt;int_temp;    <span class="comment">//将内容存入流中</span></span><br><span class="line">        string_temp=stream.str();   <span class="comment">//此处也可以用 stream&gt;&gt;string_temp    ,将流的内容以string object输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串流在进行多次转换时,每次读入数据不会将上次缓冲区的内容覆盖掉,而是增添到尾部;如果需要清除缓冲区,需要使用clear();</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> stream;</span><br><span class="line"><span class="keyword">int</span> n1=<span class="number">22</span>;</span><br><span class="line"><span class="keyword">int</span> n2=<span class="number">33</span>;</span><br><span class="line"><span class="built_in">string</span> s3;</span><br><span class="line">stream&gt;&gt;s1;</span><br><span class="line">stream&gt;&gt;s2;</span><br><span class="line">stream&lt;&lt;s3;</span><br><span class="line"></span><br><span class="line">s3的结果是:<span class="number">2233</span>,想要清除缓冲区,使用stream.clear();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在C++中,一般采用<sstream>库进行数据转换,更加安全,可通过重载来支持各种类型的转换.</sstream></li>
+</ul>
+<h2 id="string转换char"><a href="#string转换char" class="headerlink" title="string转换char[]"></a>string转换char[]</h2><h3 id="通过str-copy"><a href="#通过str-copy" class="headerlink" title="通过str.copy()"></a>通过str.copy()</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">"ABCDEFG"</span>;</span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">8</span>];</span><br><span class="line"><span class="keyword">int</span> length=str.copy(buf,<span class="number">7</span>);</span><br><span class="line">buf[length]=<span class="string">'\0'</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf);</span><br></pre></td></tr></table></figure>
+<p>size_t string::copy(char* s,size_t len,size_t pos=0)<br>pos:字符串的起始位置,默认为0;<br>len:选取字符串的长度;<br>返回值:实际选取字符串长度,一般和参数len相等,除非pos+len超过字符串的长度;<br>特点:不会为数组添加’\0’,需要手动添加’\0’;</p>
+<h3 id="通过strcpy"><a href="#通过strcpy" class="headerlink" title="通过strcpy()"></a>通过strcpy()</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"ABCDEFG"</span>)</span></span>;</span><br><span class="line"><span class="built_in">strcpy</span>(buf, str.c_str());</span><br></pre></td></tr></table></figure>
+<p>const char* c_str() const noexcept;<br>将字符串转换成为字符数组,在数组后面添加’\0’;</p>
+<p>char<em> strcpy(char</em> destination,const char* source)<br>strcpy是C Library的函数,操作数为两个char[];<br>特点:source的所有内容(从开始到终止符’\0’,包括终止符)传给destination;</p>
+<h2 id="char-转换为string"><a href="#char-转换为string" class="headerlink" title="char[]转换为string"></a>char[]转换为string</h2><p>C++提供低级向高级转换的服务;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[]=<span class="string">"ABC"</span>;</span><br><span class="line"><span class="built_in">string</span> ss=s;   <span class="comment">//string ss(s);</span></span><br><span class="line">ss+=s;    <span class="comment">//允许加号一边为C字符串类型(char[])</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/06/常见数据类型的转换/" data-id="cjw97gkge00130sw4l9aq4gr6" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-PAT-1060-特殊数据的处理" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -122,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/05/PAT-1060-特殊数据的处理/" data-id="cjw903qlw000cp8w4q51bh5oq" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/05/PAT-1060-特殊数据的处理/" data-id="cjw97gkf200060sw4pgwdp275" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -190,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/04/PATA1039-PATA1047/" data-id="cjw903qmv000kp8w4iskzqld8" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/04/PATA1039-PATA1047/" data-id="cjw97gkf6000b0sw4pkddxmqk" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -252,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/02/PAT-A-1011-关于浮点数的一些探讨/" data-id="cjw903qmc000ip8w49cdgszba" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/02/PAT-A-1011-关于浮点数的一些探讨/" data-id="cjw97gkf300070sw4d2mhqbws" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -323,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/01/字符串及字符处理/" data-id="cjw903qnl000yp8w4jx1he3kh" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/01/字符串及字符处理/" data-id="cjw97gkg4000w0sw472uh9abu" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -502,7 +645,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/27/一些有用的经验/" data-id="cjw903qnh000vp8w4g4ff523w" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/01/27/一些有用的经验/" data-id="cjw97gkg3000u0sw4mcd191ae" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -583,7 +726,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/24/nullptr/" data-id="cjw903qn8000rp8w442hgtety" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/01/24/nullptr/" data-id="cjw97gkg1000q0sw46gr04jn2" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concept/">concept</a></li></ul>
@@ -641,9 +784,9 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
     </div>
 
 

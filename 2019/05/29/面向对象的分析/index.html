@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>STL-unordered_map | BluePhantom</title>
+  <title>面向对象的分析 | BluePhantom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础定义 map是一个有序的映射(键值排序),unordered_map是一个无序的映射;  单独的头文件&amp;lt;unordered_map&amp;gt; unordered_map以散列代替map内部的红黑树,速度比map快得多;  函数size_type count(key):如果unordered_map中没有该键值,那么返回0;(用于检验key是否存在)unordered_map::iterat">
+  <meta name="description" content="前面讲到，面向对象包括：OOA，OOD，OOP，现在来考虑OOA OOA的目的：分析问题，寻找到对象，分析对象的关系，忽略与实现有关的问题，建立系统的对象模型。OOA的工具：用例图，类图，时序图，协作图，状态图。OOA的过程：先通过需求分析建立需求模型（功能模型，从用户的角度获取功能需求），然后通过分析问题，发现对象和类，得到分析模型（静态结构模型：类图，动态结构模型：状态图/顺序图） 建立静态模">
+<meta name="keywords" content="OOP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STL-unordered_map">
-<meta property="og:url" content="http://yoursite.com/2019/02/07/STL-unordered-map/index.html">
+<meta property="og:title" content="面向对象的分析">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/面向对象的分析/index.html">
 <meta property="og:site_name" content="BluePhantom">
-<meta property="og:description" content="基础定义 map是一个有序的映射(键值排序),unordered_map是一个无序的映射;  单独的头文件&amp;lt;unordered_map&amp;gt; unordered_map以散列代替map内部的红黑树,速度比map快得多;  函数size_type count(key):如果unordered_map中没有该键值,那么返回0;(用于检验key是否存在)unordered_map::iterat">
+<meta property="og:description" content="前面讲到，面向对象包括：OOA，OOD，OOP，现在来考虑OOA OOA的目的：分析问题，寻找到对象，分析对象的关系，忽略与实现有关的问题，建立系统的对象模型。OOA的工具：用例图，类图，时序图，协作图，状态图。OOA的过程：先通过需求分析建立需求模型（功能模型，从用户的角度获取功能需求），然后通过分析问题，发现对象和类，得到分析模型（静态结构模型：类图，动态结构模型：状态图/顺序图） 建立静态模">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-29T08:57:58.310Z">
+<meta property="og:updated_time" content="2019-05-29T12:13:54.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="STL-unordered_map">
-<meta name="twitter:description" content="基础定义 map是一个有序的映射(键值排序),unordered_map是一个无序的映射;  单独的头文件&amp;lt;unordered_map&amp;gt; unordered_map以散列代替map内部的红黑树,速度比map快得多;  函数size_type count(key):如果unordered_map中没有该键值,那么返回0;(用于检验key是否存在)unordered_map::iterat">
+<meta name="twitter:title" content="面向对象的分析">
+<meta name="twitter:description" content="前面讲到，面向对象包括：OOA，OOD，OOP，现在来考虑OOA OOA的目的：分析问题，寻找到对象，分析对象的关系，忽略与实现有关的问题，建立系统的对象模型。OOA的工具：用例图，类图，时序图，协作图，状态图。OOA的过程：先通过需求分析建立需求模型（功能模型，从用户的角度获取功能需求），然后通过分析问题，发现对象和类，得到分析模型（静态结构模型：类图，动态结构模型：状态图/顺序图） 建立静态模">
   
     <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
   
@@ -68,12 +69,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-STL-unordered-map" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-面向对象的分析" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/02/07/STL-unordered-map/" class="article-date">
-  <time class="post-time" datetime="2019-02-07T06:12:42.000Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br>
-    <span class="post-day">07</span>
+    <a href="/2019/05/29/面向对象的分析/" class="article-date">
+  <time class="post-time" datetime="2019-05-29T11:53:20.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">29</span>
   </time>
 </a>
    
@@ -85,14 +86,14 @@
         
   
     <h1 class="article-title" itemprop="name">
-      STL-unordered_map
+      面向对象的分析
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/STL/">STL</a>
+    <a class="article-category-link" href="/categories/软件工程/">软件工程</a>
   </div>
 
           
@@ -104,37 +105,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
-<li>map是一个有序的映射(键值排序),unordered_map是一个无序的映射;  单独的头文件&lt;unordered_map&gt;</li>
-<li>unordered_map以散列代替map内部的红黑树,速度比map快得多;</li>
-</ul>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>size_type count(key):如果unordered_map中没有该键值,那么返回0;(用于检验key是否存在)<br>unordered_map::iterator it; :通过定义迭代器访问元素,    it-&gt;first访问key  it-&gt;second访问value</p>
+        <p>前面讲到，面向对象包括：OOA，OOD，OOP，现在来考虑OOA</p>
+<p>OOA的目的：分析问题，寻找到对象，分析对象的关系，忽略与实现有关的问题，建立系统的对象模型。<br>OOA的工具：用例图，类图，时序图，协作图，状态图。<br>OOA的过程：先通过需求分析建立需求模型（功能模型，从用户的角度获取功能需求），然后通过分析问题，发现对象和类，得到分析模型（静态结构模型：类图，动态结构模型：状态图/顺序图）</p>
+<h2 id="建立静态模型"><a href="#建立静态模型" class="headerlink" title="建立静态模型"></a>建立静态模型</h2><p>过程：根据需求模型，识别分析类；确定类的属性，方法，关系；绘制类图</p>
+<p>分析类：是一种在概念上较为抽象的类，只有应用逻辑有关（应该会派生出很多子类）。<br>分析类的分类：实体类（存储信息），边界类（参与者和系统的交互），控制类（运行的控制逻辑，负责协调实体类和边界类）。<br>分析类之间的关系属于关联关系。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/07/STL-unordered-map/" data-id="cjw97gkfi000j0sw444wm1ogi" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/05/29/面向对象的分析/" data-id="cjw97gkgl001e0sw4680fajiy" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2019/02/07/01背包问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          01背包问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/02/07/codeup-任务调度/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/29/面向对象基本概念/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">codeup:任务调度</div>
+      <div class="article-nav-title">面向对象基本概念</div>
     </a>
   
 </nav>
