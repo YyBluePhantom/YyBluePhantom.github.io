@@ -38,8 +38,8 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>4</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
@@ -65,6 +65,100 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-STL-priority-queue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/07/STL-priority-queue/" class="article-date">
+  <time class="post-time" datetime="2019-02-07T01:13:00.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/07/STL-priority-queue/">STL-priority_queue</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/STL/">STL</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><ul>
+<li>priority_queue:优先队列,底层通过堆(完全二叉树,大根堆/小根堆)实现.(本质是堆)</li>
+<li>特点:队首元素优先最高,然后依次降低.(我认为是对堆的一种抽象表示)</li>
+<li>头文件:<queue></queue></li>
+<li>定义:priority_queue <typename> name;</typename></li>
+</ul>
+<h3 id="priority中关于优先级的设置-在定义中实现"><a href="#priority中关于优先级的设置-在定义中实现" class="headerlink" title="priority中关于优先级的设置(在定义中实现)"></a>priority中关于优先级的设置(在定义中实现)</h3><ul>
+<li><p>基本数据类型的优先级的设置:(int,double等)</p>
+<ul>
+<li>一般写法:priority_queue<int> q;  数字大的优先级越高</int></li>
+<li>完整写法:priority_queue&lt;int,vector<int>,less<int> &gt; q;<ul>
+<li>less<int>后需要加空格,再加&gt;;(预防编译错误)</int></li>
+<li>第一个int表示优先队列的元素</li>
+<li>第二个vector<int>表示承载堆的容器,vector的数据类型跟随第一个参数的类型</int></li>
+<li>第三个less<int>表示比较类,less<int>表示数字越大优先级越大 ,greater<int>表示数字越小优先级越大</int></int></int></li>
+</ul>
+</int></int></li>
+</ul>
+</li>
+<li><p>结构体的优先级设置:</p>
+<ul>
+<li>结构体需要搭配重载函数,只能重载小于号,不能重载大于号,会产生编译错误;(不过能通过重载小于号能实现和重载大于号一致的功能)</li>
+<li>优先队列以结构体作为元素,在建堆的比较中,和基本类型一样需要对元素作为比较,不过结构体不能直接比较,需要进行重载来实现对结构体的比较;</li>
+<li>重载&lt;的规则:如果返回值是true,则第二个数优先级高;返回值是false,则第一个数优先级高.<ul>
+<li>如果重载函数内部实现的是&lt;的功能,如果f1&lt;f2,返回true,f2的优先级高,值大的优先级高;</li>
+<li>如果重载函数内部实现的是&gt;的功能,如果f1&gt;f2,返回true,f2的优先级高,值小的优先级高;</li>
+</ul>
+</li>
+<li>如果结构体比较大,重载函数的参数使用引用提高效率;(搭配const) <code>(const fruit &amp;f1,const fruit &amp;f2);</code></li>
+<li>结构体也能够采用完整定义, <code>priority_queue&lt;fruit,vector&lt;fruit&gt;,cmp&gt; q;</code> (cmp的定义见代码中)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fruit</span>&#123;</span></span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (fruit f1,fruit f2)&#123;</span><br><span class="line">        <span class="keyword">return</span> f1.price&lt;f2.price;      <span class="comment">//如果想实现大于号的功能,则 return f1.price&gt;f2.price</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//cmp是结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(fruit f1,fruit f2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f1.price&gt;f2.price;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>top():返回堆顶元素. (没有front()和back())</li>
+<li>push(x):令x入队.  O(logN)</li>
+<li>void pop():删除堆顶元素.  O(logN)</li>
+<li>empty():检测队列是否为空,true则空,false则非空. O(1)</li>
+<li>size():返回队列元素个数. O(1)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/07/STL-priority-queue/" data-id="cjxclqec20002fow49ab7n8mk" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-STL-Queue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -125,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/06/STL-Queue/" data-id="cjw97gkf8000c0sw4152wtbve" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/06/STL-Queue/" data-id="cjxclqecj000dfow4dbs3e5zp" class="article-share-link">分享</a>
       
       
     </footer>
@@ -195,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/06/常见数据类型的转换/" data-id="cjw97gkge00130sw4l9aq4gr6" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/06/常见数据类型的转换/" data-id="cjxclqedq001cfow4vej92s3n" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -265,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/05/PAT-1060-特殊数据的处理/" data-id="cjw97gkf200060sw4pgwdp275" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/05/PAT-1060-特殊数据的处理/" data-id="cjxclqece0007fow4n4p596m0" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -333,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/04/PATA1039-PATA1047/" data-id="cjw97gkf6000b0sw4pkddxmqk" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/04/PATA1039-PATA1047/" data-id="cjxclqedb000xfow4j8qokwcj" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -395,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/02/PAT-A-1011-关于浮点数的一些探讨/" data-id="cjw97gkf300070sw4d2mhqbws" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/02/PAT-A-1011-关于浮点数的一些探讨/" data-id="cjxclqech000bfow4u4okhmhw" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -466,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/01/字符串及字符处理/" data-id="cjw97gkg4000w0sw472uh9abu" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/01/字符串及字符处理/" data-id="cjxclqed2000ofow4wa1y7c5o" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -645,7 +739,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/27/一些有用的经验/" data-id="cjw97gkg3000u0sw4mcd191ae" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/01/27/一些有用的经验/" data-id="cjxclqed9000ufow442rr7ya7" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
@@ -726,7 +820,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/24/nullptr/" data-id="cjw97gkg1000q0sw46gr04jn2" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/01/24/nullptr/" data-id="cjxclqedl0016fow4maqouw8c" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concept/">concept</a></li></ul>
@@ -784,8 +878,8 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>4</strong><br>标签</div></a>
     </div>
 

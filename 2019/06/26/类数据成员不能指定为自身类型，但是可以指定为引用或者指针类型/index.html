@@ -3,15 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>归档: 2019/5 | BluePhantom</title>
+  <title>类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型 | BluePhantom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="BluePhantom">
-<meta property="og:url" content="http://yoursite.com/archives/2019/05/index.html">
+  <meta name="description" content="原因:C++要求，当实例化一个类的对象时，编译器会根据类的定义来分配相应的存储空间。也就是说，在创建对象前，一定要有完整的类定义，这样编译器才能正确的计算所需空间。如果没有完整的定义，相当于一种无限初始化（递归）。 对于指针和引用，他们的存储空间大小与指向的类型无关，因此可以正确地分配内存空间。 实例化类的对象的步骤：  先构造成员变量。 然后调用自身的构造函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/index.html">
 <meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="原因:C++要求，当实例化一个类的对象时，编译器会根据类的定义来分配相应的存储空间。也就是说，在创建对象前，一定要有完整的类定义，这样编译器才能正确的计算所需空间。如果没有完整的定义，相当于一种无限初始化（递归）。 对于指针和引用，他们的存储空间大小与指向的类型无关，因此可以正确地分配内存空间。 实例化类的对象的步骤：  先构造成员变量。 然后调用自身的构造函数。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-26T02:10:15.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BluePhantom">
+<meta name="twitter:title" content="类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型">
+<meta name="twitter:description" content="原因:C++要求，当实例化一个类的对象时，编译器会根据类的定义来分配相应的存储空间。也就是说，在创建对象前，一定要有完整的类定义，这样编译器才能正确的计算所需空间。如果没有完整的定义，相当于一种无限初始化（递归）。 对于指针和引用，他们的存储空间大小与指向的类型无关，因此可以正确地分配内存空间。 实例化类的对象的步骤：  先构造成员变量。 然后调用自身的构造函数。">
   
     <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
   
@@ -64,64 +68,73 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/" class="article-date">
+  <time class="post-time" datetime="2019-06-26T02:00:41.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
+          
+              
+
+          
         </div>
-        <div class="archives">
+      </header>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/29/面向对象的分析/" class="archive-article-date">
-  <time class="post-time" datetime="2019-05-29T11:53:20.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br>
-    <span class="post-day">29</span>
-  </time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/29/面向对象的分析/">面向对象的分析</a>
-    </h1>
-  
+        <p>原因:C++要求，当实例化一个类的对象时，编译器会根据类的定义来分配相应的存储空间。<br>也就是说，在创建对象前，一定要有完整的类定义，这样编译器才能正确的计算所需空间。如果没有完整的定义，相当于一种无限初始化（递归）。</p>
+<p>对于指针和引用，他们的存储空间大小与指向的类型无关，因此可以正确地分配内存空间。</p>
+<p>实例化类的对象的步骤：</p>
+<ol>
+<li>先构造成员变量。</li>
+<li>然后调用自身的构造函数。</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/29/面向对象基本概念/" class="archive-article-date">
-  <time class="post-time" datetime="2019-05-29T09:22:19.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br>
-    <span class="post-day">29</span>
-  </time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/29/面向对象基本概念/">面向对象基本概念</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/" data-id="cjxclqed6000rfow4j272m7pj" class="article-share-link">分享</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/29/面向对象的分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">面向对象的分析</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 
 
 </section>
