@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="BluePhantom">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BluePhantom">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-PAT CCF/PATA-1013" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/01/PAT CCF/PATA-1013/" class="article-date">
+  <time class="post-time" datetime="2019-08-01T11:25:59.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/PAT CCF/PATA-1013/">PATA-1013</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If a city is occupied by the enemy, all the highways from/toward that city are closed</span></span><br><span class="line"><span class="comment">// if we need to repair any other highways to keep the rest of the cities connected.</span></span><br><span class="line"><span class="comment">// 题解：本题要求一个图中，少一个结点后连通分量的个数。</span></span><br><span class="line"><span class="comment">// 本来我是想有什么特殊规律，后来发现没有什么特殊规律，因此就直接用DFS进行计算连通分量的个数，本来还怕超时，结果还好。</span></span><br><span class="line"><span class="comment">// 关键是对忽略的点行列都不进行处理。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;array&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M, K;</span><br><span class="line"><span class="built_in">array</span>&lt;<span class="built_in">array</span>&lt;<span class="keyword">int</span>, 1005&gt;, 1005&gt; G;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> plot, <span class="keyword">bool</span>* is_visit)</span> </span>&#123;</span><br><span class="line">	is_visit[v] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">	</span><br><span class="line">		<span class="keyword">if</span> (!is_visit[i] &amp;&amp; G[v][i] &amp;&amp; i!=plot) &#123;</span><br><span class="line">			DFSTraverse(i, plot, is_visit);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果plot失效,进行DFS,查看连通分量的个数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> plot)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">0</span>;  <span class="comment">// 连通分量的个数</span></span><br><span class="line">	<span class="keyword">bool</span> is_visit[<span class="number">1005</span>] = &#123; <span class="literal">false</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 对每个结点进行遍历</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (i == plot) &#123;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (!is_visit[i]) &#123;</span><br><span class="line">				DFSTraverse(i, plot, is_visit);</span><br><span class="line">				num++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num<span class="number">-1</span>);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;N, &amp;M, &amp;K);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= M; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> x, y;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">		G[x][y] = <span class="number">1</span>;</span><br><span class="line">		G[y][x] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= K; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> plot;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;plot);</span><br><span class="line">		DFS(plot);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/01/PAT CCF/PATA-1013/" data-id="ck0abjdrc002th0w4gbmjd6s7" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图/">图</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1076" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/01/PAT CCF/PATA-1076/" class="article-date">
+  <time class="post-time" datetime="2019-08-01T10:08:33.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/PAT CCF/PATA-1076/">PATA-1076</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 该题考点：需要计算一定深度内所有点的个数，因此采用BFS；</span></span><br><span class="line"><span class="comment">// 本题的图是有向图，而且需要计算入度，如果采用邻接表在输入时需要进行处理；采用邻接矩阵，则是固定列，遍历行。</span></span><br><span class="line"><span class="comment">// 对于图，只需要存储边的关系就行了；  存储深度的信息，构造一个结构体，通过queue进行计算。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;array&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> index;</span><br><span class="line">	<span class="keyword">int</span> level;</span><br><span class="line">	Node(<span class="keyword">int</span> _index, <span class="keyword">int</span> _level) :index(_index), level(_level) &#123;&#125;;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, L;</span><br><span class="line"></span><br><span class="line"><span class="built_in">array</span>&lt;<span class="built_in">array</span>&lt;<span class="keyword">int</span>, 1010&gt;, 1010&gt; G ; <span class="comment">//图的邻接存储</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> plot)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;Node&gt; q;   </span><br><span class="line">	<span class="keyword">int</span> total_num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">bool</span> is_visit[<span class="number">1005</span>] = &#123; <span class="literal">false</span> &#125;;</span><br><span class="line">	q.push(Node(plot,<span class="number">0</span>));</span><br><span class="line">	is_visit[plot] = <span class="literal">true</span>;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">		Node node = q.front(); </span><br><span class="line">		q.pop();</span><br><span class="line">		plot = node.index;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (node.level &lt;= L<span class="number">-1</span>) &#123;</span><br><span class="line">			<span class="comment">// 列遍历</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (!is_visit[j] &amp;&amp; G[j][plot] != <span class="number">-1</span>) &#123;</span><br><span class="line">					total_num++;</span><br><span class="line">					q.push(Node(j, node.level + <span class="number">1</span>));</span><br><span class="line">					is_visit[j] = <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, total_num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;N, &amp;L);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		G[i].fill(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> num;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; num; j++) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;temp);</span><br><span class="line">			G[i][temp] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> times;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;times);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> plot;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;plot);</span><br><span class="line">		BFS(plot);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/01/PAT CCF/PATA-1076/" data-id="ck0abjdsj004dh0w4q12y4qao" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图/">图</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1034" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/31/PAT CCF/PATA-1034/" class="article-date">
+  <time class="post-time" datetime="2019-07-31T15:00:52.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">31</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/31/PAT CCF/PATA-1034/">PATA-1034</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关键点：连通分量，树的DFS遍历。    map的确挺好用的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 在输入时，输入的顶点是字符，相较于采用hash方法，不如用一个map进行对应；（在对应的时候，因为最后还是需要字符串，所以还需要一个逆映射）</span></span><br><span class="line"><span class="comment"> *          因为后面计算连通分量的权值，因此，可以在此计算出每个结点的权值；到时候只需要除以2就行了。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 通过DFS对连通分量进行遍历，对每个连通分量需要求出其元素个数，总权值，权值最大结点；因此可以对DFS进行稍微的修改；对于符合条件的情况，进行存储。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 存储之后，进行逆变换，得到最终结果。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,k;  <span class="comment">//n:边的个数   k:阈值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v; <span class="comment">//顶点</span></span><br><span class="line">    <span class="keyword">int</span> w; <span class="comment">//权值</span></span><br><span class="line">    Edge(<span class="keyword">int</span> _v,<span class="keyword">int</span> _w):v(_v),w(_w)&#123;&#125;</span><br><span class="line">&#125;Edge;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;Edge&gt; G[<span class="number">2010</span>]; <span class="comment">//图</span></span><br><span class="line"><span class="keyword">int</span> ver_num=&#123;<span class="number">0</span>&#125;;  <span class="comment">// 记录实际顶点个数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//记录顶点名称 , 序列的对应关系</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; string_to_int;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="built_in">string</span>&gt; int_to_string;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 记录head-连通分量中元素个数</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; int_to_int;</span><br><span class="line"></span><br><span class="line"><span class="comment">// DFS判重</span></span><br><span class="line"><span class="keyword">bool</span> is_visit[<span class="number">2010</span>]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存放最终结果</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result_int;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; result_str;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存储每一个顶点的边的总权值</span></span><br><span class="line"><span class="keyword">int</span> total_weight[<span class="number">2010</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将名称通过string_to_int转换成对应的整数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">changeToInt</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 插入新结点</span></span><br><span class="line">    <span class="keyword">if</span>(string_to_int.find(s)==string_to_int.end())&#123;</span><br><span class="line">        string_to_int[s]=ver_num;</span><br><span class="line">        int_to_string[ver_num]=s;</span><br><span class="line">        ver_num++;</span><br><span class="line">        <span class="keyword">return</span> ver_num<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> string_to_int[s];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index:当前访问结点;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index,<span class="keyword">int</span>&amp; head,<span class="keyword">int</span> &amp;num,<span class="keyword">int</span>&amp; total_value)</span></span>&#123;</span><br><span class="line">    <span class="comment">// head,num 的取值</span></span><br><span class="line">    num++;</span><br><span class="line">    <span class="keyword">if</span>(total_weight[index]&gt;total_weight[head])&#123;</span><br><span class="line">        head=index;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> p=G[index].begin();p!=G[index].end();p++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!is_visit[(*p).v])&#123;</span><br><span class="line">            is_visit[(*p).v]=<span class="literal">true</span>;</span><br><span class="line">            total_value+=total_weight[(*p).v];</span><br><span class="line">            DFS((*p).v,head,num,total_value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ver_num;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!is_visit[i])&#123;</span><br><span class="line"></span><br><span class="line">            is_visit[i]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> head=i; <span class="comment">// 权值最大的结点</span></span><br><span class="line">            <span class="keyword">int</span> num=<span class="number">0</span>; <span class="comment">// 结点个数</span></span><br><span class="line">            <span class="keyword">int</span> total_value=total_weight[i]; <span class="comment">// 总权值</span></span><br><span class="line">            DFS(i,head,num,total_value);</span><br><span class="line"></span><br><span class="line">            total_value/=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(num&gt;<span class="number">2</span> &amp;&amp; total_value&gt;k)&#123;</span><br><span class="line">                result_int.push_back(head);</span><br><span class="line">                int_to_int[head]=num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构成图</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> temp1[<span class="number">4</span>];</span><br><span class="line">        <span class="keyword">char</span> temp2[<span class="number">4</span>];</span><br><span class="line">        <span class="keyword">int</span> temp3;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s%s%d"</span>,temp1,temp2,&amp;temp3);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">string</span> s_temp1=temp1;</span><br><span class="line">        <span class="built_in">string</span> s_temp2=temp2;</span><br><span class="line">        <span class="keyword">int</span> i_temp1=changeToInt(s_temp1);  <span class="comment">// 在G的下标</span></span><br><span class="line">        <span class="keyword">int</span> i_temp2=changeToInt(s_temp2);</span><br><span class="line">        <span class="keyword">bool</span> is_existence=<span class="literal">false</span>; <span class="comment">// 边是否已经存在</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在图中双向插入</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; p:G[i_temp1])&#123;</span><br><span class="line">            <span class="keyword">if</span>(p.v==i_temp2)&#123;</span><br><span class="line">                p.w+=temp3;</span><br><span class="line">                is_existence=<span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 边是相互存在的;</span></span><br><span class="line">        <span class="keyword">if</span>(is_existence)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; p:G[i_temp2])&#123;</span><br><span class="line">                <span class="keyword">if</span>(p.v==i_temp1)&#123;</span><br><span class="line">                    p.w+=temp3;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 插入双向边</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            G[i_temp1].push_back(Edge(i_temp2,temp3));</span><br><span class="line">            G[i_temp2].push_back(Edge(i_temp1,temp3));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        total_weight[i_temp1]+=temp3;</span><br><span class="line">        total_weight[i_temp2]+=temp3;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DFSTraverse();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; p:result_int)&#123;</span><br><span class="line">        result_str.push_back(int_to_string[p]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(result_str.begin(),result_str.end());</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;result_str.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;result_str.size();i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;result_str[i]&lt;&lt;<span class="string">" "</span>&lt;&lt;int_to_int[string_to_int[result_str[i]]]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/31/PAT CCF/PATA-1034/" data-id="ck0abjdrs003gh0w4vta91rwq" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图/">图</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-中缀表达式转后缀表达式" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/10/中缀表达式转后缀表达式/" class="article-date">
+  <time class="post-time" datetime="2019-07-10T14:10:15.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/10/中缀表达式转后缀表达式/">中缀表达式转后缀表达式</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用后缀表达式来求值会比中缀表达式直接求值方便很多,因此采用另一种方法:将中缀表达式转换为后缀表达式。</p>
+<p>转换的核心：</p>
+<ol>
+<li>后序表达式的核心特征在于:先进行处理的运算符在前，后处理的运算符在后；(<strong>通过字符串中符号顺序表示实际优先级规则</strong>)</li>
+<li>建立符号栈来存储运算符。</li>
+<li>处理过程：<ul>
+<li>当遇到是数字：数字后面只可能是运算符和字符串的结束；（注意对字符串结束的处理）    那么直接输出到目的串中；</li>
+<li>在处理运算符：最优策略是设置一个优先级的对应关系（符号在栈中的优先级和符号在栈外的优先级需要分别考虑，在出栈和入栈的时候根据这个关系进行考虑（我在这里完全使用符号比较，有点蠢））；</li>
+<li>在处理运算符：左括号&gt;<em>/&gt;+-（符号优先级），在入栈的时候，如果读入的符号优先级<strong>大于（不是大于等于）</strong>栈顶符号优先级（需要判断空），则直接入栈；否则，就需要先弹出栈，再入栈；  当遇到 ‘)’ 的时候，需要将()的符号全部输出，除此之外还需要考虑一个问题：   比如 1+2-1 </em>((3+4)/5-6)+7 ，当在读入最后一个右括号时， 左侧第一个’-‘和’ <em>‘都在栈中，当读入+的时候，会输出 </em>，但是 ‘-‘ 应该也会输出；（因此要注意特殊情况），这里的判定条件应该是：弹栈到第一个优先级&lt;=读入的符号；（可能有点乱，如果用优先级的对应关系写，会清楚很多，<strong>更加突出优先级的关系，而不是符号的关系</strong>。）</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 目的:将中缀表达式转换为后缀表达式；</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 输入:中缀表达式</span></span><br><span class="line"><span class="comment"> * 输出:后缀表达式(无括号,所有的元素之间以空格分开, 2 3 1 - +)</span></span><br><span class="line"><span class="comment"> * 处理思路:（编程时想的,可能不全面)</span></span><br><span class="line"><span class="comment"> * 1. 遇到数字,读取完整的数字(比如:23),并且输出; (数字的后面一定为符号或者结束;)</span></span><br><span class="line"><span class="comment"> * 2. 只需要符号栈; 一个符号对应两个数值,优先级高的符号在前面符号序列的前面;</span></span><br><span class="line"><span class="comment"> * 3. 符号优先级:() &gt; / * &gt; +-</span></span><br><span class="line"><span class="comment"> * 4. 遇到+-,如果栈顶是/ *,那么需要弹栈,再入栈;如果栈顶+-,那么需要先弹栈,再入栈;如果栈顶(那么,直接入栈;(碰到优先级不比自己低的,需要先弹栈)</span></span><br><span class="line"><span class="comment"> * 5. 遇到(,无论栈顶是什么,入栈;</span></span><br><span class="line"><span class="comment"> * 6. 遇到),弹栈,直到遇到(</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// (:40 , ):41   +:43  -:45  *:42  /:47  0:48</span></span><br><span class="line"><span class="comment">// 1+2-1*((3+4)/5-6)+7</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">transferSuffix</span><span class="params">(<span class="built_in">string</span> input)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;  <span class="comment">// 符号栈</span></span><br><span class="line">    <span class="built_in">string</span> result=<span class="string">""</span>;  <span class="comment">// 结果</span></span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="literal">false</span>; <span class="comment">//第一个else的result=result+to_string(num)+" "; num=0;(前提:不能有两个连续的操作符,但是*( , )+以及第一个为(</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;input.length();i++)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 数字</span></span><br><span class="line">        <span class="keyword">if</span>(input[i]&gt;=<span class="number">48</span>)&#123;</span><br><span class="line">            num=num*<span class="number">10</span>+input[i]<span class="number">-48</span>;</span><br><span class="line">            flag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//对表达式的最后一个数字进行处理</span></span><br><span class="line">            <span class="keyword">if</span>(i==input.length()<span class="number">-1</span>)&#123;</span><br><span class="line">                result=result+to_string(num)+<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 操作符</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag==<span class="literal">true</span>) &#123;  <span class="comment">// 输出限制</span></span><br><span class="line">                result = result + to_string(num) + <span class="string">" "</span>;</span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line">                flag=<span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//  + -; 遇到同级与高优先级需要先弹栈,再进栈;  只有栈顶为空和遇到(时才直接进栈</span></span><br><span class="line">            <span class="keyword">if</span>(input[i]==<span class="string">'+'</span> || input[i]==<span class="string">'-'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>((!s.empty() &amp;&amp; s.top()==<span class="string">'('</span>) || s.empty())&#123;</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                    result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// / *</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input[i]==<span class="string">'/'</span> || input[i]==<span class="string">'*'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>((!s.empty() &amp;&amp; (s.top()==<span class="string">'+'</span> || s.top()==<span class="string">'-'</span> || s.top()==<span class="string">'('</span>)) || s.empty())&#123;</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(!s.empty() &amp;&amp; (s.top()==<span class="string">'*'</span> || s.top()==<span class="string">'/'</span>))&#123;</span><br><span class="line">                    <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                    result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// (</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input[i]==<span class="string">'('</span>)&#123;</span><br><span class="line">                s.push(input[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// )</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">                    <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line">                    result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                s.pop(); <span class="comment">// 弹出(</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// 讨论 +2*((3+4)/5-6)+2 中最左侧加号和最右边加号的输出情况</span></span><br><span class="line">                <span class="keyword">if</span>(i&lt;input.length()<span class="number">-1</span>)&#123;</span><br><span class="line">                    i++;</span><br><span class="line">                    <span class="keyword">if</span>(input[i]==<span class="string">'+'</span> || input[i]==<span class="string">'-'</span>)&#123;</span><br><span class="line">                        <span class="keyword">while</span>(!s.empty() &amp;&amp; s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">                            <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                            s.pop();</span><br><span class="line">                            result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        s.push(input[i]);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span>(input[i]==<span class="string">'/'</span> || input[i]==<span class="string">'*'</span>)&#123;</span><br><span class="line">                        <span class="keyword">while</span>(!s.empty() &amp;&amp; (s.top()==<span class="string">'+'</span> || s.top()==<span class="string">'-'</span>))&#123;</span><br><span class="line">                            <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                            s.pop();</span><br><span class="line">                            result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        s.push(input[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        <span class="keyword">char</span> temp=s.top();</span><br><span class="line">        s.pop();</span><br><span class="line">        result=result+temp+<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> input;</span><br><span class="line"></span><br><span class="line">    getline(<span class="built_in">cin</span>,input);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;transferSuffix(input);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/10/中缀表达式转后缀表达式/" data-id="ck0abjdo7000uh0w4fdh1fi22" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-中缀表达式的直接求值" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/09/中缀表达式的直接求值/" class="article-date">
+  <time class="post-time" datetime="2019-07-09T09:25:01.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/09/中缀表达式的直接求值/">中缀表达式的直接求值</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通常是对中缀表达式直接进行求值,这里采用对中缀表达式直接进行求值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能:直接求中缀表达式的值, 支持+/-*();</span></span><br><span class="line"><span class="comment">处理思路:</span></span><br><span class="line"><span class="comment"> 1. 先处理+-符号,将数字和符号全部存入栈中,最后逆序求值(+-求值和顺序无关)</span></span><br><span class="line"><span class="comment"> 2. 在1.的基础上求* /,要求遇到* /时先处理* /,将其变为一个数值,然后存放入栈中,最后得到一个只含+-的表达式</span></span><br><span class="line"><span class="comment"> 3. 在2.的基础上增加(),在遇到(时,放入栈中,遇到)需要从栈中提取,然后得到()内的值。 ()的嵌套同样遵循该规律。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// index:'('的下标位置 ;</span></span><br><span class="line"><span class="comment">// flag:在含有括号的地方,可能出现)+这样两个连续符号出现的情况,当出现这种情况,用flag=false标明,从而不进行插入数值;用于处理(32+11)*2; 因为(32+11)在函数后处理是一个数值,不能在其后插入数值</span></span><br><span class="line"><span class="comment">// ASCII: (:40 , ):41</span></span><br><span class="line"><span class="comment">// 计算括号内的表达式的值,支持嵌套运算;  处理结果:将表达式的值存储在栈中;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deal_bracket</span><span class="params">(<span class="built_in">string</span> expression,<span class="keyword">int</span> &amp;index,<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; &amp;s,<span class="keyword">bool</span> &amp;flag)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    s.push(expression[index]); <span class="comment">// 存储'(',最后需要将其pop</span></span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>; <span class="comment">// 存储操作数</span></span><br><span class="line">    <span class="comment">//bool flag=true; //</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理()和/*</span></span><br><span class="line">    <span class="comment">// 如果遇到),表示处理停止,准备弹栈和计算;</span></span><br><span class="line">    <span class="keyword">for</span>(index++;expression[index]!=<span class="string">')'</span>;index++)&#123;</span><br><span class="line">        <span class="comment">//嵌套的括号中,(前有三种情况:+- , */ , ( ;  +-是不需要管的; */需要子括号的计算结果 ; (也不需要管;</span></span><br><span class="line">        <span class="comment">//在这里是指+- , (;</span></span><br><span class="line">        <span class="keyword">if</span>(expression[index]==<span class="string">'('</span>) &#123;</span><br><span class="line">            deal_bracket(expression, index, s,flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//符号</span></span><br><span class="line">            <span class="keyword">if</span>(expression[index]&lt;<span class="number">48</span>) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(flag==<span class="literal">true</span>) &#123;</span><br><span class="line">                    <span class="comment">// 先存储操作数;(int)</span></span><br><span class="line">                    s.push(num);</span><br><span class="line">                    num = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                flag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//+ -</span></span><br><span class="line">                <span class="keyword">if</span>(expression[index]==<span class="string">'+'</span> || expression[index]==<span class="string">'-'</span>)&#123;</span><br><span class="line">                    s.push(expression[index]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//* /</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(expression[index]==<span class="string">'*'</span> || expression[index]==<span class="string">'/'</span>)&#123;</span><br><span class="line">                    <span class="comment">// arithmetic operator</span></span><br><span class="line">                    <span class="keyword">char</span> symbol=expression[index];</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// first operator</span></span><br><span class="line">                    <span class="keyword">int</span> temp1=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 获得第二个操作数</span></span><br><span class="line">                    index++;</span><br><span class="line">                    <span class="keyword">int</span> temp2=<span class="number">0</span>; <span class="comment">//operator2</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 如果*/遇到(),那么进行嵌套</span></span><br><span class="line">                    <span class="keyword">if</span>(expression[index]==<span class="string">'('</span>)&#123;</span><br><span class="line">                        deal_bracket(expression,index,s,flag);</span><br><span class="line">                        temp2=s.top();</span><br><span class="line">                        s.pop();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">while</span> (index &lt; expression.length() &amp;&amp; expression[index] &gt;= <span class="number">48</span>) &#123;</span><br><span class="line">                            temp2 = temp2 * <span class="number">10</span> + expression[index] - <span class="number">48</span>;</span><br><span class="line">                            index++;</span><br><span class="line">                        &#125;</span><br><span class="line">                        index--; <span class="comment">//保证index++之后为下一个符号</span></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">if</span>(symbol==<span class="string">'*'</span>)&#123;</span><br><span class="line">                        result=temp1*temp2;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        result=temp1/temp2;</span><br><span class="line">                    &#125;</span><br><span class="line">                    num=result; <span class="comment">// 避免重复入栈;(只需要通过遇到下一个运算符入栈就OK)</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 如果是括号内的最后一个元素,那么需要存入栈</span></span><br><span class="line">                    <span class="keyword">if</span>(expression[index+<span class="number">1</span>]==<span class="string">')'</span>)&#123;</span><br><span class="line">                        s.push(num);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                num=num*<span class="number">10</span>+expression[index]<span class="number">-48</span>;</span><br><span class="line">                <span class="comment">// 如果是括号内的最后一个元素,那么需要存入栈</span></span><br><span class="line">                <span class="keyword">if</span>(expression[index+<span class="number">1</span>]==<span class="string">')'</span>)&#123;</span><br><span class="line">                    s.push(num);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将整个括号的内容用最终结果代替</span></span><br><span class="line">    <span class="keyword">int</span> result=<span class="number">0</span>; <span class="comment">//括号内结果</span></span><br><span class="line">    <span class="keyword">while</span>(s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> value1=s.top();</span><br><span class="line">        s.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span> symbol=<span class="string">'+'</span>;</span><br><span class="line">        <span class="keyword">if</span>(s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">            symbol=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(symbol==<span class="string">'-'</span>)&#123;</span><br><span class="line">            result+=-value1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            result+=value1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    s.pop();</span><br><span class="line">    s.push(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//remove multiple and divide sign,and store expression(only include + and -) in stack</span></span><br><span class="line"><span class="comment">//+:43  -:45  *:42  /:47  0:48</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">first_deal</span><span class="params">(<span class="built_in">string</span> expression,<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; &amp;s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>; <span class="comment">//store operator</span></span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;expression.length();i++)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(expression[i]==<span class="string">'('</span>) &#123;</span><br><span class="line">            deal_bracket(expression,i,s,flag);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//operator</span></span><br><span class="line">            <span class="keyword">if</span> (expression[i] &lt; <span class="number">48</span>) &#123;</span><br><span class="line">                <span class="comment">// storage data;(int)</span></span><br><span class="line">                s.push(num);</span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//+ -</span></span><br><span class="line">                <span class="keyword">if</span> (expression[i] == <span class="string">'+'</span> || expression[i] == <span class="string">'-'</span>) &#123;</span><br><span class="line">                    s.push(expression[i]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//* /</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (expression[i] == <span class="string">'*'</span> || expression[i] == <span class="string">'/'</span>) &#123;</span><br><span class="line">                    <span class="comment">// arithmetic operator</span></span><br><span class="line">                    <span class="keyword">char</span> symbol = expression[i];</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// first operator</span></span><br><span class="line">                    <span class="keyword">int</span> temp1 = s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// get second operator</span></span><br><span class="line">                    i++;</span><br><span class="line">                    <span class="keyword">int</span> temp2 = <span class="number">0</span>; <span class="comment">//operator2</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 如果*/遇到(),那么进行嵌套</span></span><br><span class="line">                    <span class="keyword">if</span>(expression[i]==<span class="string">'('</span>)&#123;</span><br><span class="line">                        deal_bracket(expression,i,s,flag);</span><br><span class="line">                        temp2=s.top();</span><br><span class="line">                        s.pop();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">while</span> (i &lt; expression.length() &amp;&amp; expression[i] &gt;= <span class="number">48</span>) &#123;</span><br><span class="line">                            temp2 = temp2 * <span class="number">10</span> + expression[i] - <span class="number">48</span>;</span><br><span class="line">                            i++;</span><br><span class="line">                        &#125;</span><br><span class="line">                        i--; <span class="comment">//to prove next symbol is operator</span></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">if</span> (symbol == <span class="string">'*'</span>) &#123;</span><br><span class="line">                        result = temp1 * temp2;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        result = temp1 / temp2;</span><br><span class="line">                    &#125;</span><br><span class="line">                    num = result; <span class="comment">// avoid repeated storage</span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (i == expression.length() - <span class="number">1</span>) &#123;</span><br><span class="line">                        s.push(num);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                num = num * <span class="number">10</span> + expression[i] - <span class="number">48</span>;</span><br><span class="line">                <span class="comment">// the last element is number,you should store it.</span></span><br><span class="line">                <span class="keyword">if</span> (i == (expression.length() - <span class="number">1</span>)) &#123;</span><br><span class="line">                    s.push(num);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> expression;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;  <span class="comment">// string[] return type: char</span></span><br><span class="line"></span><br><span class="line">    getline(<span class="built_in">cin</span>,expression);</span><br><span class="line"></span><br><span class="line">    first_deal(expression,s);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将整个括号的内容用最终结果代替</span></span><br><span class="line">    <span class="keyword">int</span> result=<span class="number">0</span>; <span class="comment">//括号内结果</span></span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> value1=s.top();</span><br><span class="line">        s.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span> symbol=<span class="string">'+'</span>;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            symbol=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(symbol==<span class="string">'-'</span>)&#123;</span><br><span class="line">            result+=-value1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            result+=value1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;result&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/09/中缀表达式的直接求值/" data-id="ck0abjdo2000nh0w4o5whut8n" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/" class="article-date">
+  <time class="post-time" datetime="2019-06-26T02:00:41.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/">类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原因:C++要求，当实例化一个类的对象时，编译器会根据类的定义来分配相应的存储空间。<br>也就是说，在创建对象前，一定要有完整的类定义，这样编译器才能正确的计算所需空间。如果没有完整的定义，相当于一种无限初始化（递归）。</p>
+<p>对于指针和引用，他们的存储空间大小与指向的类型无关，因此可以正确地分配内存空间。</p>
+<p>实例化类的对象的步骤：</p>
+<ol>
+<li>先构造成员变量。</li>
+<li>然后调用自身的构造函数。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/" data-id="ck0abjdpk001jh0w4y8hgnvnz" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-面向对象的分析" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/29/面向对象的分析/" class="article-date">
+  <time class="post-time" datetime="2019-05-29T11:53:20.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">29</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/面向对象的分析/">面向对象的分析</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件工程/">软件工程</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面讲到，面向对象包括：OOA，OOD，OOP，现在来考虑OOA</p>
+<p>OOA的目的：分析问题，寻找到对象，分析对象的关系，忽略与实现有关的问题，建立系统的对象模型。<br>OOA的工具：用例图，类图，时序图，协作图，状态图。<br>OOA的过程：先通过需求分析建立需求模型（功能模型，从用户的角度获取功能需求），然后通过分析问题，发现对象和类，得到分析模型（静态结构模型：类图，动态结构模型：状态图/顺序图）</p>
+<h2 id="建立静态模型"><a href="#建立静态模型" class="headerlink" title="建立静态模型"></a>建立静态模型</h2><p>过程：根据需求模型，识别分析类；确定类的属性，方法，关系；绘制类图</p>
+<p>分析类：是一种在概念上较为抽象的类，只有应用逻辑有关（应该会派生出很多子类）。<br>分析类的分类：实体类（存储信息），边界类（参与者和系统的交互），控制类（运行的控制逻辑，负责协调实体类和边界类）。<br>分析类之间的关系属于关联关系。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/29/面向对象的分析/" data-id="ck0abjdph001hh0w4r3i7imfb" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-面向对象基本概念" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/29/面向对象基本概念/" class="article-date">
+  <time class="post-time" datetime="2019-05-29T09:22:19.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">29</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/面向对象基本概念/">面向对象基本概念</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件工程/">软件工程</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向对象的历史"><a href="#面向对象的历史" class="headerlink" title="面向对象的历史"></a>面向对象的历史</h2><p>在面向对象之前，一直使用结构化分析方法（面向过程）。</p>
+<p>结构化设计方法的特点：</p>
+<ul>
+<li>以功能为核心进行设计，把软件看成处理数据的流。（功能和数据流）</li>
+<li>自顶向下，将问题逐步分解，从而实现系统功能。</li>
+<li>数据结构由算法决定。</li>
+<li>结构化软件=数据结构+算法。</li>
+<li>通过全局变量保存系统的状态。</li>
+</ul>
+<p>C语言开发的软件一般属于结构化软件。</p>
+<p>结构化分析的缺点：难以应付变化。</p>
+<hr>
+<h2 id="面向对象的特点（与面向过程相比）"><a href="#面向对象的特点（与面向过程相比）" class="headerlink" title="面向对象的特点（与面向过程相比）"></a>面向对象的特点（与面向过程相比）</h2><p>系统看作对象的集合，每个对象包含一组表示自身特性的数据和数据上的操作集合。考虑问题的核心从过程转移到实体对象。</p>
+<p>系统的状态，算法，数据分布在各个用户上。</p>
+<p>对象之间的通信通过消息进行。</p>
+<p>面向对象软件=对象+消息。</p>
+<p>面向对象的优点：</p>
+<ul>
+<li>更加适合于解决实际问题</li>
+<li>容易进行变更</li>
+</ul>
+<p>面向对象包括：OOA（面向对象分析），OOD（面向对象设计），OOP（面向对象编程）</p>
+<hr>
+<h2 id="面向对象基本概念"><a href="#面向对象基本概念" class="headerlink" title="面向对象基本概念"></a>面向对象基本概念</h2><p>对象（object）：描述客观事物的实体，拥有属性（attribute）和操作（operation）。  例如：一辆车，属性：价格，重量等； 方法：启动，停止，加油等。</p>
+<p>类（class）：具有相同属性和操作的对象的集合，是一种抽象的模型。 比如，所有的汽车可以构成一个汽车类。 想要完整的描述类，可以用类图（class diagram）进行静态化描述。</p>
+<p>对象是动态的，类是静态的。</p>
+<p>类的属性（attribute）：有三种类型，public，private，protected。</p>
+<p>消息（message）：一个对象向其他对象发出的请求。 对象通过消息连接在一起，构成了完整的系统。</p>
+<p>封装（encapsulation）：隐藏对象的属性，仅对外提供接口来进行属性的访问和修改。（不让外界直接调用对象的属性，但是提供API接口让外界调用）封装的目的在于增强安全性。</p>
+<p>接口（interface）：接口定义的是一组属性和操作的描述，而不是操作的实现，需要用其他类来实现它定义的操作。接口的意义体现在设计当中，Java语言用的很多。<br>另外还有一个抽象类，抽象类允许在普通的类中添加抽象方法。抽象方法就是只有定义，没有实现的方法。抽象类自己不能定义实例，必须依靠子类实现进行定义实例。抽象类与接口类似，只不过接口是所有的方法都为抽象方法，抽象类是一部分方法是抽象方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NameOfInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="comment">//任何类型 final, static 字段</span></span><br><span class="line">   <span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象类</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="comment">//普通方法 </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"存在方法体的方法"</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//抽象方法，没有方法体，有abstract关键字做修饰 </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继承（inheritance）：子类可自动拥有父类的所有属性和操作。继承分为单一继承和多重继承。</p>
+<p>多态性（polymorphism）：同一个操作作用于不同对象上有不同的行为，产生不同的结果。<br>静态多态性：一个类或一个函数中的同名函数，它们根据参数表（类型以及个数）区别语义。<br>动态多态性：在一个类层次的不同类中的重载函数，它们一般具有相同的函数，因此要根据指针指向的对象所在类来区别语义。</p>
+<h2 id="对象之间的五类关系"><a href="#对象之间的五类关系" class="headerlink" title="对象之间的五类关系"></a>对象之间的五类关系</h2><p>继承泛化关系：表示了对象的一般/特殊关系，一般通过继承实现。 比如：动物与猫。 （is a kind of）</p>
+<p>聚合（aggression）/组合（composition）关系：表示了对象的组成关系。<br>聚合和组合的区别：聚合要求整体与部分的生命周期独立，例如公司和职员，课程和学生。组合要求整体与部分的生命周期统一，例如人和心脏。  (组合：is part of，聚合：own a)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//聚合关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Student student;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">addStudent</span><span class="params">()</span></span>&#123;</span><br><span class="line">        student=<span class="keyword">new</span> Student();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//组合关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> heart=<span class="keyword">new</span> Heart();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关联关系：表示对象之间的静态联系，通过对象的属性的联系显现。对象实例的连接称为链接（link），存在实例连接的对象类之间的联系称为关联（association）。 关联具有方向性：单向关联，只有一方知道关联关系；双向关联，双方都知道关联关系。  关联数目比有1：1，1：n，n：1，m：n，通常m：n的关系需要添加一个关联类来存储关系信息。  (has a)</p>
+<p>聚合关系和关联关系：聚合关系可以看成是一种特殊的关联关系，只不过聚合关系的关联程度大（比较抽象，没太大影响），聚合关系可写成关联关系（这种关系主要是在类图中体现，软件工程比较严格，需要先描述，再进行编程。）聚合关系强调地位不对等（买家和所买的物品），而关联关系强调双方地位比较接近（卖家，卖家）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Coures</span></span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1:n</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Students</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Course[] courses;</span><br><span class="line">    <span class="keyword">private</span> Teacher[] teachers;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// m:n </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stduents[] students;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>依赖关系（dependency）：表示对象的消息联系，是一种动态联系。一个对象需要另一个对象的服务（属性/方法），做出请求，并且等待对方的响应信息。它是一种很弱的联系关系。 （use a）</p>
+<p>区分依赖关系和关联关系：<br>依赖关系主要是通过函数进行联系，在函数中引用了其他对象，关系的范围是局部性的。<br>关联关系是通过属性进行联系，作用范围是全局性的（整个对象）。</p>
+<p>实现关系（realization）：用于描述接口和其实现类的关系。</p>
+<p>对象联系的强度： 继承 &gt;&gt;&gt; 组合 &gt;&gt; 聚合 &gt;&gt; 关联 &gt;&gt; 依赖</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/29/面向对象基本概念/" data-id="ck0abjdpo001mh0w4ye0jyy6t" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-BFS总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/09/BFS总结/" class="article-date">
+  <time class="post-time" datetime="2019-02-09T06:35:21.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/09/BFS总结/">BFS总结</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BFS:广度优先搜索</p>
+<p>BFS的特点:</p>
+<ol>
+<li>BFS是思想,队列是工具</li>
+<li>BFS常用来解决连通问题,最短路径长度(BFS的层数)</li>
+<li>BFS相当于树的层序遍历过程;(等价)    BFS/DFS针对的问题可以抽象为是图的问题。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BFS模版</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 邻接矩阵</span></span><br><span class="line"><span class="keyword">int</span> n,G[MAXV][MAXV];</span><br><span class="line"><span class="keyword">bool</span> inq[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(u);</span><br><span class="line">    inq[u]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;MAXV;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!inq[v] &amp;&amp; G[u][v]!=INF)&#123;</span><br><span class="line">                q.push(v);</span><br><span class="line">                inq[v]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!inq[i])&#123;</span><br><span class="line">            BFS(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 邻接表</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; Adj[MAXV]; </span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> inq[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(u);</span><br><span class="line">    inq[u]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Adj[u].size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!inq[i])&#123;</span><br><span class="line">                q.push(i);</span><br><span class="line">                inq[i]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!inq[i])&#123;</span><br><span class="line">            BFS(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/09/BFS总结/" data-id="ck0abjdn30003h0w4ic5s47k8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遍历/">遍历</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-DFS总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/DFS总结/" class="article-date">
+  <time class="post-time" datetime="2019-02-08T09:26:01.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/08/DFS总结/">DFS</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DFS:深度优先搜索.</p>
+<p>在我看来,DFS的特点如下:</p>
+<ol>
+<li>讲究层次性,在写DFS的时候,一定要弄清楚什么东西代表DFS的层次; 除此之外,弄清楚DFS的结束规则;(递归式+结束规则)</li>
+<li>DFS是思想,栈是工具(记录某些信息),递归是手段;</li>
+<li>在写DFS的时候,牢记:<strong>在本层需要模拟所有情况(多个递归函数,参数不同),在递归返回的时候,需要回到初始状态,以便模拟所有情况;</strong>这也体现在其书写特点;</li>
+<li>DFS需要考虑所有情况,虽然可以通过剪枝来提高实际运行效率,但是还是尽量少使用;</li>
+<li>DFS处理的问题常与序列顺序,存在性问题(存在,找出最优解/不存在)有关,连通分量;</li>
+<li>DFS就是树的先序遍历过程;(等价)</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DFS模版</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXV=<span class="number">1000</span>;  <span class="comment">// 顶点数</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF=<span class="number">-1</span>;   <span class="comment">// 无效值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//邻接矩阵版</span></span><br><span class="line"><span class="keyword">int</span> n; <span class="comment">//顶点个数</span></span><br><span class="line"><span class="keyword">int</span> G[MAXV][MAXV]=&#123;INF&#125;;</span><br><span class="line"><span class="keyword">bool</span> vis[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// u：当前欲访问结点，depth：深度</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> depth)</span></span>&#123;</span><br><span class="line">    vis[u]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;MAXV;v++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(G[u][v]!=INF &amp;&amp; !vis[MAXV])&#123;</span><br><span class="line">            DFS(v,depth+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;n;v++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line">            DFS(v,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 邻接表版</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;  Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> vis[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> depth)</span></span>&#123;</span><br><span class="line">    vis[u]=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> p=Adj[u].begin();p&lt;Adj[u].end();p++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[*p])&#123;</span><br><span class="line">            DFS(*p,depth+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> v=<span class="number">0</span>;v&lt;n;v++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line">            DFS(v,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是codeup_contest10000608组合数的题目,最明显的特点就是在DFS内进行下一次递归的时候,前后进行相反的操作,目的是为了恢复,方便下一次DFS;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//next_pos:下一次元素的起始位置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> rem,<span class="keyword">bool</span>* arr,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v,<span class="keyword">int</span> N,<span class="keyword">int</span> r,<span class="keyword">int</span> next_pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(rem==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.size()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,v.back());</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//要求后一位比前一位大;</span></span><br><span class="line">        <span class="keyword">if</span>(next_pos&lt;=N)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=next_pos;i&lt;=N;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i]==<span class="literal">false</span>)&#123;</span><br><span class="line">                    <span class="keyword">int</span> former_next=next_pos;</span><br><span class="line">                    arr[i]=<span class="literal">true</span>;</span><br><span class="line">                    rem--;</span><br><span class="line">                    v.push_back(i);</span><br><span class="line">                    next_pos=i;</span><br><span class="line">                    DFS(rem,arr,v,N,r,next_pos);   <span class="comment">//在这附近进行了相反的处理,这是通式;</span></span><br><span class="line">                    v.pop_back();</span><br><span class="line">                    rem++;</span><br><span class="line">                    next_pos=former_next;</span><br><span class="line">                    arr[i]=<span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v; <span class="comment">//存储1~n的序列</span></span><br><span class="line">    <span class="keyword">int</span> N,r;</span><br><span class="line">    <span class="keyword">bool</span> arr[<span class="number">22</span>]=&#123;<span class="literal">false</span>&#125;; <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=N-r+<span class="number">1</span>;i++)&#123;</span><br><span class="line">        v.push_back(i);</span><br><span class="line">        arr[i]=<span class="literal">true</span>;</span><br><span class="line">        DFS(r<span class="number">-1</span>,arr,v,N,r,i);</span><br><span class="line">        v.pop_back();</span><br><span class="line">        arr[i]=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/08/DFS总结/" data-id="ck0abjdn90006h0w42ru0k8fz" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遍历/">遍历</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

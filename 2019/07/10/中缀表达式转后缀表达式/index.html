@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>中缀表达式转后缀表达式 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用后缀表达式来求值会比中缀表达式直接求值方便很多,因此采用另一种方法:将中缀表达式转换为后缀表达式。 转换的核心：  后序表达式的核心特征在于:先进行处理的运算符在前，后处理的运算符在后；(通过字符串中符号顺序表示实际优先级规则) 建立符号栈来存储运算符。 处理过程： 当遇到是数字：数字后面只可能是运算符和字符串的结束；（注意对字符串结束的处理）    那么直接输出到目的串中； 在处理运算符：最">
+<meta name="keywords" content="classic problem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中缀表达式转后缀表达式">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/中缀表达式转后缀表达式/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="使用后缀表达式来求值会比中缀表达式直接求值方便很多,因此采用另一种方法:将中缀表达式转换为后缀表达式。 转换的核心：  后序表达式的核心特征在于:先进行处理的运算符在前，后处理的运算符在后；(通过字符串中符号顺序表示实际优先级规则) 建立符号栈来存储运算符。 处理过程： 当遇到是数字：数字后面只可能是运算符和字符串的结束；（注意对字符串结束的处理）    那么直接输出到目的串中； 在处理运算符：最">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-10T14:46:17.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="中缀表达式转后缀表达式">
+<meta name="twitter:description" content="使用后缀表达式来求值会比中缀表达式直接求值方便很多,因此采用另一种方法:将中缀表达式转换为后缀表达式。 转换的核心：  后序表达式的核心特征在于:先进行处理的运算符在前，后处理的运算符在后；(通过字符串中符号顺序表示实际优先级规则) 建立符号栈来存储运算符。 处理过程： 当遇到是数字：数字后面只可能是运算符和字符串的结束；（注意对字符串结束的处理）    那么直接输出到目的串中； 在处理运算符：最">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-中缀表达式转后缀表达式" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/10/中缀表达式转后缀表达式/" class="article-date">
+  <time class="post-time" datetime="2019-07-10T14:10:15.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      中缀表达式转后缀表达式
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用后缀表达式来求值会比中缀表达式直接求值方便很多,因此采用另一种方法:将中缀表达式转换为后缀表达式。</p>
+<p>转换的核心：</p>
+<ol>
+<li>后序表达式的核心特征在于:先进行处理的运算符在前，后处理的运算符在后；(<strong>通过字符串中符号顺序表示实际优先级规则</strong>)</li>
+<li>建立符号栈来存储运算符。</li>
+<li>处理过程：<ul>
+<li>当遇到是数字：数字后面只可能是运算符和字符串的结束；（注意对字符串结束的处理）    那么直接输出到目的串中；</li>
+<li>在处理运算符：最优策略是设置一个优先级的对应关系（符号在栈中的优先级和符号在栈外的优先级需要分别考虑，在出栈和入栈的时候根据这个关系进行考虑（我在这里完全使用符号比较，有点蠢））；</li>
+<li>在处理运算符：左括号&gt;<em>/&gt;+-（符号优先级），在入栈的时候，如果读入的符号优先级<strong>大于（不是大于等于）</strong>栈顶符号优先级（需要判断空），则直接入栈；否则，就需要先弹出栈，再入栈；  当遇到 ‘)’ 的时候，需要将()的符号全部输出，除此之外还需要考虑一个问题：   比如 1+2-1 </em>((3+4)/5-6)+7 ，当在读入最后一个右括号时， 左侧第一个’-‘和’ <em>‘都在栈中，当读入+的时候，会输出 </em>，但是 ‘-‘ 应该也会输出；（因此要注意特殊情况），这里的判定条件应该是：弹栈到第一个优先级&lt;=读入的符号；（可能有点乱，如果用优先级的对应关系写，会清楚很多，<strong>更加突出优先级的关系，而不是符号的关系</strong>。）</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 目的:将中缀表达式转换为后缀表达式；</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 输入:中缀表达式</span></span><br><span class="line"><span class="comment"> * 输出:后缀表达式(无括号,所有的元素之间以空格分开, 2 3 1 - +)</span></span><br><span class="line"><span class="comment"> * 处理思路:（编程时想的,可能不全面)</span></span><br><span class="line"><span class="comment"> * 1. 遇到数字,读取完整的数字(比如:23),并且输出; (数字的后面一定为符号或者结束;)</span></span><br><span class="line"><span class="comment"> * 2. 只需要符号栈; 一个符号对应两个数值,优先级高的符号在前面符号序列的前面;</span></span><br><span class="line"><span class="comment"> * 3. 符号优先级:() &gt; / * &gt; +-</span></span><br><span class="line"><span class="comment"> * 4. 遇到+-,如果栈顶是/ *,那么需要弹栈,再入栈;如果栈顶+-,那么需要先弹栈,再入栈;如果栈顶(那么,直接入栈;(碰到优先级不比自己低的,需要先弹栈)</span></span><br><span class="line"><span class="comment"> * 5. 遇到(,无论栈顶是什么,入栈;</span></span><br><span class="line"><span class="comment"> * 6. 遇到),弹栈,直到遇到(</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// (:40 , ):41   +:43  -:45  *:42  /:47  0:48</span></span><br><span class="line"><span class="comment">// 1+2-1*((3+4)/5-6)+7</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">transferSuffix</span><span class="params">(<span class="built_in">string</span> input)</span></span>&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;  <span class="comment">// 符号栈</span></span><br><span class="line">    <span class="built_in">string</span> result=<span class="string">""</span>;  <span class="comment">// 结果</span></span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="literal">false</span>; <span class="comment">//第一个else的result=result+to_string(num)+" "; num=0;(前提:不能有两个连续的操作符,但是*( , )+以及第一个为(</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;input.length();i++)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 数字</span></span><br><span class="line">        <span class="keyword">if</span>(input[i]&gt;=<span class="number">48</span>)&#123;</span><br><span class="line">            num=num*<span class="number">10</span>+input[i]<span class="number">-48</span>;</span><br><span class="line">            flag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//对表达式的最后一个数字进行处理</span></span><br><span class="line">            <span class="keyword">if</span>(i==input.length()<span class="number">-1</span>)&#123;</span><br><span class="line">                result=result+to_string(num)+<span class="string">" "</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 操作符</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag==<span class="literal">true</span>) &#123;  <span class="comment">// 输出限制</span></span><br><span class="line">                result = result + to_string(num) + <span class="string">" "</span>;</span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line">                flag=<span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//  + -; 遇到同级与高优先级需要先弹栈,再进栈;  只有栈顶为空和遇到(时才直接进栈</span></span><br><span class="line">            <span class="keyword">if</span>(input[i]==<span class="string">'+'</span> || input[i]==<span class="string">'-'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>((!s.empty() &amp;&amp; s.top()==<span class="string">'('</span>) || s.empty())&#123;</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                    result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// / *</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input[i]==<span class="string">'/'</span> || input[i]==<span class="string">'*'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>((!s.empty() &amp;&amp; (s.top()==<span class="string">'+'</span> || s.top()==<span class="string">'-'</span> || s.top()==<span class="string">'('</span>)) || s.empty())&#123;</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(!s.empty() &amp;&amp; (s.top()==<span class="string">'*'</span> || s.top()==<span class="string">'/'</span>))&#123;</span><br><span class="line">                    <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line">                    s.push(input[i]);</span><br><span class="line">                    result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// (</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input[i]==<span class="string">'('</span>)&#123;</span><br><span class="line">                s.push(input[i]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// )</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">                    <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line">                    result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                s.pop(); <span class="comment">// 弹出(</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// 讨论 +2*((3+4)/5-6)+2 中最左侧加号和最右边加号的输出情况</span></span><br><span class="line">                <span class="keyword">if</span>(i&lt;input.length()<span class="number">-1</span>)&#123;</span><br><span class="line">                    i++;</span><br><span class="line">                    <span class="keyword">if</span>(input[i]==<span class="string">'+'</span> || input[i]==<span class="string">'-'</span>)&#123;</span><br><span class="line">                        <span class="keyword">while</span>(!s.empty() &amp;&amp; s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">                            <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                            s.pop();</span><br><span class="line">                            result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        s.push(input[i]);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span>(input[i]==<span class="string">'/'</span> || input[i]==<span class="string">'*'</span>)&#123;</span><br><span class="line">                        <span class="keyword">while</span>(!s.empty() &amp;&amp; (s.top()==<span class="string">'+'</span> || s.top()==<span class="string">'-'</span>))&#123;</span><br><span class="line">                            <span class="keyword">char</span> temp=s.top();</span><br><span class="line">                            s.pop();</span><br><span class="line">                            result=result+temp+<span class="string">" "</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        s.push(input[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        <span class="keyword">char</span> temp=s.top();</span><br><span class="line">        s.pop();</span><br><span class="line">        result=result+temp+<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> input;</span><br><span class="line"></span><br><span class="line">    getline(<span class="built_in">cin</span>,input);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;transferSuffix(input);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/10/中缀表达式转后缀表达式/" data-id="ck0abjdo7000uh0w4fdh1fi22" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/31/PAT CCF/PATA-1034/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          PATA-1034
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/09/中缀表达式的直接求值/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">中缀表达式的直接求值</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

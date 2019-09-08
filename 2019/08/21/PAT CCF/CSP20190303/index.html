@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>CSP20190303 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本题没有什么特别的算法，但就是麻烦，必须从题目中提取有效信息，建立起正确的数据对应关系，选择合适的计算公式；我第一次没看懂题目，即使后来看懂了，因为没列出详细的关系，在编程的时候陷入混乱，无从下手；后来参考了：https://www.cnblogs.com/xidian-mao/p/10991393.html，才AC了。 关于各个数据之间的关系：  n块磁盘，没块磁盘最大的单位是条，一条由s个块组">
+<meta name="keywords" content="复杂模拟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSP20190303">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/PAT CCF/CSP20190303/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="本题没有什么特别的算法，但就是麻烦，必须从题目中提取有效信息，建立起正确的数据对应关系，选择合适的计算公式；我第一次没看懂题目，即使后来看懂了，因为没列出详细的关系，在编程的时候陷入混乱，无从下手；后来参考了：https://www.cnblogs.com/xidian-mao/p/10991393.html，才AC了。 关于各个数据之间的关系：  n块磁盘，没块磁盘最大的单位是条，一条由s个块组">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-21T10:43:10.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSP20190303">
+<meta name="twitter:description" content="本题没有什么特别的算法，但就是麻烦，必须从题目中提取有效信息，建立起正确的数据对应关系，选择合适的计算公式；我第一次没看懂题目，即使后来看懂了，因为没列出详细的关系，在编程的时候陷入混乱，无从下手；后来参考了：https://www.cnblogs.com/xidian-mao/p/10991393.html，才AC了。 关于各个数据之间的关系：  n块磁盘，没块磁盘最大的单位是条，一条由s个块组">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-PAT CCF/CSP20190303" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/PAT CCF/CSP20190303/" class="article-date">
+  <time class="post-time" datetime="2019-08-21T10:31:08.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSP20190303
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CCF-CSP/">CCF-CSP</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本题没有什么特别的算法，但就是麻烦，必须从题目中提取有效信息，建立起正确的数据对应关系，选择合适的计算公式；我第一次没看懂题目，即使后来看懂了，因为没列出详细的关系，在编程的时候陷入混乱，无从下手；后来参考了：<a href="https://www.cnblogs.com/xidian-mao/p/10991393.html，才AC了。" target="_blank" rel="noopener">https://www.cnblogs.com/xidian-mao/p/10991393.html，才AC了。</a></p>
+<p>关于各个数据之间的关系：</p>
+<ol>
+<li>n块磁盘，没块磁盘最大的单位是条，一条由s个块组成； 题目要求根据块号，找到第几块磁盘和块在磁盘的起始地址；</li>
+<li>理解除法和取余：除法用来寻找“级别”，取余用来寻找“偏移地址”；   通过 块号 除以 一条内的块数个数 可以得知目标块位于第几块；  通过 块号 对一条内的块数个数 取余 可以得知块在条内的偏移地址；    通过 条号 除以 一层的条数 可以得知条/块在哪一层；   通过 条号 对一层的条数 取余 可以得知条相对于冗余块的偏移地址；   （一定要理解/和%，这是计算公式的关键）</li>
+</ol>
+<p>对于这种题目，还是使用结构化编程舒服。</p>
+<p>对于异或：对整形使用 ^ 可得到数字，然后进行映射/哈希就行了。</p>
+<p>一道比较烦的模拟题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">测试数据：</span></span><br><span class="line"><span class="comment">3 2 2</span></span><br><span class="line"><span class="comment">0 000102030405060710111213141516172021222324252627</span></span><br><span class="line"><span class="comment">1 A0A1A2A3A4A5A6A7B0B1B2B3B4B5B6B7C0C1C2C3C4C5C6C7</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment">答案：</span></span><br><span class="line"><span class="comment">A0A1A2A3</span></span><br><span class="line"><span class="comment">A0A0A0A0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">这个题目很关键的地方：</span></span><br><span class="line"><span class="comment">1. 阅读题目，抽象出关键的概念 ； （块，条等关系）</span></span><br><span class="line"><span class="comment">2. 通过/计算出大块地址，通过%计算出块内偏移地址； </span></span><br><span class="line"><span class="comment">3. 逻辑要清晰，计算出什么，要计算什么，公式？    </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, S, L;</span><br><span class="line"><span class="built_in">string</span> mes[<span class="number">1005</span>];  </span><br><span class="line"><span class="keyword">int</span> MAX; <span class="comment">//磁盘上的层数</span></span><br><span class="line"><span class="built_in">string</span> base = <span class="string">"0123456789ABCDEF"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将0-9，A-F转换为数字</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">to_int</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> ch - <span class="string">'0'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> ch - <span class="string">'A'</span> + <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进行单次异或操作</span></span><br><span class="line"><span class="keyword">void</span> _xor(<span class="built_in">string</span>&amp; ans, <span class="built_in">string</span> str) &#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.size(); i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> x = to_int(ans[i]);</span><br><span class="line">		<span class="keyword">int</span> y = to_int(str[i]);</span><br><span class="line">		ans[i] = base[(x ^ y)];   <span class="comment">// 对整数自动  ^ 就是异或操作; 无需转换为二进制;  字符串映射是个wise idea;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数据进行异或操作;  disk_num:冗余盘号,   start:块偏移地址;</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">get_xor</span><span class="params">(<span class="keyword">int</span> disk_num, <span class="keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">ans</span><span class="params">(<span class="number">8</span>, <span class="string">'0'</span>)</span></span>;</span><br><span class="line">	<span class="comment">// 对每个disk进行循环</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (i != disk_num) &#123;</span><br><span class="line">			_xor(ans, mes[i].substr(start, <span class="number">8</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N &gt;&gt; S &gt;&gt; L;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> index;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; index;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; mes[index];</span><br><span class="line">		MAX = mes[index].length() / <span class="number">8</span> / S;  <span class="comment">// &gt;=MAX，说明超过；   层数从0开始；     </span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> times;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; times;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">		<span class="comment">// 从小至大：逐个计算条号，层号，然后通过层号，条号，块号计算条内的偏移量；</span></span><br><span class="line">		<span class="keyword">int</span> block_num;   <span class="comment">// 块号</span></span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; block_num;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> strip_num = block_num / S;  <span class="comment">// 所在的条数  ;  y对应条数   ; 条数从0开始；</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> level_num = strip_num / (N - <span class="number">1</span>); <span class="comment">// 所在层数 ;  对应k   ； 层数从0开始；</span></span><br><span class="line">		<span class="keyword">if</span> (level_num &gt;= MAX) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"-\n"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// (N-1-level_num%N)：所在的disk_num;      (strip_num % N):偏移的disk_num;</span></span><br><span class="line">			<span class="comment">// 冗余块只是没有被编号，但是具有信息；</span></span><br><span class="line">			<span class="keyword">int</span> disk_num = (((N - <span class="number">1</span> - level_num % N) + (strip_num % (N - <span class="number">1</span>) + <span class="number">1</span>))) % N;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> start = <span class="number">8</span> * (level_num * S + block_num % S);   <span class="comment">//  (level_num * S + block_num % S)：计算块号</span></span><br><span class="line">			<span class="comment">// 说明是作为丢失段，需要异或</span></span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (mes[disk_num].size() == <span class="number">0</span> &amp;&amp; (N - <span class="number">1</span> == L)) &#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; get_xor(disk_num, start) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// </span></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (mes[disk_num].size() != <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; mes[disk_num].substr(start, <span class="number">8</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">"-\n"</span>; <span class="comment">//&lt;&lt; endl;</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/21/PAT CCF/CSP20190303/" data-id="ck0abjdqq0021h0w4hsgi11jk" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/复杂模拟/">复杂模拟</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/22/PAT CCF/PATA-1085/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          PATA-1085
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/19/PAT CCF/PATA-1004/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">PATA-1004</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

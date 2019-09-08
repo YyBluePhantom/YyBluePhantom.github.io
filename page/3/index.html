@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="BluePhantom">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BluePhantom">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-PAT CCF/PATA-1067" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/16/PAT CCF/PATA-1067/" class="article-date">
+  <time class="post-time" datetime="2019-08-16T09:41:20.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">16</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/16/PAT CCF/PATA-1067/">PATA-1067</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>想好贪心的策略，原来以为一次搜寻就OK了，结果发现还不行，因此进行适当地修改；（仔细看数据能避免这个问题）</li>
+<li>优化，原来还一直通过find来查找元素，tm铁定超时；后来通过Node，建立一个映射关系； 不需要进行查询，直接通过计算得到；   不过如果没有flag_index，那么还会进行超时；（优化！！！）    用了17ms，没用超过200ms；</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;array&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于一个映射表</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> pos; <span class="comment">// 在seq的位置</span></span><br><span class="line">	<span class="keyword">int</span> num; <span class="comment">// 代表的数值大小</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="built_in">array</span>&lt;Node, 100005&gt; seq;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Node n1, Node n2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n1.num &lt; n2.num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line">	<span class="keyword">int</span> flag_index = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;seq[i].num);</span><br><span class="line">		seq[i].pos = i;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sort(seq.begin(), seq.begin()+N, cmp);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> times = <span class="number">0</span>;  <span class="comment">// 计数</span></span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="literal">true</span>; <span class="comment">// 判断是否结束</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (flag) &#123;</span><br><span class="line">		<span class="keyword">while</span> (seq[<span class="number">0</span>].pos != <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = seq[<span class="number">0</span>].pos;</span><br><span class="line">			seq[<span class="number">0</span>].pos = seq[seq[<span class="number">0</span>].pos].pos;</span><br><span class="line">			seq[temp].pos = seq[temp].num; </span><br><span class="line">			times++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		flag = <span class="literal">false</span>;</span><br><span class="line">		<span class="comment">// 判断是否全部增序，如果出现不满足，flag=true</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = flag_index; i &lt; N; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (seq[i].pos != seq[i].num) &#123;</span><br><span class="line">				flag = <span class="literal">true</span>;</span><br><span class="line">				seq[<span class="number">0</span>].pos = seq[i].pos;</span><br><span class="line">				seq[i].pos = <span class="number">0</span>;</span><br><span class="line">				times++;</span><br><span class="line">				flag_index = i;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, times);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/16/PAT CCF/PATA-1067/" data-id="ck0abjdsc0043h0w4g99f6zkw" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1037" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/16/PAT CCF/PATA-1037/" class="article-date">
+  <time class="post-time" datetime="2019-08-16T08:25:16.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">16</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/16/PAT CCF/PATA-1037/">PATA-1037</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关键在于分清楚题意，查看例子：NC并不一定等于NP，每个coupon只能使用一次，只计算back；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> NC, NP;</span><br><span class="line"><span class="keyword">int</span> array_NC[<span class="number">100005</span>], array_NP[<span class="number">100005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;NC);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NC; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, array_NC + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;NP);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NP; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, array_NP + i);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(array_NC, array_NC + NC);</span><br><span class="line">	sort(array_NP, array_NP + NP);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> result = <span class="number">0</span>; <span class="comment">// 用int可能超</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> l_index_NC = <span class="number">0</span>, l_index_NP = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (l_index_NC &lt; NC &amp;&amp; l_index_NP &lt; NP) &#123;</span><br><span class="line">		<span class="keyword">if</span> (array_NC[l_index_NC] &gt; <span class="number">0</span> || array_NP[l_index_NP] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			result += array_NC[l_index_NC] * array_NP[l_index_NP];</span><br><span class="line">		&#125;</span><br><span class="line">		l_index_NC++;</span><br><span class="line">		l_index_NP++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> r_index_NC = NC<span class="number">-1</span>, r_index_NP = NP<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">while</span> (r_index_NC &gt;=<span class="number">0</span> &amp;&amp; r_index_NP &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (array_NC[r_index_NC] &lt; <span class="number">0</span> || array_NP[r_index_NP] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			result += array_NC[r_index_NC] * array_NP[r_index_NP];</span><br><span class="line">		&#125;</span><br><span class="line">		r_index_NC--;</span><br><span class="line">		r_index_NP--;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>, result);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/16/PAT CCF/PATA-1037/" data-id="ck0abjds2003rh0w4b2po5cln" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-C++/cin加速" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/16/C++/cin加速/" class="article-date">
+  <time class="post-time" datetime="2019-08-16T02:35:41.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">16</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/16/C++/cin加速/">cin加速</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C/">C++</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在时效上，scanf和printf优于cin、cout。</p>
+<p>cin速度慢的原因：cin（的缓冲）和stdin保持同步（两种方法可以混用，而不必担心文件指针混乱，同时cout和stdout也一样，两者混用不会输出顺序错乱），从而产生开销。</p>
+<p>cin取消同步：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ios::sync_with_stdio(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/16/C++/cin加速/" data-id="ck0abjdqo001zh0w4wwbi2g45" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1070" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/13/PAT CCF/PATA-1070/" class="article-date">
+  <time class="post-time" datetime="2019-08-13T04:22:43.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/13/PAT CCF/PATA-1070/">PATA-1070</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>注意细节问题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">已知库存，价格，求出最大利润。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">我蠢了，要求是单价最高；而不是总价越高越好，我tmnc。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">题目隐含了两个条件：对应两个测试用例，一个两分</span></span><br><span class="line"><span class="comment">1. 对于D（供应数），并没有规定是整数，只说是正数。</span></span><br><span class="line"><span class="comment">2. 没说供应数一定大于需求数，因此需要进一步判断;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">double</span> D;  <span class="comment">//double</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">double</span> ave_price;</span><br><span class="line">	<span class="keyword">int</span> index;	</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从1开始</span></span><br><span class="line"><span class="keyword">double</span> total_price[<span class="number">1005</span>]; </span><br><span class="line"><span class="keyword">double</span> supply[<span class="number">1005</span>]; </span><br><span class="line">Node node[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Node n1, Node n2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n1.ave_price &gt; n2.ave_price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%lf"</span>, &amp;N, &amp;D);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf"</span>, supply + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf"</span>, total_price + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		node[i].index = i;</span><br><span class="line">		node[i].ave_price = total_price[i] / supply[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sort(node + <span class="number">1</span>, node + N + <span class="number">1</span>, cmp);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> profit = <span class="number">0</span>; <span class="comment">// 总利润</span></span><br><span class="line">	<span class="keyword">int</span> index = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (D &gt; <span class="number">0</span> &amp;&amp; index&lt;=N) &#123;  <span class="comment">// 考虑特殊情况:供不应求</span></span><br><span class="line">		<span class="keyword">if</span> (D &lt; supply[node[index].index]) &#123;</span><br><span class="line">			profit += node[index].ave_price * D;</span><br><span class="line">			D = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			profit += total_price[node[index].index];</span><br><span class="line">			D -= supply[node[index].index];</span><br><span class="line">			index++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>, profit);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/13/PAT CCF/PATA-1070/" data-id="ck0abjdse0046h0w45jbeg1p0" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1087" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/12/PAT CCF/PATA-1087/" class="article-date">
+  <time class="post-time" datetime="2019-08-12T14:43:17.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/12/PAT CCF/PATA-1087/">PATA-1087</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/12/PAT CCF/PATA-1087/" data-id="ck0abjdsv004wh0w463fv18ud" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路径/">最短路径</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1072" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/12/PAT CCF/PATA-1072/" class="article-date">
+  <time class="post-time" datetime="2019-08-12T03:40:55.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/12/PAT CCF/PATA-1072/">PATA-1072</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于一些稍微复杂一点的题目，一定要分析数据，因为数据会解答一些模棱两可的情况：比如在这里，数据就说明了那些临时站点也需要加入最短路径；<br>另外，在这里有个坑点：就是G10，原来只考虑G1-G9，导致10忘记考虑了，这就是前面4例全部正确，最后一例错误的原因，因为要是算法错误，那就很难只错一个了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">对于一条路径，不存在多解情况：从一个顶点出发的最短路径肯定是唯一的，而且平均路径最短实际上就是求到每一个点的最短路径，因此，在这里使用基本的Dijkstra，只不过需要多次</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">最小距离尽可能远，在服务范围内。 </span></span><br><span class="line"><span class="comment">第二权值：平均距离尽可能小；   如果还可能相等，那么输出最小的下标</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">进行M次Dijkstra，获得最短，最长，平均； 然后构成结构体，进行排序</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M, K, D;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> G[<span class="number">1050</span>][<span class="number">1050</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> index;</span><br><span class="line">	<span class="keyword">int</span> min_dis;</span><br><span class="line">	<span class="keyword">int</span> sum ;</span><br><span class="line">	Node(<span class="keyword">int</span> temp1, <span class="keyword">int</span> temp2, <span class="keyword">int</span> temp3) :index(temp1), min_dis(temp2), sum(temp3) &#123;&#125;;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Node n1, Node n2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n1.min_dis == n2.min_dis) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n1.sum == n2.sum) &#123;</span><br><span class="line">			<span class="keyword">return</span> n1.index &lt; n2.index;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> n1.sum &lt; n2.sum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n1.min_dis &gt; n2.min_dis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;Node&gt; v; <span class="comment">// 用于存放符合条件的所有gas station</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">char_to_int</span><span class="params">(<span class="keyword">char</span>* c_str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (c_str[<span class="number">0</span>] == <span class="string">'G'</span>) &#123;</span><br><span class="line">		<span class="keyword">char</span> temp[<span class="number">5</span>];</span><br><span class="line">		<span class="built_in">memcpy</span>(temp, c_str+<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line">		<span class="keyword">return</span> atoi(temp)+N;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> atoi(c_str);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对index的站点进行Dijkstra,求出最短，最长，平均值;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> dis[<span class="number">1050</span>];  </span><br><span class="line">	<span class="keyword">bool</span> is_visit[<span class="number">1050</span>] = &#123; <span class="literal">false</span> &#125;;  </span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 初始化 , 需要考虑M个点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N+M; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (G[index][i] != <span class="number">0</span>) &#123;</span><br><span class="line">			dis[i] = G[index][i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			dis[i] = <span class="number">10000</span>;  <span class="comment">// 非连通</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	dis[index] = <span class="number">0</span>;   </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N+M; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> min=<span class="number">10000</span>;</span><br><span class="line">		<span class="keyword">int</span> min_pos=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N+M; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!is_visit[j] &amp;&amp; dis[j] &lt; min) &#123;</span><br><span class="line">				min_pos = j;</span><br><span class="line">				min = dis[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		is_visit[min_pos] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N+M; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!is_visit[j] &amp;&amp; dis[min_pos] + G[min_pos][j] &lt; dis[j] &amp;&amp; G[min_pos][j]) &#123;</span><br><span class="line">				dis[j] = dis[min_pos] + G[min_pos][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> min = <span class="number">10000</span>, max = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		sum += dis[i];</span><br><span class="line">		<span class="keyword">if</span> (dis[i] &lt; min) &#123;</span><br><span class="line">			min = dis[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (dis[i] &gt; max) &#123;</span><br><span class="line">			max = dis[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (max &lt;= D) &#123;</span><br><span class="line">		v.push_back(Node(index, min, sum));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;N, &amp;M, &amp;K, &amp;D);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// N:1-N  M:N+1-N+M</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; K; i++) &#123;</span><br><span class="line">		<span class="keyword">char</span> temp1[<span class="number">5</span>];  <span class="keyword">char</span> temp2[<span class="number">5</span>]; <span class="keyword">int</span> temp3; <span class="keyword">int</span> temp4; <span class="keyword">int</span> temp5;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s%s%d"</span>, temp1, temp2, &amp;temp3);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 考虑G，而不是考虑长度， 因为 '10'的长度也为2</span></span><br><span class="line">		</span><br><span class="line">		temp4 = char_to_int(temp1);</span><br><span class="line">		temp5 = char_to_int(temp2);</span><br><span class="line"></span><br><span class="line">		G[temp4][temp5] = temp3;</span><br><span class="line">		G[temp5][temp4] = temp3;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = N+<span class="number">1</span>; i &lt;= N + M; i++) &#123;</span><br><span class="line">		Dijkstra(i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (v.empty()) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"No Solution\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		sort(v.begin(), v.end(),cmp);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"G%d\n"</span>, v.front().index - N);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%.1lf %.1lf\n"</span>, v.front().min_dis * <span class="number">1.0</span>, v.front().sum * <span class="number">1.0</span> / N);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/12/PAT CCF/PATA-1072/" data-id="ck0abjdsk004gh0w4aninq7xe" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路径/">最短路径</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/CSP20190302" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/11/PAT CCF/CSP20190302/" class="article-date">
+  <time class="post-time" datetime="2019-08-11T14:37:28.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/11/PAT CCF/CSP20190302/">CSP20190302</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CCF-CSP/">CCF-CSP</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于求表达式的值，只具有+-x<em>，完全可以通过栈将x</em>化为加减，然后再进行运算。</p>
+<ul>
+<li>因为可能出现12这样的数，所以最好还是将数值和符号分开用栈进行保存。</li>
+<li>如果输出不用个栈颠倒一下，在遇到减法就会很麻瓜！（自己想想就知道）</li>
+<li>另外，我想用树来求一下表达式的值。（这个稍后再补）</li>
+<li>本来我考虑4/3<em> 3</em> 6这种问题，要真考这种，难度瞬间提升。因为要用浮点，肯定会产生精度误差；采用整数，也肯定有问题；（如果要这样，那就必须先算乘法；再遍历除法；再算加减）  后来在例子中，发现： 1x9-5/9=9  (5/9=0,遵循整数乘法规律)，说明就不需考虑这个了。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">测试数据：</span></span><br><span class="line"><span class="comment">10</span></span><br><span class="line"><span class="comment">9+3+4x3</span></span><br><span class="line"><span class="comment">5+4x5x5</span></span><br><span class="line"><span class="comment">7-9-9+8</span></span><br><span class="line"><span class="comment">5x6/5x4</span></span><br><span class="line"><span class="comment">3+5+7+9</span></span><br><span class="line"><span class="comment">1x1+9-9</span></span><br><span class="line"><span class="comment">1x9-5/9</span></span><br><span class="line"><span class="comment">8/5+6x9</span></span><br><span class="line"><span class="comment">6x7-3x6</span></span><br><span class="line"><span class="comment">6x4+4/5</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s_int;  <span class="comment">//数值栈</span></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; s_char; <span class="comment">//符号栈</span></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; res_int;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; res_char;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (n--) &#123;</span><br><span class="line">		<span class="keyword">char</span> <span class="built_in">exp</span>[<span class="number">20</span>];</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, <span class="built_in">exp</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">exp</span>[i] &gt;= <span class="string">'0'</span> &amp;&amp; <span class="built_in">exp</span>[i] &lt;= <span class="string">'9'</span> ) &#123;</span><br><span class="line">				s_int.push((<span class="built_in">exp</span>[i]-<span class="string">'0'</span>));</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">exp</span>[i] == <span class="string">'+'</span> || <span class="built_in">exp</span>[i] == <span class="string">'-'</span>) &#123;</span><br><span class="line">				s_char.push(<span class="built_in">exp</span>[i]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">exp</span>[i] == <span class="string">'x'</span> || <span class="built_in">exp</span>[i] == <span class="string">'/'</span>) &#123;</span><br><span class="line">				i++; </span><br><span class="line">				<span class="keyword">int</span> temp1 = <span class="built_in">exp</span>[i] - <span class="string">'0'</span>;</span><br><span class="line">				<span class="keyword">int</span> temp2 = s_int.top(); </span><br><span class="line">				s_int.pop();</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">exp</span>[i<span class="number">-1</span>] == <span class="string">'x'</span>) &#123;</span><br><span class="line">					temp2 *= temp1;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					temp2 /= temp1;</span><br><span class="line">				&#125;</span><br><span class="line">				s_int.push(temp2);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (!s_int.empty()) &#123;</span><br><span class="line">			res_int.push(s_int.top());</span><br><span class="line">			s_int.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (!s_char.empty()) &#123;</span><br><span class="line">			res_char.push(s_char.top());</span><br><span class="line">			s_char.pop();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> result = res_int.top();</span><br><span class="line">		res_int.pop();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (!res_char.empty()) &#123;</span><br><span class="line">			<span class="keyword">char</span> temp_c = res_char.top();</span><br><span class="line">			res_char.pop();</span><br><span class="line">			<span class="keyword">int</span> temp2 = res_int.top();</span><br><span class="line">			res_int.pop();</span><br><span class="line">			<span class="keyword">if</span> (temp_c == <span class="string">'+'</span>) &#123;</span><br><span class="line">				result += temp2;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				result -= temp2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (result == <span class="number">24</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/11/PAT CCF/CSP20190302/" data-id="ck0abjdqu0026h0w49rgrgob4" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/CSP20190301" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/11/PAT CCF/CSP20190301/" class="article-date">
+  <time class="post-time" datetime="2019-08-11T14:29:01.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/11/PAT CCF/CSP20190301/">CSP20190301</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CCF-CSP/">CCF-CSP</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个题需要考虑一下几点:</p>
+<ul>
+<li>增序还是降序?</li>
+<li>个数是奇数还是偶数?</li>
+<li>如果是奇数，中位数是小数还是整数?   (默认的浮点取整方式就是四舍五入)</li>
+</ul>
+<p>学会使用round和floor;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="literal">false</span>;  <span class="comment">// 增序:true</span></span><br><span class="line">	<span class="keyword">int</span> temp=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, arr+i);</span><br><span class="line">	&#125;	</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 判断增序 or 降序</span></span><br><span class="line">	<span class="keyword">if</span> (arr[<span class="number">0</span>] &lt;= arr[N - <span class="number">1</span>]) &#123;</span><br><span class="line">		flag = <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (flag == <span class="literal">true</span>) &#123;</span><br><span class="line">		<span class="comment">// 奇数:  N/2</span></span><br><span class="line">		<span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, arr[N - <span class="number">1</span>], arr[N / <span class="number">2</span>], arr[<span class="number">0</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 偶数  N/2, N/2-1 (N=2也成立)</span></span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// 是否取小数</span></span><br><span class="line">			<span class="keyword">if</span> ((arr[N / <span class="number">2</span>] + arr[N / <span class="number">2</span> - <span class="number">1</span>]) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, arr[N - <span class="number">1</span>], (arr[N / <span class="number">2</span>] + arr[N / <span class="number">2</span> - <span class="number">1</span>]) / <span class="number">2</span>, arr[<span class="number">0</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d %.1lf %d"</span>, arr[N - <span class="number">1</span>], (arr[N / <span class="number">2</span>] + arr[N / <span class="number">2</span> - <span class="number">1</span>]) * <span class="number">1.0</span> / <span class="number">2</span>, arr[<span class="number">0</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 奇数:  N/2</span></span><br><span class="line">		<span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, arr[<span class="number">0</span>], arr[N / <span class="number">2</span>], arr[N<span class="number">-1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 偶数  N/2, N/2-1 (N=2也成立)</span></span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// 是否取小数</span></span><br><span class="line">			<span class="keyword">if</span> ((arr[N / <span class="number">2</span>] + arr[N / <span class="number">2</span> - <span class="number">1</span>]) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, arr[<span class="number">0</span>], (arr[N / <span class="number">2</span>] + arr[N / <span class="number">2</span> - <span class="number">1</span>]) / <span class="number">2</span>, arr[N<span class="number">-1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d %.1lf %d"</span>, arr[<span class="number">0</span>], (arr[N / <span class="number">2</span>] + arr[N / <span class="number">2</span> - <span class="number">1</span>]) * <span class="number">1.0</span> / <span class="number">2</span>, arr[N<span class="number">-1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/11/PAT CCF/CSP20190301/" data-id="ck0abjdqm001wh0w4exl95y5e" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1084" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/11/PAT CCF/PATA-1084/" class="article-date">
+  <time class="post-time" datetime="2019-08-11T05:07:31.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/11/PAT CCF/PATA-1084/">PATA-1084</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需要注意几个小细节：大小写，重复问题。</p>
+<p>islower(),isupper()<br>tolower(),toupper() : 如果符合要求，进行转换；否则，返回原值。  （不要担心错误输入）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> ch1[<span class="number">100</span>];</span><br><span class="line">	<span class="keyword">char</span> ch2[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, ch1);</span><br><span class="line">	getchar();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, ch2);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> flag[<span class="number">128</span>];</span><br><span class="line">	fill(flag, flag + <span class="number">128</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(ch1);</span><br><span class="line">	<span class="keyword">int</span> len2 = <span class="built_in">strlen</span>(ch2);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">bool</span> flag1[<span class="number">128</span>];</span><br><span class="line">	fill(flag1, flag1 + <span class="number">128</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">		flag[ch2[i]]++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (flag[ch1[i]] == <span class="number">0</span> &amp;&amp; !flag1[ch1[i]]) &#123;</span><br><span class="line">			<span class="built_in">putchar</span>(<span class="built_in">toupper</span>(ch1[i]));  </span><br><span class="line">			flag1[ch1[i]] = <span class="literal">true</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">islower</span>(ch1[i])) &#123;</span><br><span class="line">				flag1[ch1[i] - <span class="number">32</span>] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isupper</span>(ch1[i])) &#123;</span><br><span class="line">				flag1[ch1[i] + <span class="number">32</span>] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/11/PAT CCF/PATA-1084/" data-id="ck0abjdsg0049h0w49vwwzyjd" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-PAT CCF/PATA-1092" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/11/PAT CCF/PATA-1092/" class="article-date">
+  <time class="post-time" datetime="2019-08-11T04:33:10.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/11/PAT CCF/PATA-1092/">PATA-1092</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看题目速度真的是硬伤</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> exam[<span class="number">128</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> bead1[<span class="number">1005</span>];</span><br><span class="line">	<span class="keyword">char</span> bead_eva[<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>, bead1);</span><br><span class="line">	getchar();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>, bead_eva);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(bead1);</span><br><span class="line">	<span class="keyword">int</span> len2 = <span class="built_in">strlen</span>(bead_eva);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">		exam[bead1[i]]++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> result = <span class="number">0</span>; <span class="comment">// 缺少的数目</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">		exam[bead_eva[i]]--;</span><br><span class="line">		<span class="keyword">if</span> (exam[bead_eva[i]] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">			result++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (result &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"No %d"</span>, result);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Yes %d"</span>, len1 - len2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/11/PAT CCF/PATA-1092/" data-id="ck0abjdsp004ph0w4xkcrkwce" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; pre</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

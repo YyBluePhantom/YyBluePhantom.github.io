@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>PATA-1072 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对于一些稍微复杂一点的题目，一定要分析数据，因为数据会解答一些模棱两可的情况：比如在这里，数据就说明了那些临时站点也需要加入最短路径；另外，在这里有个坑点：就是G10，原来只考虑G1-G9，导致10忘记考虑了，这就是前面4例全部正确，最后一例错误的原因，因为要是算法错误，那就很难只错一个了。 12345678910111213141516171819202122232425262728293031">
+<meta name="keywords" content="最短路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PATA-1072">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/PAT CCF/PATA-1072/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="对于一些稍微复杂一点的题目，一定要分析数据，因为数据会解答一些模棱两可的情况：比如在这里，数据就说明了那些临时站点也需要加入最短路径；另外，在这里有个坑点：就是G10，原来只考虑G1-G9，导致10忘记考虑了，这就是前面4例全部正确，最后一例错误的原因，因为要是算法错误，那就很难只错一个了。 12345678910111213141516171819202122232425262728293031">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-12T03:44:20.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PATA-1072">
+<meta name="twitter:description" content="对于一些稍微复杂一点的题目，一定要分析数据，因为数据会解答一些模棱两可的情况：比如在这里，数据就说明了那些临时站点也需要加入最短路径；另外，在这里有个坑点：就是G10，原来只考虑G1-G9，导致10忘记考虑了，这就是前面4例全部正确，最后一例错误的原因，因为要是算法错误，那就很难只错一个了。 12345678910111213141516171819202122232425262728293031">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-PAT CCF/PATA-1072" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/12/PAT CCF/PATA-1072/" class="article-date">
+  <time class="post-time" datetime="2019-08-12T03:40:55.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PATA-1072
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于一些稍微复杂一点的题目，一定要分析数据，因为数据会解答一些模棱两可的情况：比如在这里，数据就说明了那些临时站点也需要加入最短路径；<br>另外，在这里有个坑点：就是G10，原来只考虑G1-G9，导致10忘记考虑了，这就是前面4例全部正确，最后一例错误的原因，因为要是算法错误，那就很难只错一个了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">对于一条路径，不存在多解情况：从一个顶点出发的最短路径肯定是唯一的，而且平均路径最短实际上就是求到每一个点的最短路径，因此，在这里使用基本的Dijkstra，只不过需要多次</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">最小距离尽可能远，在服务范围内。 </span></span><br><span class="line"><span class="comment">第二权值：平均距离尽可能小；   如果还可能相等，那么输出最小的下标</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">进行M次Dijkstra，获得最短，最长，平均； 然后构成结构体，进行排序</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M, K, D;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> G[<span class="number">1050</span>][<span class="number">1050</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> index;</span><br><span class="line">	<span class="keyword">int</span> min_dis;</span><br><span class="line">	<span class="keyword">int</span> sum ;</span><br><span class="line">	Node(<span class="keyword">int</span> temp1, <span class="keyword">int</span> temp2, <span class="keyword">int</span> temp3) :index(temp1), min_dis(temp2), sum(temp3) &#123;&#125;;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Node n1, Node n2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n1.min_dis == n2.min_dis) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n1.sum == n2.sum) &#123;</span><br><span class="line">			<span class="keyword">return</span> n1.index &lt; n2.index;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> n1.sum &lt; n2.sum;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> n1.min_dis &gt; n2.min_dis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;Node&gt; v; <span class="comment">// 用于存放符合条件的所有gas station</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">char_to_int</span><span class="params">(<span class="keyword">char</span>* c_str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (c_str[<span class="number">0</span>] == <span class="string">'G'</span>) &#123;</span><br><span class="line">		<span class="keyword">char</span> temp[<span class="number">5</span>];</span><br><span class="line">		<span class="built_in">memcpy</span>(temp, c_str+<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line">		<span class="keyword">return</span> atoi(temp)+N;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> atoi(c_str);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对index的站点进行Dijkstra,求出最短，最长，平均值;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> dis[<span class="number">1050</span>];  </span><br><span class="line">	<span class="keyword">bool</span> is_visit[<span class="number">1050</span>] = &#123; <span class="literal">false</span> &#125;;  </span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 初始化 , 需要考虑M个点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N+M; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (G[index][i] != <span class="number">0</span>) &#123;</span><br><span class="line">			dis[i] = G[index][i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			dis[i] = <span class="number">10000</span>;  <span class="comment">// 非连通</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	dis[index] = <span class="number">0</span>;   </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N+M; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> min=<span class="number">10000</span>;</span><br><span class="line">		<span class="keyword">int</span> min_pos=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N+M; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!is_visit[j] &amp;&amp; dis[j] &lt; min) &#123;</span><br><span class="line">				min_pos = j;</span><br><span class="line">				min = dis[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		is_visit[min_pos] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N+M; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!is_visit[j] &amp;&amp; dis[min_pos] + G[min_pos][j] &lt; dis[j] &amp;&amp; G[min_pos][j]) &#123;</span><br><span class="line">				dis[j] = dis[min_pos] + G[min_pos][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> min = <span class="number">10000</span>, max = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">		sum += dis[i];</span><br><span class="line">		<span class="keyword">if</span> (dis[i] &lt; min) &#123;</span><br><span class="line">			min = dis[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (dis[i] &gt; max) &#123;</span><br><span class="line">			max = dis[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (max &lt;= D) &#123;</span><br><span class="line">		v.push_back(Node(index, min, sum));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;N, &amp;M, &amp;K, &amp;D);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// N:1-N  M:N+1-N+M</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; K; i++) &#123;</span><br><span class="line">		<span class="keyword">char</span> temp1[<span class="number">5</span>];  <span class="keyword">char</span> temp2[<span class="number">5</span>]; <span class="keyword">int</span> temp3; <span class="keyword">int</span> temp4; <span class="keyword">int</span> temp5;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s%s%d"</span>, temp1, temp2, &amp;temp3);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 考虑G，而不是考虑长度， 因为 '10'的长度也为2</span></span><br><span class="line">		</span><br><span class="line">		temp4 = char_to_int(temp1);</span><br><span class="line">		temp5 = char_to_int(temp2);</span><br><span class="line"></span><br><span class="line">		G[temp4][temp5] = temp3;</span><br><span class="line">		G[temp5][temp4] = temp3;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = N+<span class="number">1</span>; i &lt;= N + M; i++) &#123;</span><br><span class="line">		Dijkstra(i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (v.empty()) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"No Solution\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		sort(v.begin(), v.end(),cmp);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"G%d\n"</span>, v.front().index - N);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%.1lf %.1lf\n"</span>, v.front().min_dis * <span class="number">1.0</span>, v.front().sum * <span class="number">1.0</span> / N);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/12/PAT CCF/PATA-1072/" data-id="ck0abjdsk004gh0w4aninq7xe" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路径/">最短路径</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/12/PAT CCF/PATA-1087/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          PATA-1087
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/11/PAT CCF/CSP20190302/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CSP20190302</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

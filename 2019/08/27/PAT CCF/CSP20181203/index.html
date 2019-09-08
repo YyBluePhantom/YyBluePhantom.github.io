@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>CSP20181203 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="又到了烦人的第三题，又是题目冗长的大模拟；  首先，一定要读题，抽取关键信息！！！ 否则，做不出来。    本题将处理规则已经告诉你了，值得注意的是：IP表示的形式（标准型，缩略型），以及进行前缀的匹配。 本题要注意两个规则：包含规则，合并规则！    包含规则：要求，只要前缀所表示的长度都相同，经过排序后，前面的一定包含后面的！（一定）    合并规则：对于前缀长度为len，对于前面len-1位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSP20181203">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/PAT CCF/CSP20181203/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="又到了烦人的第三题，又是题目冗长的大模拟；  首先，一定要读题，抽取关键信息！！！ 否则，做不出来。    本题将处理规则已经告诉你了，值得注意的是：IP表示的形式（标准型，缩略型），以及进行前缀的匹配。 本题要注意两个规则：包含规则，合并规则！    包含规则：要求，只要前缀所表示的长度都相同，经过排序后，前面的一定包含后面的！（一定）    合并规则：对于前缀长度为len，对于前面len-1位">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-27T13:26:12.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSP20181203">
+<meta name="twitter:description" content="又到了烦人的第三题，又是题目冗长的大模拟；  首先，一定要读题，抽取关键信息！！！ 否则，做不出来。    本题将处理规则已经告诉你了，值得注意的是：IP表示的形式（标准型，缩略型），以及进行前缀的匹配。 本题要注意两个规则：包含规则，合并规则！    包含规则：要求，只要前缀所表示的长度都相同，经过排序后，前面的一定包含后面的！（一定）    合并规则：对于前缀长度为len，对于前面len-1位">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-PAT CCF/CSP20181203" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/27/PAT CCF/CSP20181203/" class="article-date">
+  <time class="post-time" datetime="2019-08-27T13:09:26.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">27</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSP20181203
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>又到了烦人的第三题，又是题目冗长的大模拟；</p>
+<ul>
+<li>首先，一定要读题，抽取关键信息！！！ 否则，做不出来。    本题将处理规则已经告诉你了，值得注意的是：IP表示的形式（标准型，缩略型），以及进行前缀的匹配。</li>
+<li>本题要注意两个规则：包含规则，合并规则！    包含规则：要求，只要前缀所表示的长度都相同，经过排序后，前面的一定包含后面的！（一定）    合并规则：对于前缀长度为len，对于前面len-1位相同，第len位，前面是0，后面是1才能构成连续！！！（一定要想清楚）</li>
+<li>如果自己不会写，别傻犟着，老老实实学习他人！   [<a href="https://blog.csdn.net/SongBai1997/article/details/86663794]" target="_blank" rel="noopener">https://blog.csdn.net/SongBai1997/article/details/86663794]</a></li>
+<li>另外，这个题一定要对输入处理，如果不对输入进行处理化为标准的二进制32位模式，写这题会感到生不如死。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">IP</span> &#123;</span></span><br><span class="line">	<span class="built_in">string</span> ip;<span class="comment">//ip地址</span></span><br><span class="line">	<span class="keyword">int</span> len;<span class="comment">//前缀长度</span></span><br><span class="line">	IP() &#123;&#125;;</span><br><span class="line">	IP(<span class="built_in">string</span> s, <span class="keyword">int</span> l) :ip(s), len(l) &#123;&#125;;</span><br><span class="line">	<span class="comment">// 根据排序规则，先排序IP，然后排序前缀长度；  </span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> IP&amp; a)<span class="keyword">const</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> ip == a.ip ? (len &lt; a.len) : (ip &lt; a.ip);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">list</span>&lt;IP&gt; l; <span class="comment">// 双向链表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 转换为二进制串!!! </span></span><br><span class="line"><span class="comment">// 将IP每一段转换为8位bit</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">itos</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> res = <span class="string">"00000000"</span>;</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">7</span>;</span><br><span class="line">	<span class="keyword">while</span> (n)</span><br><span class="line">	&#123;</span><br><span class="line">		res[k--] = n % <span class="number">2</span> + <span class="string">'0'</span>;</span><br><span class="line">		n /= <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不进行输入处理，到后面处理真的是头大；  标准处理  化为标准的32位形式</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> ip = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">0</span>, k = <span class="number">0</span>, val = <span class="number">0</span>;  <span class="comment">// k:记录小数点数量</span></span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="literal">false</span>;  <span class="comment">//是否有'/'</span></span><br><span class="line">	<span class="keyword">while</span> ((ch = getchar()) != <span class="string">'\n'</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (ch == <span class="string">'.'</span>) &#123;</span><br><span class="line">			k++;</span><br><span class="line">			ip += itos(val);  <span class="comment">//ip化为最规整的形式：32位（除.)</span></span><br><span class="line">			val = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">'/'</span>) &#123;</span><br><span class="line">			ip += itos(val);</span><br><span class="line">			val = <span class="number">0</span>;</span><br><span class="line">			flag = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			val = val * <span class="number">10</span> + ch - <span class="string">'0'</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 处理后缀长度</span></span><br><span class="line">	len = (flag ? val : (k + <span class="number">1</span>) * <span class="number">8</span>);  </span><br><span class="line">	<span class="keyword">if</span> (!flag) &#123;  <span class="comment">//如果flag=false，说明val记录的是IP的一部分，否则记录了后缀长度</span></span><br><span class="line">		ip += itos(val);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 最后的补齐0</span></span><br><span class="line">	<span class="keyword">while</span> (k &lt; <span class="number">3</span>) &#123;</span><br><span class="line">		ip += itos(<span class="number">0</span>);</span><br><span class="line">		k++;</span><br><span class="line">	&#125;</span><br><span class="line">	l.insert(l.end(), IP(ip, len));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		read();</span><br><span class="line">	&#125;</span><br><span class="line">	l.sort();   <span class="comment">//定义了&lt;符号;</span></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 进行合并：设a的前缀长度为len，那么如果b的前len个字符和a相同，则b的匹配集是a的匹配集的子集，否则不是</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> cur = l.begin(), next = cur; cur != l.end();) &#123;</span><br><span class="line">		next = cur;</span><br><span class="line">		next++;</span><br><span class="line">		<span class="keyword">if</span> (next == l.end()) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (cur-&gt;ip.substr(<span class="number">0</span>, cur-&gt;len) == next-&gt;ip.substr(<span class="number">0</span>, cur-&gt;len)) &#123;</span><br><span class="line">			l.erase(next);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			cur++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 进行统计合并 : 要求必须长度相同，而且由于是二进制；所有只需要考虑当前前缀len号为0的元素；</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> cur = l.begin(), next = cur; cur != l.end();) &#123;</span><br><span class="line">		next = cur;</span><br><span class="line">		next++;</span><br><span class="line">		<span class="keyword">if</span> (next == l.end()) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (cur-&gt;len == next-&gt;len &amp;&amp; cur-&gt;len &gt; <span class="number">0</span> &amp;&amp; cur-&gt;ip[cur-&gt;len - <span class="number">1</span>] == <span class="string">'0'</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (cur-&gt;ip.substr(<span class="number">0</span>, cur-&gt;len - <span class="number">1</span>) == next-&gt;ip.substr(<span class="number">0</span>, next-&gt;len - <span class="number">1</span>)) &#123;</span><br><span class="line">				l.erase(next);</span><br><span class="line">				cur-&gt;len--;</span><br><span class="line">				<span class="keyword">if</span> (cur != l.begin()) &#123;</span><br><span class="line">					cur--;</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cur++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> cur = l.begin(); cur != l.end();cur++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">7</span>; i &lt; <span class="number">32</span>; i += <span class="number">8</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">7</span>; j &lt;= i; j++) &#123;</span><br><span class="line">				temp = temp * <span class="number">2</span> + cur-&gt;ip[j] - <span class="string">'0'</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>, temp);</span><br><span class="line">			<span class="keyword">if</span> (i != <span class="number">31</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"."</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"/%d\n"</span>, cur-&gt;len);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/27/PAT CCF/CSP20181203/" data-id="ck0abjdqp0020h0w4b6thu1ut" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/28/PAT CCF/CSP20181204/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CSP20181204
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/26/PAT CCF/CSP20181202/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CSP20181202</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

@@ -5,18 +5,18 @@
   
   <title>BFS总结 | BluePhantom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BFS:广度优先搜索 BFS的特点:  BFS是思想,队列是工具,迭代是手段 BFS常用来解决连通问题,最短路径长度(BFS的层数), 需要搭配bool数组来判断某些元素是否被访问过; BFS就是树的层序遍历过程;(等价)  1234567891011//BFS模版:void BFS(int s)&amp;#123;    queue&amp;lt;int&amp;gt; q;    q.push(s);    whil">
-<meta name="keywords" content="PAT">
+  <meta name="description" content="BFS:广度优先搜索 BFS的特点:  BFS是思想,队列是工具 BFS常用来解决连通问题,最短路径长度(BFS的层数) BFS相当于树的层序遍历过程;(等价)    BFS/DFS针对的问题可以抽象为是图的问题。  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950">
+<meta name="keywords" content="遍历">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BFS总结">
 <meta property="og:url" content="http://yoursite.com/2019/02/09/BFS总结/index.html">
 <meta property="og:site_name" content="BluePhantom">
-<meta property="og:description" content="BFS:广度优先搜索 BFS的特点:  BFS是思想,队列是工具,迭代是手段 BFS常用来解决连通问题,最短路径长度(BFS的层数), 需要搭配bool数组来判断某些元素是否被访问过; BFS就是树的层序遍历过程;(等价)  1234567891011//BFS模版:void BFS(int s)&amp;#123;    queue&amp;lt;int&amp;gt; q;    q.push(s);    whil">
+<meta property="og:description" content="BFS:广度优先搜索 BFS的特点:  BFS是思想,队列是工具 BFS常用来解决连通问题,最短路径长度(BFS的层数) BFS相当于树的层序遍历过程;(等价)    BFS/DFS针对的问题可以抽象为是图的问题。  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-14T10:02:31.444Z">
+<meta property="og:updated_time" content="2019-08-02T07:08:54.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFS总结">
-<meta name="twitter:description" content="BFS:广度优先搜索 BFS的特点:  BFS是思想,队列是工具,迭代是手段 BFS常用来解决连通问题,最短路径长度(BFS的层数), 需要搭配bool数组来判断某些元素是否被访问过; BFS就是树的层序遍历过程;(等价)  1234567891011//BFS模版:void BFS(int s)&amp;#123;    queue&amp;lt;int&amp;gt; q;    q.push(s);    whil">
+<meta name="twitter:description" content="BFS:广度优先搜索 BFS的特点:  BFS是思想,队列是工具 BFS常用来解决连通问题,最短路径长度(BFS的层数) BFS相当于树的层序遍历过程;(等价)    BFS/DFS针对的问题可以抽象为是图的问题。  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950">
   
     <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
   
@@ -43,9 +43,9 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -93,7 +93,7 @@
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
   </div>
 
           
@@ -108,19 +108,18 @@
         <p>BFS:广度优先搜索</p>
 <p>BFS的特点:</p>
 <ol>
-<li>BFS是思想,队列是工具,迭代是手段</li>
-<li>BFS常用来解决连通问题,最短路径长度(BFS的层数),</li>
-<li>需要搭配bool数组来判断某些元素是否被访问过;</li>
-<li>BFS就是树的层序遍历过程;(等价)</li>
+<li>BFS是思想,队列是工具</li>
+<li>BFS常用来解决连通问题,最短路径长度(BFS的层数)</li>
+<li>BFS相当于树的层序遍历过程;(等价)    BFS/DFS针对的问题可以抽象为是图的问题。</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BFS模版:</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        取出队首元素;</span><br><span class="line">        访问队首元素;</span><br><span class="line">        将队首元素出队;</span><br><span class="line">        将该点的下一层结点未曾入队的所有结点入队,并设置为已入队;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BFS模版</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 邻接矩阵</span></span><br><span class="line"><span class="keyword">int</span> n,G[MAXV][MAXV];</span><br><span class="line"><span class="keyword">bool</span> inq[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(u);</span><br><span class="line">    inq[u]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;MAXV;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!inq[v] &amp;&amp; G[u][v]!=INF)&#123;</span><br><span class="line">                q.push(v);</span><br><span class="line">                inq[v]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!inq[i])&#123;</span><br><span class="line">            BFS(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 邻接表</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; Adj[MAXV]; </span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> inq[MAXV]=&#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(u);</span><br><span class="line">    inq[u]=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        u=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Adj[u].size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!inq[i])&#123;</span><br><span class="line">                q.push(i);</span><br><span class="line">                inq[i]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFSTraverse</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!inq[i])&#123;</span><br><span class="line">            BFS(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/09/BFS总结/" data-id="cjxclqebw0000fow4ux7jv7bt" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/02/09/BFS总结/" data-id="ck0abjdn30003h0w4ic5s47k8" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PAT/">PAT</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遍历/">遍历</a></li></ul>
 
     </footer>
   </div>
@@ -128,11 +127,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/02/16/数据读写/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/29/面向对象基本概念/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          数据读写
+          面向对象基本概念
         
       </div>
     </a>
@@ -189,9 +188,9 @@
     <h2 class="author">BluePhantom</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
     </div>
 
 

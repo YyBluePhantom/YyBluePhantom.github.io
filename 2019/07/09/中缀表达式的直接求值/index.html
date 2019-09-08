@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>中缀表达式的直接求值 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通常是对中缀表达式直接进行求值,这里采用对中缀表达式直接进行求值。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878">
+<meta name="keywords" content="classic problem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中缀表达式的直接求值">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/中缀表达式的直接求值/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="通常是对中缀表达式直接进行求值,这里采用对中缀表达式直接进行求值。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-09T09:28:04.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="中缀表达式的直接求值">
+<meta name="twitter:description" content="通常是对中缀表达式直接进行求值,这里采用对中缀表达式直接进行求值。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-中缀表达式的直接求值" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/09/中缀表达式的直接求值/" class="article-date">
+  <time class="post-time" datetime="2019-07-09T09:25:01.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      中缀表达式的直接求值
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Practice/">Practice</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通常是对中缀表达式直接进行求值,这里采用对中缀表达式直接进行求值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">功能:直接求中缀表达式的值, 支持+/-*();</span></span><br><span class="line"><span class="comment">处理思路:</span></span><br><span class="line"><span class="comment"> 1. 先处理+-符号,将数字和符号全部存入栈中,最后逆序求值(+-求值和顺序无关)</span></span><br><span class="line"><span class="comment"> 2. 在1.的基础上求* /,要求遇到* /时先处理* /,将其变为一个数值,然后存放入栈中,最后得到一个只含+-的表达式</span></span><br><span class="line"><span class="comment"> 3. 在2.的基础上增加(),在遇到(时,放入栈中,遇到)需要从栈中提取,然后得到()内的值。 ()的嵌套同样遵循该规律。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// index:'('的下标位置 ;</span></span><br><span class="line"><span class="comment">// flag:在含有括号的地方,可能出现)+这样两个连续符号出现的情况,当出现这种情况,用flag=false标明,从而不进行插入数值;用于处理(32+11)*2; 因为(32+11)在函数后处理是一个数值,不能在其后插入数值</span></span><br><span class="line"><span class="comment">// ASCII: (:40 , ):41</span></span><br><span class="line"><span class="comment">// 计算括号内的表达式的值,支持嵌套运算;  处理结果:将表达式的值存储在栈中;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deal_bracket</span><span class="params">(<span class="built_in">string</span> expression,<span class="keyword">int</span> &amp;index,<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; &amp;s,<span class="keyword">bool</span> &amp;flag)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    s.push(expression[index]); <span class="comment">// 存储'(',最后需要将其pop</span></span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>; <span class="comment">// 存储操作数</span></span><br><span class="line">    <span class="comment">//bool flag=true; //</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理()和/*</span></span><br><span class="line">    <span class="comment">// 如果遇到),表示处理停止,准备弹栈和计算;</span></span><br><span class="line">    <span class="keyword">for</span>(index++;expression[index]!=<span class="string">')'</span>;index++)&#123;</span><br><span class="line">        <span class="comment">//嵌套的括号中,(前有三种情况:+- , */ , ( ;  +-是不需要管的; */需要子括号的计算结果 ; (也不需要管;</span></span><br><span class="line">        <span class="comment">//在这里是指+- , (;</span></span><br><span class="line">        <span class="keyword">if</span>(expression[index]==<span class="string">'('</span>) &#123;</span><br><span class="line">            deal_bracket(expression, index, s,flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//符号</span></span><br><span class="line">            <span class="keyword">if</span>(expression[index]&lt;<span class="number">48</span>) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(flag==<span class="literal">true</span>) &#123;</span><br><span class="line">                    <span class="comment">// 先存储操作数;(int)</span></span><br><span class="line">                    s.push(num);</span><br><span class="line">                    num = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                flag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//+ -</span></span><br><span class="line">                <span class="keyword">if</span>(expression[index]==<span class="string">'+'</span> || expression[index]==<span class="string">'-'</span>)&#123;</span><br><span class="line">                    s.push(expression[index]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//* /</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(expression[index]==<span class="string">'*'</span> || expression[index]==<span class="string">'/'</span>)&#123;</span><br><span class="line">                    <span class="comment">// arithmetic operator</span></span><br><span class="line">                    <span class="keyword">char</span> symbol=expression[index];</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// first operator</span></span><br><span class="line">                    <span class="keyword">int</span> temp1=s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 获得第二个操作数</span></span><br><span class="line">                    index++;</span><br><span class="line">                    <span class="keyword">int</span> temp2=<span class="number">0</span>; <span class="comment">//operator2</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 如果*/遇到(),那么进行嵌套</span></span><br><span class="line">                    <span class="keyword">if</span>(expression[index]==<span class="string">'('</span>)&#123;</span><br><span class="line">                        deal_bracket(expression,index,s,flag);</span><br><span class="line">                        temp2=s.top();</span><br><span class="line">                        s.pop();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">while</span> (index &lt; expression.length() &amp;&amp; expression[index] &gt;= <span class="number">48</span>) &#123;</span><br><span class="line">                            temp2 = temp2 * <span class="number">10</span> + expression[index] - <span class="number">48</span>;</span><br><span class="line">                            index++;</span><br><span class="line">                        &#125;</span><br><span class="line">                        index--; <span class="comment">//保证index++之后为下一个符号</span></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">if</span>(symbol==<span class="string">'*'</span>)&#123;</span><br><span class="line">                        result=temp1*temp2;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        result=temp1/temp2;</span><br><span class="line">                    &#125;</span><br><span class="line">                    num=result; <span class="comment">// 避免重复入栈;(只需要通过遇到下一个运算符入栈就OK)</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 如果是括号内的最后一个元素,那么需要存入栈</span></span><br><span class="line">                    <span class="keyword">if</span>(expression[index+<span class="number">1</span>]==<span class="string">')'</span>)&#123;</span><br><span class="line">                        s.push(num);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                num=num*<span class="number">10</span>+expression[index]<span class="number">-48</span>;</span><br><span class="line">                <span class="comment">// 如果是括号内的最后一个元素,那么需要存入栈</span></span><br><span class="line">                <span class="keyword">if</span>(expression[index+<span class="number">1</span>]==<span class="string">')'</span>)&#123;</span><br><span class="line">                    s.push(num);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将整个括号的内容用最终结果代替</span></span><br><span class="line">    <span class="keyword">int</span> result=<span class="number">0</span>; <span class="comment">//括号内结果</span></span><br><span class="line">    <span class="keyword">while</span>(s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> value1=s.top();</span><br><span class="line">        s.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span> symbol=<span class="string">'+'</span>;</span><br><span class="line">        <span class="keyword">if</span>(s.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">            symbol=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(symbol==<span class="string">'-'</span>)&#123;</span><br><span class="line">            result+=-value1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            result+=value1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    s.pop();</span><br><span class="line">    s.push(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//remove multiple and divide sign,and store expression(only include + and -) in stack</span></span><br><span class="line"><span class="comment">//+:43  -:45  *:42  /:47  0:48</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">first_deal</span><span class="params">(<span class="built_in">string</span> expression,<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; &amp;s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>; <span class="comment">//store operator</span></span><br><span class="line">    <span class="keyword">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;expression.length();i++)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(expression[i]==<span class="string">'('</span>) &#123;</span><br><span class="line">            deal_bracket(expression,i,s,flag);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//operator</span></span><br><span class="line">            <span class="keyword">if</span> (expression[i] &lt; <span class="number">48</span>) &#123;</span><br><span class="line">                <span class="comment">// storage data;(int)</span></span><br><span class="line">                s.push(num);</span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//+ -</span></span><br><span class="line">                <span class="keyword">if</span> (expression[i] == <span class="string">'+'</span> || expression[i] == <span class="string">'-'</span>) &#123;</span><br><span class="line">                    s.push(expression[i]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//* /</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (expression[i] == <span class="string">'*'</span> || expression[i] == <span class="string">'/'</span>) &#123;</span><br><span class="line">                    <span class="comment">// arithmetic operator</span></span><br><span class="line">                    <span class="keyword">char</span> symbol = expression[i];</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// first operator</span></span><br><span class="line">                    <span class="keyword">int</span> temp1 = s.top();</span><br><span class="line">                    s.pop();</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// get second operator</span></span><br><span class="line">                    i++;</span><br><span class="line">                    <span class="keyword">int</span> temp2 = <span class="number">0</span>; <span class="comment">//operator2</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 如果*/遇到(),那么进行嵌套</span></span><br><span class="line">                    <span class="keyword">if</span>(expression[i]==<span class="string">'('</span>)&#123;</span><br><span class="line">                        deal_bracket(expression,i,s,flag);</span><br><span class="line">                        temp2=s.top();</span><br><span class="line">                        s.pop();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">while</span> (i &lt; expression.length() &amp;&amp; expression[i] &gt;= <span class="number">48</span>) &#123;</span><br><span class="line">                            temp2 = temp2 * <span class="number">10</span> + expression[i] - <span class="number">48</span>;</span><br><span class="line">                            i++;</span><br><span class="line">                        &#125;</span><br><span class="line">                        i--; <span class="comment">//to prove next symbol is operator</span></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">if</span> (symbol == <span class="string">'*'</span>) &#123;</span><br><span class="line">                        result = temp1 * temp2;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        result = temp1 / temp2;</span><br><span class="line">                    &#125;</span><br><span class="line">                    num = result; <span class="comment">// avoid repeated storage</span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (i == expression.length() - <span class="number">1</span>) &#123;</span><br><span class="line">                        s.push(num);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                num = num * <span class="number">10</span> + expression[i] - <span class="number">48</span>;</span><br><span class="line">                <span class="comment">// the last element is number,you should store it.</span></span><br><span class="line">                <span class="keyword">if</span> (i == (expression.length() - <span class="number">1</span>)) &#123;</span><br><span class="line">                    s.push(num);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> expression;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;  <span class="comment">// string[] return type: char</span></span><br><span class="line"></span><br><span class="line">    getline(<span class="built_in">cin</span>,expression);</span><br><span class="line"></span><br><span class="line">    first_deal(expression,s);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将整个括号的内容用最终结果代替</span></span><br><span class="line">    <span class="keyword">int</span> result=<span class="number">0</span>; <span class="comment">//括号内结果</span></span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> value1=s.top();</span><br><span class="line">        s.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span> symbol=<span class="string">'+'</span>;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            symbol=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(symbol==<span class="string">'-'</span>)&#123;</span><br><span class="line">            result+=-value1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            result+=value1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;result&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/09/中缀表达式的直接求值/" data-id="ck0abjdo2000nh0w4o5whut8n" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/classic-problem/">classic problem</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/10/中缀表达式转后缀表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          中缀表达式转后缀表达式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/26/类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">类数据成员不能指定为自身类型，但是可以指定为引用或者指针类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

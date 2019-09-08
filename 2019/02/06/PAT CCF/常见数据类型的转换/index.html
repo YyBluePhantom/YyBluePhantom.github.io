@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>常见数据类型的转换 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="int转换int转换string,char* 通过字符流进行操作:ostringstream,stringstream，需要头文件stringstream能够使用&amp;lt;&amp;lt;和&amp;gt;&amp;gt;进行读入和输出；  (更加灵活，方便，对string/char*都能无差别使用，因为这里使用的是流，而不是赋值)很多数据类型转换都能够通过stringstream进行转换;  1234567void in">
+<meta name="keywords" content="经验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见数据类型的转换">
+<meta property="og:url" content="http://yoursite.com/2019/02/06/PAT CCF/常见数据类型的转换/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="int转换int转换string,char* 通过字符流进行操作:ostringstream,stringstream，需要头文件stringstream能够使用&amp;lt;&amp;lt;和&amp;gt;&amp;gt;进行读入和输出；  (更加灵活，方便，对string/char*都能无差别使用，因为这里使用的是流，而不是赋值)很多数据类型转换都能够通过stringstream进行转换;  1234567void in">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-06T01:50:22.498Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见数据类型的转换">
+<meta name="twitter:description" content="int转换int转换string,char* 通过字符流进行操作:ostringstream,stringstream，需要头文件stringstream能够使用&amp;lt;&amp;lt;和&amp;gt;&amp;gt;进行读入和输出；  (更加灵活，方便，对string/char*都能无差别使用，因为这里使用的是流，而不是赋值)很多数据类型转换都能够通过stringstream进行转换;  1234567void in">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-PAT CCF/常见数据类型的转换" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/06/PAT CCF/常见数据类型的转换/" class="article-date">
+  <time class="post-time" datetime="2019-02-06T10:35:44.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见数据类型的转换
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="int转换"><a href="#int转换" class="headerlink" title="int转换"></a>int转换</h1><h2 id="int转换string-char"><a href="#int转换string-char" class="headerlink" title="int转换string,char*"></a>int转换string,char*</h2><ul>
+<li>通过<strong>字符流</strong>进行操作:ostringstream,stringstream，需要<sstream>头文件<br>stringstream能够使用&lt;&lt;和&gt;&gt;进行读入和输出；  (更加灵活，方便，对string/char*都能无差别使用，因为这里使用的是流，而不是赋值)<br>很多数据类型转换都能够通过stringstream进行转换;</sstream></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">int2str</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;int_temp,<span class="built_in">string</span> &amp;string_temp)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">        <span class="comment">// ostringstream stream;</span></span><br><span class="line">        <span class="built_in">stringstream</span> stream;   <span class="comment">//定义stringstream流  </span></span><br><span class="line">        stream&lt;&lt;int_temp;    <span class="comment">//将内容存入流中</span></span><br><span class="line">        string_temp=stream.str();   <span class="comment">//此处也可以用 stream&gt;&gt;string_temp    ,将流的内容以string object输出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符串流在进行多次转换时,每次读入数据不会将上次缓冲区的内容覆盖掉,而是增添到尾部;如果需要清除缓冲区,需要使用clear();</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> stream;</span><br><span class="line"><span class="keyword">int</span> n1=<span class="number">22</span>;</span><br><span class="line"><span class="keyword">int</span> n2=<span class="number">33</span>;</span><br><span class="line"><span class="built_in">string</span> s3;</span><br><span class="line">stream&gt;&gt;s1;</span><br><span class="line">stream&gt;&gt;s2;</span><br><span class="line">stream&lt;&lt;s3;</span><br><span class="line"></span><br><span class="line">s3的结果是:<span class="number">2233</span>,想要清除缓冲区,使用stream.clear();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在C++中,一般采用<sstream>库进行数据转换,更加安全,可通过重载来支持各种类型的转换.</sstream></li>
+</ul>
+<hr>
+<h1 id="string转换，char-转换"><a href="#string转换，char-转换" class="headerlink" title="string转换，char*转换"></a>string转换，char*转换</h1><h2 id="转换int"><a href="#转换int" class="headerlink" title="转换int"></a>转换int</h2><ul>
+<li><p>采用atoi进行转换（char<em> 转int）  ：   int atoi(const char </em>str )</p>
+<ul>
+<li>atoi() works only for C-style strings (character array and string literal)</li>
+</ul>
+</li>
+<li><p>采用stoi进行转换（string转int）： C++ 11 ，int stoi (const string&amp;  str, size_t* index = 0, int base = 10);</p>
+<ul>
+<li>stoi() works for both C++ strings and C style strings</li>
+<li>stoi() can take upto three parameters, the second parameter is for starting index and third parameter is for base of input number.</li>
+</ul>
+</li>
+<li><p>采用sscanf进行转换（int sscanf ( const char <em> s, const char </em> format, …); ）</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> sentence []=<span class="string">"Rudolph is 12 years old"</span>;</span><br><span class="line"><span class="keyword">char</span> str [<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line"><span class="built_in">sscanf</span> (sentence,<span class="string">"%s %*s %d"</span>,str,&amp;i);  <span class="comment">// *用来指明宽度/精度， %3d，%.3d：如果没有指明指定数字，读取所有能读取的；</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>采用stringstream进行转换；   存储字符流，关键在于输出数据的类型； （因此也能够通过转换成double等数据类型）</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">istringstream</span> <span class="title">is</span><span class="params">(<span class="string">"12"</span>)</span></span>; <span class="comment">//构造输入字符串流，流的内容初始化为“12”的字符串   </span></span><br><span class="line"><span class="keyword">int</span> i;   </span><br><span class="line">is &gt;&gt; i;</span><br></pre></td></tr></table></figure>
+<h2 id="char-转换为string"><a href="#char-转换为string" class="headerlink" title="char[]转换为string"></a>char[]转换为string</h2><ul>
+<li>C++提供低级向高级转换的服务;</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[]=<span class="string">"ABC"</span>;</span><br><span class="line"><span class="built_in">string</span> ss=s;   <span class="comment">//string ss(s);</span></span><br><span class="line">ss+=s;    <span class="comment">//允许加号一边为C字符串类型(char[])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过stringstream进行转换</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> is;</span><br><span class="line"><span class="keyword">char</span> ss[] = <span class="string">"abcd"</span>;</span><br><span class="line">is &lt;&lt; ss;</span><br><span class="line"><span class="built_in">string</span> integ;</span><br><span class="line">is &gt;&gt; integ;</span><br></pre></td></tr></table></figure>
+<h2 id="string转换char"><a href="#string转换char" class="headerlink" title="string转换char[]"></a>string转换char[]</h2><ul>
+<li>通过str.copy() ： size_t copy (char* s, size_t len, size_t pos = 0) const;<br>The function does not append a null character at the end of the copied content.</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">"ABCDEFG"</span>;</span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">8</span>];</span><br><span class="line"><span class="keyword">int</span> length=str.copy(buf,<span class="number">7</span>);</span><br><span class="line">buf[length]=<span class="string">'\0'</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,buf);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过strcpy() ： 实际上学会char<em> 到 char</em> 就OK！（包含了’\0’)  <cstring></cstring></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> buf[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"ABCDEFG"</span>)</span></span>;</span><br><span class="line"><span class="built_in">strcpy</span>(buf, str.c_str());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过stirngstream进行转换: 万能公式</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stringstream</span> is;</span><br><span class="line"><span class="built_in">string</span> ss = <span class="string">"abcd"</span>;</span><br><span class="line">is &lt;&lt; ss;</span><br><span class="line"><span class="keyword">char</span> integ[<span class="number">20</span>];</span><br><span class="line">is &gt;&gt; integ;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>const char* c_str() const noexcept;  :  将字符串转换成为字符数组,在数组后面添加’\0’;</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/06/PAT CCF/常见数据类型的转换/" data-id="ck0abjdt90055h0w4gdd2um3o" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经验/">经验</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/06/STL-Queue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          STL-queue
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/05/PAT CCF/PAT-1060-特殊数据的处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">PAT-1060-特殊数据的处理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

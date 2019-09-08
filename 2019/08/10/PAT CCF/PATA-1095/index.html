@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>PATA-1095 | BluePhantom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="keywords" content="排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PATA-1095">
+<meta property="og:url" content="http://yoursite.com/2019/08/10/PAT CCF/PATA-1095/index.html">
+<meta property="og:site_name" content="BluePhantom">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T15:59:43.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PATA-1095">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+  
+    <link rel="alternate" href="/atom.xml" title="BluePhantom" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-PAT CCF/PATA-1095" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/10/PAT CCF/PATA-1095/" class="article-date">
+  <time class="post-time" datetime="2019-08-10T06:12:02.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PATA-1095
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PAT/">PAT</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 要求：在任意一个时间点，停在校园的车数，一天中停在校园最长时间的车辆。</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> 本题关键在于数据结构的建立，建立好的数据结构有利于后序的处理：</span></span><br><span class="line"><span class="comment"> *  建立一个map表，键为车辆的string，值为车辆的信息；</span></span><br><span class="line"><span class="comment"> *  建立一个map表，键为车辆的string，值为车辆停车的总时间；</span></span><br><span class="line"><span class="comment"> *  建立一个vector，将所有有效的数据放入，用来进行时间查询；</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 总体思路没什么错误，不过还是超时了：</span></span><br><span class="line"><span class="comment"> 1. 这种题还是使用printf/scanf更加好；  string和char*的转换其实还好；</span></span><br><span class="line"><span class="comment"> 2. 对于在筛选有效数据的时候其实可以直接将map表的数据存入vector中（也许可以减少点时间？）</span></span><br><span class="line"><span class="comment"> 3. 这个时分秒转化写的是真的垃圾； （全转换成秒计算，最后输出只需要  %02d : %02d ,  time%3600）</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于处理</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="built_in">string</span> plate_number;</span><br><span class="line">	<span class="built_in">string</span> time;</span><br><span class="line">	<span class="keyword">int</span> flag;  <span class="comment">// flag=0,in;    flag=1,out;</span></span><br><span class="line">	Node(<span class="built_in">string</span> temp1, <span class="built_in">string</span> temp2, <span class="keyword">int</span> temp3) :plate_number(temp1), time(temp2), flag(temp3) &#123;&#125;;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于记录时间</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TimeNode</span> &#123;</span></span><br><span class="line">	<span class="built_in">string</span> plate_number;</span><br><span class="line">	<span class="built_in">string</span> time;</span><br><span class="line">	TimeNode(<span class="built_in">string</span> temp1, <span class="built_in">string</span> temp2) :plate_number(temp1), time(temp2) &#123;&#125;;</span><br><span class="line">&#125;TimeNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, K;   <span class="comment">// N次车辆出入记录 ， K次查询时间点</span></span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;Node&gt;&gt; car;   <span class="comment">// 记录车辆信息</span></span><br><span class="line"><span class="built_in">vector</span>&lt;Node&gt; car_for_time;  <span class="comment">// 查询时间点</span></span><br><span class="line"><span class="built_in">vector</span>&lt;TimeNode&gt; car_for_sort; <span class="comment">// 记录车辆停车的总时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 时间小的在前面；</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(Node n1, Node n2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n1.time &lt; n2.time;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(TimeNode n1, TimeNode n2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> n1.time &gt; n2.time;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 统计时间</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calculate_time</span><span class="params">(<span class="built_in">string</span> start, <span class="built_in">string</span> end, <span class="keyword">int</span>&amp; shi, <span class="keyword">int</span>&amp; fen, <span class="keyword">int</span>&amp; miao)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp1 = atoi(end.substr(<span class="number">6</span>, <span class="number">2</span>).c_str());</span><br><span class="line">	<span class="keyword">int</span> temp2 = atoi(start.substr(<span class="number">6</span>, <span class="number">2</span>).c_str());</span><br><span class="line">	<span class="keyword">int</span> jiewei = <span class="number">0</span>;  <span class="comment">// 减法的借位</span></span><br><span class="line">	<span class="keyword">int</span> jinwei = <span class="number">0</span>; <span class="comment">// 用于加法的进位</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (temp1 &lt; temp2) &#123;</span><br><span class="line">		miao += temp1 - temp2 + <span class="number">60</span>;</span><br><span class="line">		jiewei = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		miao += temp1 - temp2;</span><br><span class="line">		jiewei = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (miao &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">		jinwei = <span class="number">1</span>;</span><br><span class="line">		miao -= <span class="number">60</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	temp1 = atoi(end.substr(<span class="number">3</span>, <span class="number">2</span>).c_str());</span><br><span class="line">	temp2 = atoi(start.substr(<span class="number">3</span>, <span class="number">2</span>).c_str());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (temp1 - jiewei &lt; temp2) &#123;</span><br><span class="line">		fen += temp1 - temp2 + <span class="number">60</span> -jiewei;</span><br><span class="line">		jiewei = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		fen += temp1 - temp2 - jiewei;</span><br><span class="line">		jiewei = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (fen &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">		jinwei = <span class="number">1</span>;</span><br><span class="line">		fen -= <span class="number">60</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	temp1 = atoi(end.substr(<span class="number">0</span>, <span class="number">2</span>).c_str());</span><br><span class="line">	temp2 = atoi(start.substr(<span class="number">0</span>, <span class="number">2</span>).c_str());</span><br><span class="line"></span><br><span class="line">	shi += temp1 - temp2 - jiewei;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;N, &amp;K);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 输入</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="built_in">string</span> temp_number,temp_time,temp_flag;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp_number&gt;&gt;temp_time&gt;&gt;temp_flag;  <span class="comment">// 如果超时，再替换去了;</span></span><br><span class="line">		<span class="keyword">int</span> flag=(temp_flag==<span class="string">"in"</span>?<span class="number">0</span>:<span class="number">1</span>);  </span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (car.find(temp_number) != car.end()) &#123;</span><br><span class="line">			car[temp_number].push_back(Node(temp_number, temp_time, flag));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">vector</span>&lt;Node&gt; temp_v&#123; Node(temp_number, temp_time, flag) &#125;;</span><br><span class="line">			car[temp_number] = temp_v;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span>&amp; p : car) &#123;</span><br><span class="line">		sort(p.second.begin(), p.second.end(), cmp1);  <span class="comment">// 对每个vector的时间进行上升排序</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 对每个vector的不符合的数据进行处理</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span>&amp; p : car) &#123;</span><br><span class="line">		<span class="keyword">int</span> shi=<span class="number">0</span>, fen=<span class="number">0</span>, miao=<span class="number">0</span>;  <span class="comment">// 统计每个车辆停车的时分秒</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> pp = <span class="number">1</span>; pp &lt; p.second.size();pp++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p.second.at(pp).flag == p.second.at(pp - <span class="number">1</span>).flag) &#123;</span><br><span class="line">				<span class="keyword">if</span> (p.second.at(pp).flag == <span class="number">0</span>) &#123;  <span class="comment">// 除去前一个</span></span><br><span class="line">					p.second.erase(p.second.begin() + pp - <span class="number">1</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					p.second.erase(p.second.begin() + pp);</span><br><span class="line">				&#125;</span><br><span class="line">				pp--; <span class="comment">//因为删去了一个元素，所以pp--</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">// 统计时间</span></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (p.second[pp].flag == <span class="number">1</span>) &#123;</span><br><span class="line">				calculate_time(p.second[pp<span class="number">-1</span>].time,p.second[pp].time,shi,fen,miao);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 最后一个是in;</span></span><br><span class="line">		<span class="keyword">if</span> (p.second.back().flag == <span class="number">0</span>) &#123;</span><br><span class="line">			calculate_time(p.second.back().time, <span class="string">"23:59:59"</span>, shi, fen, miao);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">string</span> temp_time = to_string(shi) + <span class="string">":"</span> + to_string(fen) + <span class="string">":"</span> + to_string(miao);</span><br><span class="line">		car_for_sort.push_back(TimeNode(p.first, temp_time));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sort(car_for_sort.begin(), car_for_sort.end(), cmp2);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// car中所有的元素加入一个vector中(car_for_time)</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> p = car.begin(); p != car.end();p++) &#123;</span><br><span class="line">		car_for_time.insert(car_for_time.begin(),(*p).second.begin(), (*p).second.end());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sort(car_for_time.begin(), car_for_time.end(), cmp1);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> in_car = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (K--) &#123;</span><br><span class="line">		<span class="built_in">string</span> temp_time;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp_time;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (index &lt; car_for_time.size() &amp;&amp; car_for_time[index].time &lt;= temp_time) &#123;</span><br><span class="line">			<span class="keyword">if</span> (car_for_time[index].flag == <span class="number">0</span>) &#123;</span><br><span class="line">				in_car++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				in_car--;</span><br><span class="line">			&#125;</span><br><span class="line">			index++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, in_car);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; output_string;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> i = car_for_sort.begin(); i != car_for_sort.end(); i++) &#123;</span><br><span class="line">		output_string.push_back((*i).plate_number);</span><br><span class="line">		<span class="keyword">if</span> ((*i).time != (*(i+<span class="number">1</span>)).time) &#123;  <span class="comment">// 注意优先级</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(output_string.begin(), output_string.end());</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span>&amp; p : output_string) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">char</span> c_temp = <span class="string">':'</span>;</span><br><span class="line">	<span class="keyword">if</span> (car_for_sort[<span class="number">0</span>].time[<span class="number">2</span>] != c_temp) &#123;</span><br><span class="line">		car_for_sort[<span class="number">0</span>].time.insert(<span class="number">0</span>, <span class="string">"0"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (car_for_sort[<span class="number">0</span>].time[<span class="number">5</span>] != c_temp) &#123;</span><br><span class="line">		car_for_sort[<span class="number">0</span>].time.insert(<span class="number">3</span>, <span class="string">"0"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (car_for_sort[<span class="number">0</span>].time.length() &lt; <span class="number">8</span>) &#123;</span><br><span class="line">		car_for_sort[<span class="number">0</span>].time.insert(<span class="number">6</span>, <span class="string">"0"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; car_for_sort[<span class="number">0</span>].time;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/10/PAT CCF/PATA-1095/" data-id="ck0abjdth005ch0w43jqfe5c5" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序/">排序</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/11/PAT CCF/时间计算/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          时间计算
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/10/PAT CCF/PATA-1025/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">PATA-1025</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">BluePhantom</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.postimg.cc/t1g5pcJ2/4.jpg">
+    <h2 class="author">BluePhantom</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>63</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>16</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://github.com/YyBluePhantom/YyBluePhantom.io" target="_blank" title="BluePhantom">
+          BluePhantom
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 BluePhantom<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
